@@ -10,14 +10,14 @@ namespace GoodWorkersMVP.Pages
 		public MasterPage ()
 		{
 			InitializeComponent ();
-		}
+
+            App.Navigator = Navigator;
+            App.Master = this;
+        }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            App.Navigator = Navigator;
-            App.Master = this;
         }
     }
 }

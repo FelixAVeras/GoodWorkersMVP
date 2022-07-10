@@ -29,11 +29,11 @@ namespace GoodWorkersMVP.ViewModels
             //    App.Navigator.PushAsync(new UserProfilePage());
             //}
 
-            //if (this.PageName == "MapsPage")
-            //{
-            //    //MainViewModel.GetInstance().MapsViewModel = new MapsViewModel();
-            //    App.Navigator.PushAsync(new MapsPage());
-            //}
+            if (this.PageName == "MapsPage")
+            {
+                //MainViewModel.GetInstance().MapsViewModel = new MapsViewModel();
+                App.Navigator.PushAsync(new MapsPage());
+            }
 
             if (this.PageName == "LoginPage")
             {

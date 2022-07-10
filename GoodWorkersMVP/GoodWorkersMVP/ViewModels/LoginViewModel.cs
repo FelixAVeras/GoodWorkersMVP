@@ -136,7 +136,10 @@ namespace GoodWorkersMVP.ViewModels
             //}
 
             MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new OcupationPage());
+            Application.Current.MainPage = new MasterPage();
+
+            IsRunning = false;
+            IsEnable = true;
         }
 
         async void Register()

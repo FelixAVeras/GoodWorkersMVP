@@ -21,7 +21,7 @@ namespace GoodWorkersMVP.ViewModels
             instance = this;
             Login = new LoginViewModel();
 
-            this.LoadMenu();
+            LoadMenu();
         }
 
         static MainViewModel instance;
@@ -39,42 +39,43 @@ namespace GoodWorkersMVP.ViewModels
 
         private void LoadMenu()
         {
-            this.Menus = new ObservableCollection<MenuItemViewModel>();
-
-            this.Menus.Add(new MenuItemViewModel()
+            Menus = new ObservableCollection<MenuItemViewModel>
             {
-                Icon = "internetexplorer",
-                PageName = "MapsPage",
-                TitleIcon = "Explorar"
-            });
+                new MenuItemViewModel()
+                {
+                    Icon = "internetexplorer",
+                    PageName = "MapsPage",
+                    TitleIcon = "Explorar"
+                },
 
-            this.Menus.Add(new MenuItemViewModel()
-            {
-                Icon = "usericon",
-                PageName = "UserProfilePage",
-                TitleIcon = "Mi Pefíl"
-            });
+                new MenuItemViewModel()
+                {
+                    Icon = "usericon",
+                    PageName = "UserProfilePage",
+                    TitleIcon = "Mi Pefíl"
+                },
 
-            this.Menus.Add(new MenuItemViewModel()
-            {
-                Icon = "chaticon",
-                PageName = "ChatPage",
-                TitleIcon = "Mensajes"
-            });
+                new MenuItemViewModel()
+                {
+                    Icon = "chaticon",
+                    PageName = "ChatPage",
+                    TitleIcon = "Mensajes"
+                },
 
-            this.Menus.Add(new MenuItemViewModel()
-            {
-                Icon = "gearoption",
-                PageName = "SettingsPage",
-                TitleIcon = "Configuración"
-            });
+                new MenuItemViewModel()
+                {
+                    Icon = "gearoption",
+                    PageName = "SettingsPage",
+                    TitleIcon = "Configuración"
+                },
 
-            this.Menus.Add(new MenuItemViewModel()
-            {
-                Icon = "logout",
-                PageName = "LoginPage",
-                TitleIcon = "Cerrar Sesión"
-            });
+                new MenuItemViewModel()
+                {
+                    Icon = "logout",
+                    PageName = "LoginPage",
+                    TitleIcon = "Cerrar Sesión"
+                }
+            };
         }
 
         
