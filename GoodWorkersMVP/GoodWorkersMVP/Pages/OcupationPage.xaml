@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GoodWorkersMVP.Pages.OcupationPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             NavigationPage.HasBackButton="False"
              Title="GoodWorkersMVP">
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Ocupations}">
+        <StackLayout BindingContext="{Binding Ocupations}" Padding="8">
             <ListView ItemsSource="{Binding Ocupations}" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -17,10 +18,20 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer 
-                                            Command="{Binding SelectOcupationCommand}">
+                                                Command="{Binding SelectOcupationCommand}">
                                     </TapGestureRecognizer>
                                 </Grid.GestureRecognizers>
-                                <Label Grid.Column="0" Text="{Binding OcupationName}"></Label>
+                                <StackLayout Grid.Column="0" VerticalOptions="Center" Margin="5, 15">
+                                    <Label FontAttributes="Bold"
+                                               FontSize="Medium"
+                                               VerticalOptions="Center"
+                                               VerticalTextAlignment="Center"
+                                               Text="{Binding OcupationName}"
+                                               TextColor="Black"></Label>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="5, 15">
+                                    <Image Source="next"></Image>
+                                </StackLayout>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

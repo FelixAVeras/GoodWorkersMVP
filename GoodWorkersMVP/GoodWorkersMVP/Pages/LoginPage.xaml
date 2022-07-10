@@ -6,70 +6,71 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="{i18n:Translate LoginTitlePage}">
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Login}" Padding="8" Spacing="16">
-            <Label FontAttributes="Bold"
-                   FontSize="Large"
-                   HorizontalOptions="Center"
+        <ScrollView BindingContext="{Binding Login}" Padding="8">
+            <StackLayout>
+
+                <Image Source="human"
+                        WidthRequest="128"
+                        HorizontalOptions="Center"
+                        Aspect="AspectFit"></Image>
+
+                <Label FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
                    Text="GoodWorkersMVP"></Label>
 
 
-            <Entry Keyboard="Email"
+                <Entry Keyboard="Email"
                    Placeholder="{i18n:Translate LoginEmailPlaceholder}"
                    Margin="0,13,0,13"
                    Text="{Binding Email, Mode=TwoWay}"></Entry>
 
-            <Entry Placeholder="{i18n:Translate LoginPasswordPlaceholder}"
+                <Entry Placeholder="{i18n:Translate LoginPasswordPlaceholder}"
                    Margin="0,0,0,13"
                    Text="{Binding Password, Mode=TwoWay}"></Entry>
 
-            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Remember me" VerticalOptions="Center"></Label>
-                <Switch IsToggled="{Binding IsToggle, Mode=TwoWay}"></Switch>
-            </StackLayout>-->
-
-            <StackLayout Orientation="Horizontal">
-                <Label Text="{i18n:Translate LoginRememberData}"
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{i18n:Translate LoginRememberData}"
                            VerticalOptions="Center"
                        HorizontalOptions="StartAndExpand"></Label>
-                <Switch IsToggled="{Binding IsRemember, Mode=TwoWay}" HorizontalOptions="End"></Switch>
-            </StackLayout>
+                    <Switch IsToggled="{Binding IsToggle, Mode=TwoWay}" HorizontalOptions="End"></Switch>
+                </StackLayout>
 
-            <Label Text="{i18n:Translate LoginForgetPassword}"
+                <Label Text="{i18n:Translate LoginForgetPassword}"
                        HorizontalOptions="CenterAndExpand"
                        VerticalOptions="Center"
                        Margin="0,0,0,17"
                        FontAttributes="Bold"
-                       FontFamily="Custom_Normal_Font"
                        TextColor="CornflowerBlue">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding RecoverPasswordCommand}"></TapGestureRecognizer>
-                </Label.GestureRecognizers>
-            </Label>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RecoverPasswordCommand}"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
 
-            <ActivityIndicator Color="#3459E6"
+                <ActivityIndicator Color="#3459E6"
                                    IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
-            
 
-            <StackLayout>
-                <Button Text="{i18n:Translate LoginButtonEnter}" 
+
+                <StackLayout>
+                    <Button Text="{i18n:Translate LoginButtonEnter}" 
                         Command="{Binding LoginCommand}" 
                         BackgroundColor="#3459E6"
                         TextColor="White"
                         CornerRadius="10"
-                        FontFamily="Custom_Normal_Font"
                         HorizontalOptions="FillAndExpand"
                         IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
 
-                <Button Text="{i18n:Translate LoginButtonRegister}"
+                    <Button Text="{i18n:Translate LoginButtonRegister}"
                         BackgroundColor="#1A2C73"
                         TextColor="White"
                         CornerRadius="10"
-                        FontFamily="Custom_Normal_Font"
                         HorizontalOptions="FillAndExpand"
                         Command="{Binding RegisterCommand}" 
                         IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
 
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>

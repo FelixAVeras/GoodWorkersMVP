@@ -16,7 +16,6 @@ namespace GoodWorkersMVP.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         ApiService apiservice;
-        DialogHelper dialogHelper;
 
         string _email;
         string _password;
@@ -95,11 +94,14 @@ namespace GoodWorkersMVP.ViewModels
             get { return new RelayCommand(Login); }
         }
 
+        public ICommand RegisterCommand
+        {
+            get { return new RelayCommand(Register); }
+        }
+
         public LoginViewModel()
         {
             apiservice = new ApiService();
-
-            dialogHelper = new DialogHelper();
 
             IsEnable = true;
             IsToggled = true;
@@ -174,6 +176,12 @@ namespace GoodWorkersMVP.ViewModels
 
             MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new OcupationPage());
+        }
+
+        async void Register()
+        {
+            MainViewModel.GetInstance().Register = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
     }
 }
