@@ -34,6 +34,15 @@ namespace GoodWorkersMVP.Services
         public async Task NavigateOnMaster(string pageName)
         {
             App.Master.IsPresented = false;
+
+            switch (pageName)
+            {
+                case "OcupationPage": await App.Navigator.PushAsync(new OcupationPage());
+                        break;
+
+                case "UserPage": await App.Navigator.PushAsync(new OcupationPage());
+                    break;
+            }
         }
 
         public async Task BackOnLogin()

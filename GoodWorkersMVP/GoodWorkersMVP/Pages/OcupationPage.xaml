@@ -7,7 +7,11 @@
              Title="GoodWorkersMVP">
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Ocupations}" Padding="8">
-            <ListView ItemsSource="{Binding Ocupations}" HasUnevenRows="True">
+            <ListView ItemsSource="{Binding Ocupations}" 
+                      HasUnevenRows="True"
+                      IsPullToRefreshEnabled="True"
+                      IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                      RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

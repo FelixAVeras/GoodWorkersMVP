@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Pages;
@@ -11,11 +7,10 @@ using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
 {
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         ApiService apiservice;
+        NavigationService navigationService;
 
         string _email;
         string _password;
@@ -26,66 +21,31 @@ namespace GoodWorkersMVP.ViewModels
         public string Email
         {
             get { return _email; }
-            set
-            {
-                if (_email != value)
-                {
-                    _email = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Email)));
-                }
-            }
+            set { SetValue(ref _email, value); }
         }
 
         public string Password
         {
             get { return _password; }
-            set
-            {
-                if (_password != value)
-                {
-                    _password = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Password)));
-                }
-            }
+            set { SetValue(ref _password, value); }
         }
 
         public bool IsToggled
         {
             get { return _isToggled; }
-            set
-            {
-                if (_isToggled != value)
-                {
-                    _isToggled = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsToggled)));
-                }
-            }
+            set { SetValue(ref _isToggled, value); }
         }
 
         public bool IsRunning
         {
             get { return _isRunning; }
-            set
-            {
-                if (_isRunning != value)
-                {
-                    _isRunning = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsRunning)));
-                }
-            }
+            set { SetValue(ref _isRunning, value); }
         }
 
         public bool IsEnable
         {
             get { return _isEnable; }
-            set
-            {
-                if (_isEnable != value)
-                {
-                    _isEnable = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsEnable)));
-                }
-            }
+            set { SetValue(ref _isEnable, value); }
         }
 
         //Commands
@@ -102,6 +62,7 @@ namespace GoodWorkersMVP.ViewModels
         public LoginViewModel()
         {
             apiservice = new ApiService();
+            navigationService = new NavigationService();
 
             IsEnable = true;
             IsToggled = true;
@@ -181,7 +142,7 @@ namespace GoodWorkersMVP.ViewModels
         async void Register()
         {
             MainViewModel.GetInstance().Register = new RegisterViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+            await navigationService.NavigateOnLogin("RegisterPage");
         }
     }
 }
