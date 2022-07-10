@@ -12,23 +12,15 @@
                    HorizontalOptions="Center"
                    Text="GoodWorkersMVP"></Label>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Grid.Row="0" Text="E-mail:" VerticalTextAlignment="Center"></Label>
-                <Entry Grid.Column="1" Grid.Row="0" 
-                       Text="{Binding Email, Mode=TwoWay}" 
-                       Placeholder="Enter your e-mail"
-                       Keyboard="Email"></Entry>
-                <Label Grid.Column="0" Grid.Row="1" Text="Password:"  VerticalTextAlignment="Center" ></Label>
-                <Entry Grid.Column="1" Grid.Row="1" 
-                       Text="{Binding Password, Mode=TwoWay}"
-                       Placeholder="Enter your e-mail"
-                       IsPassword="True"></Entry>
-            </Grid>
+            <Entry Keyboard="Email"
+                   Placeholder="{i18n:Translate LoginEmailPlaceholder}"
+                   Margin="0,13,0,13"
+                   Text="{Binding Email, Mode=TwoWay}"></Entry>
+
+            <Entry Placeholder="{i18n:Translate LoginPasswordPlaceholder}"
+                   Margin="0,0,0,13"
+                   Text="{Binding Password, Mode=TwoWay}"></Entry>
 
             <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Label Text="Remember me" VerticalOptions="Center"></Label>
@@ -42,19 +34,24 @@
                 <Switch IsToggled="{Binding IsRemember, Mode=TwoWay}" HorizontalOptions="End"></Switch>
             </StackLayout>
 
-            <Label Text="Forgot your Password?" 
-                   TextColor="Blue" 
-                   HorizontalOptions="Center">
+            <Label Text="{i18n:Translate LoginForgetPassword}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,0,17"
+                       FontAttributes="Bold"
+                       FontFamily="Custom_Normal_Font"
+                       TextColor="CornflowerBlue">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding RecoverPasswordCommand}"></TapGestureRecognizer>
                 </Label.GestureRecognizers>
             </Label>
 
-            <ActivityIndicator IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
+            <ActivityIndicator Color="#3459E6"
+                                   IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
             
 
             <StackLayout>
-                <Button Text="Enter" 
+                <Button Text="{i18n:Translate LoginButtonEnter}" 
                         Command="{Binding LoginCommand}" 
                         BackgroundColor="#3459E6"
                         TextColor="White"
@@ -63,7 +60,7 @@
                         HorizontalOptions="FillAndExpand"
                         IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
 
-                <Button Text="Register"
+                <Button Text="{i18n:Translate LoginButtonRegister}"
                         BackgroundColor="#1A2C73"
                         TextColor="White"
                         CornerRadius="10"

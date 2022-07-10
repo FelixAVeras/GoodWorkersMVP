@@ -112,13 +112,31 @@ namespace GoodWorkersMVP.ViewModels
         {
             if (string.IsNullOrEmpty(Email))
             {
-                await dialogHelper.ShowMessage("Error", "You must enter a valid Email");
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorDialogTitle,
+                    Languages.LoginValidationEmailEmptyMessage,
+                    Languages.AcceptDialogButton);
+
+                return;
+            }
+
+            if (!RegexUtilities.isValidEmail(Email))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorDialogTitle,
+                    Languages.LoginValidationEmailInvalidMessage,
+                    Languages.AcceptDialogButton);
+
                 return;
             }
 
             if (string.IsNullOrEmpty(Password))
             {
-                await dialogHelper.ShowMessage("Error", "You must enter a Password");
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorDialogTitle,
+                    Languages.LoginValidationPasswordEmpty,
+                    Languages.AcceptDialogButton);
+
                 return;
             }
 
@@ -132,7 +150,11 @@ namespace GoodWorkersMVP.ViewModels
                 IsRunning = false;
                 IsEnable = true;
 
-                await dialogHelper.ShowMessage("Error", connection.Message);
+                await Application.Current.MainPage.DisplayAlert(
+                        Languages.ErrorDialogTitle,
+                    connection.Message,
+                    Languages.AcceptDialogButton);
+
                 return;
             }
 

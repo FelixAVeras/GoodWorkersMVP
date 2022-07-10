@@ -324,4 +324,7 @@
   <data name="SearchPlaceholder" xml:space="preserve">
     <value>Pesquisa</value>
   </data>
+  <data name="LoginTitlePage" xml:space="preserve">
+    <value>Acessar</value>
+  </data>
 </root>

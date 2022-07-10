@@ -1,4 +1,5 @@
-﻿using GoodWorkersMVP.Models.ModelResponse;
+﻿using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Models.ModelResponse;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
 using System;
@@ -20,7 +21,7 @@ namespace GoodWorkersMVP.Services
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "Please enable your internet connection"
+                    Message = Languages.EnableConnection
                 };
             }
 
@@ -31,7 +32,7 @@ namespace GoodWorkersMVP.Services
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "Check your internet connection"
+                    Message = Languages.CheckConnection
                 };
             }
 
