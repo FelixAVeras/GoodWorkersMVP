@@ -8,7 +8,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
 namespace GoodWorkersMVP.Services
 {
@@ -21,7 +20,7 @@ namespace GoodWorkersMVP.Services
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = Languages.EnableConnection
+                    Message = Languages.NoInternetDialog
                 };
             }
 
@@ -32,7 +31,7 @@ namespace GoodWorkersMVP.Services
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = Languages.CheckConnection
+                    Message = Languages.NoIntertnetWorkingDialog
                 };
             }
 

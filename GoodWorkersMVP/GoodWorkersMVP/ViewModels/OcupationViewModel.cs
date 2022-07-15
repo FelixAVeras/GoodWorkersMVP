@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Services;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
@@ -54,9 +53,9 @@ namespace GoodWorkersMVP.ViewModels
                 IsRefreshing = false;
 
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     connection.Message,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
 
                 await Application.Current.MainPage.Navigation.PopAsync();
 
@@ -72,9 +71,9 @@ namespace GoodWorkersMVP.ViewModels
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     response.Message,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
