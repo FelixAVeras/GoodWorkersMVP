@@ -1,0 +1,47 @@
+﻿using GoodWorkersMVP.Interfaces;
+using System.Globalization;
+using Xamarin.Forms;
+using GoodWorkersMVP.Resources;
+
+namespace GoodWorkersMVP.Helpers
+{
+    public static class Languages
+    {
+        static Languages()
+        {
+            CultureInfo ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+            Resource.Culture = ci;
+            Culture = ci.Name;
+            DependencyService.Get<ILocalize>().SetLocale(ci);
+        }
+
+        public static string Culture { get; set; }
+
+        /**** Literals ****/
+
+        //Dialogs
+        public static string ErrorTitleDialog => Resource.ErrorTitleDialog;
+        public static string ErrorEmailEmptyLabel => Resource.ErrorEmailEmptyLabel;
+        public static string ErrorEmailInvalidLabel => Resource.ErrorEmailInvalidLabel;
+        public static string ErrorPasswordEmptyLabel => Resource.ErrorPasswordEmptyLabel;
+        public static string NoInternetDialog => Resource.NoInternetDialog;
+        public static string NoIntertnetWorkingDialog => Resource.NoIntertnetWorkingDialog;
+        public static string BtnAcceptDialog => Resource.BtnAcceptDialog;
+        public static string BtnCancelDialog => Resource.BtnCancelDialog;
+
+
+        //Forms
+        public static string EmailLabel => Resource.EmailLabel;
+        public static string EmailPlaceholder => Resource.EmailPlaceholder;
+        public static string PasswordLabel => Resource.PasswordLabel;
+        public static string PasswordPlaceholder => Resource.PasswordPlaceholder;
+
+
+        //Login
+        public static string LoginTitlePage => Resource.LoginTitlePage;
+        public static string RememberMyDataLabel => Resource.RememberMyDataLabel;
+        public static string ForgetPasswordLabel => Resource.ForgetPasswordLabel;
+        public static string BtnEnterLabel => Resource.BtnEnterLabel;
+        public static string BtnRegisterLabel => Resource.BtnRegisterLabel;
+    }
+}

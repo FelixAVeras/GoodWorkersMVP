@@ -2,59 +2,75 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GoodWorkersMVP.Pages.LoginPage"
+             xmlns:i18n="clr-namespace:GoodWorkersMVP.Helpers"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="GoodWorkersMVP - Login">
+             Title="{i18n:Translate LoginTitlePage}">
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Login}" Padding="8" Spacing="16">
-            <Label FontAttributes="Bold"
-                   FontSize="Large"
-                   HorizontalOptions="Center"
+        <ScrollView BindingContext="{Binding Login}" Padding="8">
+            <StackLayout>
+
+                <Image Source="human"
+                        WidthRequest="128"
+                        HorizontalOptions="Center"
+                        Aspect="AspectFit"></Image>
+
+                <Label FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
                    Text="GoodWorkersMVP"></Label>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Grid.Row="0" Text="E-mail:" VerticalTextAlignment="Center"></Label>
-                <Entry Grid.Column="1" Grid.Row="0" 
-                       Text="{Binding Email, Mode=TwoWay}" 
-                       Placeholder="Enter your e-mail"
-                       Keyboard="Email"></Entry>
-                <Label Grid.Column="0" Grid.Row="1" Text="Password:"  VerticalTextAlignment="Center" ></Label>
-                <Entry Grid.Column="1" Grid.Row="1" 
-                       Text="{Binding Password, Mode=TwoWay}"
-                       Placeholder="Enter your e-mail"
-                       IsPassword="True"></Entry>
-            </Grid>
+                <Entry Keyboard="Email"
+                   Placeholder="{i18n:Translate EmailPlaceholder}"
+                   Margin="0,13,0,13"
+                   Text="{Binding Email, Mode=TwoWay}"></Entry>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Remember me" VerticalOptions="Center"></Label>
-                <Switch IsToggled="{Binding IsToggle, Mode=TwoWay}"></Switch>
-            </StackLayout>
+                <Entry Placeholder="{i18n:Translate PasswordPlaceholder}"
+                   Margin="0,0,0,13"
+                   Text="{Binding Password, Mode=TwoWay}"></Entry>
 
-            <Label Text="Forgot your Password?" 
-                   TextColor="Blue" 
-                   HorizontalOptions="Center">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding RecoverPasswordCommand}"></TapGestureRecognizer>
-                </Label.GestureRecognizers>
-            </Label>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{i18n:Translate RememberMyDataLabel}"
+                           VerticalOptions="Center"
+                       HorizontalOptions="StartAndExpand"></Label>
+                    <Switch IsToggled="{Binding IsToggle, Mode=TwoWay}" HorizontalOptions="End"></Switch>
+                </StackLayout>
 
-            <ActivityIndicator IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
-            
+                <Label Text="{i18n:Translate ForgetPasswordLabel}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"
+                       Margin="0,0,0,17"
+                       FontAttributes="Bold"
+                       TextColor="CornflowerBlue">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RecoverPasswordCommand}"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
 
-            <StackLayout>
-                <Button Text="Enter" 
+                <ActivityIndicator Color="#3459E6"
+                                   IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
+
+
+                <StackLayout>
+                    <Button Text="{i18n:Translate BtnEnterLabel}" 
                         Command="{Binding LoginCommand}" 
+                        BackgroundColor="#3459E6"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
                         IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
 
-                <Button Text="Register" 
+                    <!--<Button Text="{i18n:Translate LoginButtonRegister}"
+                        BackgroundColor="#1A2C73"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
                         Command="{Binding RegisterCommand}" 
-                        IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
+                        IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>-->
 
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>

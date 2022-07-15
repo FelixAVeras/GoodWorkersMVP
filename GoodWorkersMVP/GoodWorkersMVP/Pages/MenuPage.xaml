@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GoodWorkersMVP.Pages.MenuPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Menu"
+             BackgroundColor="#fff">
+    <ContentPage.Content>
+        <StackLayout Padding="5, 20, 5, 5">
+            <Image Source="human"
+                        WidthRequest="128"
+                        HorizontalOptions="Center"
+                        Aspect="AspectFit"></Image>
+            <Label Text="GoodWorkers DO"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="26"
+                   FontFamily="Custom_Normal_Font"
+                   FontAttributes="Bold"
+                   TextColor="black"></Label>
+
+            <!--<StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+                </Grid>
+                <Image Source="edward" HeightRequest="24"></Image>
+                <Label Text="{Binding User.FirstName, StringFormat='Hola, {0}'}"
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="22"
+                       TextColor="black"></Label>
+            </StackLayout>-->
+
+            <ListView BackgroundColor="#fff"
+                      ItemsSource="{Binding Menus}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavigateCommand}"></TapGestureRecognizer>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Icon}"
+                                       WidthRequest="24"
+                                       Margin="8, 20"
+                                       HeightRequest="24"></Image>
+                                <Label Grid.Column="1"
+                                       Text="{Binding TitleIcon}"
+                                       VerticalOptions="Center"
+                                       TextColor="#3459E6"
+                                       FontFamily="Custom_Normal_Font"
+                                       FontAttributes="Bold"
+                                       FontSize="16"></Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

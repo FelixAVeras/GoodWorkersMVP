@@ -1,51 +1,65 @@
-﻿using GoodWorkersMVP.Helpers;
-using GoodWorkersMVP.Models;
-using GoodWorkersMVP.Services;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Models;
+using GoodWorkersMVP.Services;
+using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
 {
-    public class OcupationViewModel : INotifyPropertyChanged
+    public class OcupationViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         ApiService apiService;
-        DialogHelper dialogHelper;
+        NavigationService navigationService;
 
+        private bool isRefreshing;
         ObservableCollection<Ocupation> _ocupations;
 
         public ObservableCollection<Ocupation> Ocupations
         {
             get { return _ocupations; }
-            set
-            {
-                if (_ocupations != value)
-                {
-                    _ocupations = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Ocupations)));
-                }
-            }
-        } 
+            set { SetValue(ref _ocupations, value); }
+        }
+
+        public bool IsRefreshing
+        {
+            get { return isRefreshing; }
+            set { SetValue(ref isRefreshing, value); }
+        }
 
         public OcupationViewModel()
         {
+            navigationService = new NavigationService();
             apiService = new ApiService();
-            dialogHelper = new DialogHelper();
             LoadOcupations();
+        }
+
+        public ICommand RefreshCommand
+        {
+            get { return new RelayCommand(LoadOcupations); }
         }
 
         async void LoadOcupations()
         {
+            IsRefreshing = true;
+
             var connection = await apiService.CheckConnection();
 
             if (!connection.IsSuccess)
             {
-                await dialogHelper.ShowMessage("Error", connection.Message);
+                IsRefreshing = false;
+
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorDialogTitle,
+                    connection.Message,
+                    Languages.AcceptDialogButton);
+
+                await Application.Current.MainPage.Navigation.PopAsync();
+
                 return;
             }
 
@@ -57,12 +71,22 @@ namespace GoodWorkersMVP.ViewModels
 
             if (!response.IsSuccess)
             {
-                await dialogHelper.ShowMessage("Error", response.Message);
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorDialogTitle,
+                    response.Message,
+                    Languages.AcceptDialogButton);
+
                 return;
             }
 
             var ocupationList = (List<Ocupation>)response.Result;
             Ocupations = new ObservableCollection<Ocupation>(ocupationList.OrderBy(o => o.OcupationName));
+
+            await navigationService.BackOnLogin();
+
+            navigationService.SetMainPage("MasterPage");
+
+            IsRefreshing = false;
         }
     }
 }

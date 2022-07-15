@@ -6,10 +6,8 @@ using GoodWorkersMVP.Models;
 
 namespace GoodWorkersMVP.ViewModels
 {
-    public class UsersViewModel : INotifyPropertyChanged
+    public class UsersViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         List<User> users;
 
         ObservableCollection<User> _users;
@@ -17,20 +15,13 @@ namespace GoodWorkersMVP.ViewModels
         public ObservableCollection<User> Users
         {
             get { return _users; }
-            set
-            {
-                if (_users != value)
-                {
-                    _users = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Users)));
-                }
-            }
+            set { SetValue(ref _users, value); }
         }
 
         public UsersViewModel(List<User> users)
         {
             this.users = users;
-            Users = new ObservableCollection<User>(users.OrderBy(u => u.FirstName));
+            Users = new ObservableCollection<User>(users.OrderBy(u => u.FullName));
         }
     }
 }
