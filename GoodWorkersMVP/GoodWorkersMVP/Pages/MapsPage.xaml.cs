@@ -45,9 +45,9 @@ namespace GoodWorkersMVP.Pages
                 if (location == null)
                 {
                     await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
-                    "Unable to detect locations",
-                    Languages.AcceptDialogButton);
+                    Languages.ErrorTitleDialog,
+                    Languages.UnableDetecLocation,
+                    Languages.BtnAcceptDialog);
 
                     return;
                 }
@@ -60,9 +60,9 @@ namespace GoodWorkersMVP.Pages
             catch (Exception ex)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
-                    $"Unable to detect locations: {ex.Message}",
-                    Languages.AcceptDialogButton);
+                    Languages.ErrorTitleDialog,
+                    Languages.UnableDetecLocation + ": " + ex.Message,
+                    Languages.BtnAcceptDialog);
 
                 return;
             }

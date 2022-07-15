@@ -61,6 +61,24 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a About me field cannot be empty.
+        /// </summary>
+        public static string AboutMeValidationEmpty {
+            get {
+                return ResourceManager.GetString("AboutMeValidationEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Address cannot be empty.
+        /// </summary>
+        public static string AddressValidationEmpty {
+            get {
+                return ResourceManager.GetString("AddressValidationEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Accept.
         /// </summary>
         public static string BtnAcceptDialog {
@@ -93,6 +111,24 @@ namespace GoodWorkersMVP.Resources {
         public static string BtnRegisterLabel {
             get {
                 return ResourceManager.GetString("BtnRegisterLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cellphone cannot be empty.
+        /// </summary>
+        public static string CellphoneValidationEmpty {
+            get {
+                return ResourceManager.GetString("CellphoneValidationEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Document number cannot be empty.
+        /// </summary>
+        public static string DocumentNumberValidationEmpty {
+            get {
+                return ResourceManager.GetString("DocumentNumberValidationEmpty", resourceCulture);
             }
         }
         
@@ -151,11 +187,29 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a First name cannot be empty.
+        /// </summary>
+        public static string FirstNameValidationEmpty {
+            get {
+                return ResourceManager.GetString("FirstNameValidationEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Forgot your password?.
         /// </summary>
         public static string ForgetPasswordLabel {
             get {
                 return ResourceManager.GetString("ForgetPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Last name cannot be empty.
+        /// </summary>
+        public static string LastNameValidationEmpty {
+            get {
+                return ResourceManager.GetString("LastNameValidationEmpty", resourceCulture);
             }
         }
         
@@ -205,11 +259,65 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a These passwords dosen&apos;t match, please check .
+        /// </summary>
+        public static string PasswordValidationConfirm {
+            get {
+                return ResourceManager.GetString("PasswordValidationConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a This password is not valid, please check.
+        /// </summary>
+        public static string PasswordValidationCorrect {
+            get {
+                return ResourceManager.GetString("PasswordValidationCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You can login now.
+        /// </summary>
+        public static string RegisterConfirmationMessage {
+            get {
+                return ResourceManager.GetString("RegisterConfirmationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Successfully Registered.
+        /// </summary>
+        public static string RegisterConfirmationTitleDialog {
+            get {
+                return ResourceManager.GetString("RegisterConfirmationTitleDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Remember my data?.
         /// </summary>
         public static string RememberMyDataLabel {
             get {
                 return ResourceManager.GetString("RememberMyDataLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Something went wrong.
+        /// </summary>
+        public static string SomethingWentWrong {
+            get {
+                return ResourceManager.GetString("SomethingWentWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Unable to detect locations.
+        /// </summary>
+        public static string UnableLocation {
+            get {
+                return ResourceManager.GetString("UnableLocation", resourceCulture);
             }
         }
     }

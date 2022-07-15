@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutMeValidationEmpty" xml:space="preserve">
+    <value>About me field cannot be empty</value>
+  </data>
+  <data name="AddressValidationEmpty" xml:space="preserve">
+    <value>Address cannot be empty</value>
+  </data>
   <data name="BtnAcceptDialog" xml:space="preserve">
     <value>Accept</value>
   </data>
@@ -128,6 +134,12 @@
   </data>
   <data name="BtnRegisterLabel" xml:space="preserve">
     <value>Register New User</value>
+  </data>
+  <data name="CellphoneValidationEmpty" xml:space="preserve">
+    <value>Cellphone cannot be empty</value>
+  </data>
+  <data name="DocumentNumberValidationEmpty" xml:space="preserve">
+    <value>Document number cannot be empty</value>
   </data>
   <data name="EmailLabel" xml:space="preserve">
     <value>Email Address</value>
@@ -147,8 +159,14 @@
   <data name="ErrorTitleDialog" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="FirstNameValidationEmpty" xml:space="preserve">
+    <value>First name cannot be empty</value>
+  </data>
   <data name="ForgetPasswordLabel" xml:space="preserve">
     <value>Forgot your password?</value>
+  </data>
+  <data name="LastNameValidationEmpty" xml:space="preserve">
+    <value>Last name cannot be empty</value>
   </data>
   <data name="LoginTitlePage" xml:space="preserve">
     <value>Sign In</value>
@@ -165,7 +183,25 @@
   <data name="PasswordPlaceholder" xml:space="preserve">
     <value>Enter your Password</value>
   </data>
+  <data name="PasswordValidationConfirm" xml:space="preserve">
+    <value>These passwords dosen't match, please check </value>
+  </data>
+  <data name="PasswordValidationCorrect" xml:space="preserve">
+    <value>This password is not valid, please check</value>
+  </data>
+  <data name="RegisterConfirmationMessage" xml:space="preserve">
+    <value>You can login now</value>
+  </data>
+  <data name="RegisterConfirmationTitleDialog" xml:space="preserve">
+    <value>Successfully Registered</value>
+  </data>
   <data name="RememberMyDataLabel" xml:space="preserve">
     <value>Remember my data?</value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>Something went wrong</value>
+  </data>
+  <data name="UnableLocation" xml:space="preserve">
+    <value>Unable to detect locations</value>
   </data>
 </root>

@@ -26,8 +26,20 @@ namespace GoodWorkersMVP.Helpers
         public static string ErrorPasswordEmptyLabel => Resource.ErrorPasswordEmptyLabel;
         public static string NoInternetDialog => Resource.NoInternetDialog;
         public static string NoIntertnetWorkingDialog => Resource.NoIntertnetWorkingDialog;
+        public static string UnableDetecLocation => Resource.UnableLocation;
+        public static string SomethingWentWrong => Resource.SomethingWentWrong;
         public static string BtnAcceptDialog => Resource.BtnAcceptDialog;
         public static string BtnCancelDialog => Resource.BtnCancelDialog;
+        public static string FirstNameValidationEmpty => Resource.FirstNameValidationEmpty;
+        public static string LastNameValidationEmpty => Resource.LastNameValidationEmpty;
+        public static string AddressValidationEmpty => Resource.AddressValidationEmpty;
+        public static string CellphoneValidationEmpty => Resource.CellphoneValidationEmpty;
+        public static string DocumentNumberValidationEmpty => Resource.DocumentNumberValidationEmpty;
+        public static string AboutMeValidationEmpty => Resource.AboutMeValidationEmpty;
+        public static string PasswordValidationCorrect => Resource.PasswordValidationCorrect;
+        public static string PasswordValidationConfirm => Resource.PasswordValidationConfirm;
+        public static string RegisterConfirmationTitleDialog => Resource.RegisterConfirmationTitleDialog;
+        public static string RegisterConfirmationMessage => Resource.RegisterConfirmationMessage;
 
 
         //Forms
@@ -37,11 +49,14 @@ namespace GoodWorkersMVP.Helpers
         public static string PasswordPlaceholder => Resource.PasswordPlaceholder;
 
 
+
         //Login
         public static string LoginTitlePage => Resource.LoginTitlePage;
         public static string RememberMyDataLabel => Resource.RememberMyDataLabel;
         public static string ForgetPasswordLabel => Resource.ForgetPasswordLabel;
         public static string BtnEnterLabel => Resource.BtnEnterLabel;
         public static string BtnRegisterLabel => Resource.BtnRegisterLabel;
+
+        //Register
     }
 }

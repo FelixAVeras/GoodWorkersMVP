@@ -168,4 +168,40 @@
   <data name="NoIntertnetWorkingDialog" xml:space="preserve">
     <value>Por favor verifique a sua ligação à Internet</value>
   </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>Tem alguma coisa errada!</value>
+  </data>
+  <data name="UnableLocation" xml:space="preserve">
+    <value>Não é possível detectar locais!</value>
+  </data>
+  <data name="AboutMeValidationEmpty" xml:space="preserve">
+    <value>Este campo não pode ficar vazio!</value>
+  </data>
+  <data name="AddressValidationEmpty" xml:space="preserve">
+    <value>Endereço não pode estar vazio.</value>
+  </data>
+  <data name="CellphoneValidationEmpty" xml:space="preserve">
+    <value>Não pode estar vazio</value>
+  </data>
+  <data name="DocumentNumberValidationEmpty" xml:space="preserve">
+    <value>O número do documento não pode estar vazio!</value>
+  </data>
+  <data name="FirstNameValidationEmpty" xml:space="preserve">
+    <value>O campo do nome não pode ficar vazio</value>
+  </data>
+  <data name="LastNameValidationEmpty" xml:space="preserve">
+    <value>O nome não pode estar em branco</value>
+  </data>
+  <data name="PasswordValidationConfirm" xml:space="preserve">
+    <value>Estas senhas não coincidem, por favor verifique !</value>
+  </data>
+  <data name="PasswordValidationCorrect" xml:space="preserve">
+    <value>Esta senha não é válida, por favor verifique!</value>
+  </data>
+  <data name="RegisterConfirmationMessage" xml:space="preserve">
+    <value>Você pode acessar sua conta</value>
+  </data>
+  <data name="RegisterConfirmationTitleDialog" xml:space="preserve">
+    <value>Registado com Êxito</value>
+  </data>
 </root>

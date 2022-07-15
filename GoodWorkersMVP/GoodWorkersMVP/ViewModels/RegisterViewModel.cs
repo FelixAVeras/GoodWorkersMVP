@@ -148,9 +148,9 @@ namespace GoodWorkersMVP.ViewModels
             if (string.IsNullOrEmpty(FirstName))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     Languages.FirstNameValidationEmpty,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -158,9 +158,9 @@ namespace GoodWorkersMVP.ViewModels
             if (string.IsNullOrEmpty(LastName))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     Languages.LastNameValidationEmpty,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -168,9 +168,9 @@ namespace GoodWorkersMVP.ViewModels
             if (string.IsNullOrEmpty(Address))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     Languages.AddressValidationEmpty,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -178,9 +178,9 @@ namespace GoodWorkersMVP.ViewModels
             if (string.IsNullOrEmpty(Cellphone))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     Languages.CellphoneValidationEmpty,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -190,9 +190,9 @@ namespace GoodWorkersMVP.ViewModels
             if (string.IsNullOrEmpty(DocumentNumber))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     Languages.DocumentNumberValidationEmpty,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -200,9 +200,9 @@ namespace GoodWorkersMVP.ViewModels
             if (string.IsNullOrEmpty(AboutMe))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     Languages.AboutMeValidationEmpty,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -210,9 +210,9 @@ namespace GoodWorkersMVP.ViewModels
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
-                    Languages.LoginValidationEmailEmptyMessage,
-                    Languages.AcceptDialogButton);
+                    Languages.ErrorTitleDialog,
+                    Languages.ErrorEmailEmptyLabel,
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -220,9 +220,9 @@ namespace GoodWorkersMVP.ViewModels
             if (!RegexUtilities.isValidEmail(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
-                    Languages.EmailValidationCorrect,
-                    Languages.AcceptDialogButton);
+                    Languages.ErrorTitleDialog,
+                    Languages.ErrorEmailInvalidLabel,
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -230,9 +230,9 @@ namespace GoodWorkersMVP.ViewModels
             if (string.IsNullOrEmpty(Password))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
-                    Languages.LoginValidationPasswordEmpty,
-                    Languages.AcceptDialogButton);
+                    Languages.ErrorTitleDialog,
+                    Languages.ErrorPasswordEmptyLabel,
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -240,9 +240,9 @@ namespace GoodWorkersMVP.ViewModels
             if (this.Password.Length < 6 && this.Password.Length > 20)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     Languages.PasswordValidationCorrect,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -250,9 +250,9 @@ namespace GoodWorkersMVP.ViewModels
             if (this.Password != this.PasswordConfirm)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     Languages.PasswordValidationConfirm,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
                 return;
             }
 
@@ -266,9 +266,9 @@ namespace GoodWorkersMVP.ViewModels
                 this.IsEnable = true;
 
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     checkConnetion.Message,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
                 return;
             }
 
@@ -304,7 +304,7 @@ namespace GoodWorkersMVP.ViewModels
             await Application.Current.MainPage.DisplayAlert(
                 Languages.RegisterConfirmationTitleDialog,
                 Languages.RegisterConfirmationMessage,
-                Languages.AcceptDialogButton);
+                Languages.BtnAcceptDialog);
 
             //await Application.Current.MainPage.Navigation.PopAsync();
             await navigationService.BackOnLogin();
@@ -326,9 +326,9 @@ namespace GoodWorkersMVP.ViewModels
         //    if (!response.IsSuccess)
         //    {
         //        await Application.Current.MainPage.DisplayAlert(
-        //            Languages.ErrorDialogTitle,
+        //            Languages.ErrorTitleDialog,
         //            response.Message,
-        //            Languages.AcceptDialogButton);
+        //            Languages.BtnAcceptDialog);
         //        return;
         //    }
 
