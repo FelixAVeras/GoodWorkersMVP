@@ -75,9 +75,9 @@ namespace GoodWorkersMVP.ViewModels
             if (string.IsNullOrEmpty(Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
-                    Languages.LoginValidationEmailEmptyMessage,
-                    Languages.AcceptDialogButton);
+                    Languages.ErrorTitleDialog,
+                    Languages.ErrorEmailEmptyLabel,
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -85,9 +85,9 @@ namespace GoodWorkersMVP.ViewModels
             if (!RegexUtilities.isValidEmail(Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
-                    Languages.LoginValidationEmailInvalidMessage,
-                    Languages.AcceptDialogButton);
+                    Languages.ErrorTitleDialog,
+                    Languages.ErrorEmailInvalidLabel,
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -95,9 +95,9 @@ namespace GoodWorkersMVP.ViewModels
             if (string.IsNullOrEmpty(Password))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorDialogTitle,
-                    Languages.LoginValidationPasswordEmpty,
-                    Languages.AcceptDialogButton);
+                    Languages.ErrorTitleDialog,
+                    Languages.ErrorPasswordEmptyLabel,
+                    Languages.BtnAcceptDialog);
 
                 return;
             }
@@ -113,9 +113,9 @@ namespace GoodWorkersMVP.ViewModels
                 IsEnable = true;
 
                 await Application.Current.MainPage.DisplayAlert(
-                        Languages.ErrorDialogTitle,
+                    Languages.ErrorTitleDialog,
                     connection.Message,
-                    Languages.AcceptDialogButton);
+                    Languages.BtnAcceptDialog);
 
                 return;
             }

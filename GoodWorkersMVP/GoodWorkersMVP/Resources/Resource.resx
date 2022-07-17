@@ -117,211 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutMeLabel" xml:space="preserve">
-    <value>About me</value>
-  </data>
-  <data name="AboutMePlaceholder" xml:space="preserve">
-    <value>Tell us about you, say how good how you are</value>
-  </data>
-  <data name="AboutMeValidation" xml:space="preserve">
-    <value>This field should have a maximun of 160 digits and minimun of 20</value>
-  </data>
-  <data name="AboutMeValidationEmpty" xml:space="preserve">
-    <value>This field cannot be empty</value>
-  </data>
-  <data name="AddressLabel" xml:space="preserve">
-    <value>Address</value>
-  </data>
-  <data name="AddressValidationEmpty" xml:space="preserve">
-    <value>The Address cannot be empty</value>
-  </data>
-  <data name="AddressValidationLength" xml:space="preserve">
-    <value>The Address should have a maximun of 160 digits and minimun of 20</value>
-  </data>
-  <data name="AgeValidationMessage" xml:space="preserve">
-    <value>You must be 21 years of age or older</value>
-  </data>
-  <data name="BirthdateLabel" xml:space="preserve">
-    <value>Birthdate</value>
-  </data>
-  <data name="CellPhoneLabel" xml:space="preserve">
-    <value>Cellphone</value>
-  </data>
-  <data name="CellPhoneValidationEmpty" xml:space="preserve">
-    <value>The Cellphone cannot be empty</value>
-  </data>
-  <data name="ChangeImageProfileLabel" xml:space="preserve">
-    <value>Tap here for change the image</value>
-  </data>
-  <data name="CheckConnection" xml:space="preserve">
-    <value>Please, verify your internet connection</value>
-  </data>
-  <data name="ConfirmedPasswordLabel" xml:space="preserve">
-    <value>Confirm Password</value>
-  </data>
-  <data name="CountryLabel" xml:space="preserve">
-    <value>Country</value>
-  </data>
-  <data name="DialogBtnAccept" xml:space="preserve">
+  <data name="BtnAcceptDialog" xml:space="preserve">
     <value>Accept</value>
   </data>
-  <data name="DialogBtnCancel" xml:space="preserve">
+  <data name="BtnCancelDialog" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="DocumentNumberEmpty" xml:space="preserve">
-    <value>The Document Number cannot be empty</value>
-  </data>
-  <data name="DocumentNumberLabel" xml:space="preserve">
-    <value>Document Number</value>
-  </data>
-  <data name="DocumentTypeLabel" xml:space="preserve">
-    <value>Document Type</value>
-  </data>
-  <data name="EmailPasswordInvalid" xml:space="preserve">
-    <value>Email or Password are incorrect</value>
-  </data>
-  <data name="EmailValidationCorrect" xml:space="preserve">
-    <value>You must enter a valid email address</value>
-  </data>
-  <data name="EnableConnection" xml:space="preserve">
-    <value>Please, enable your internet connection</value>
-  </data>
-  <data name="FirstNameValidationEmpty" xml:space="preserve">
-    <value>First Name cannot be empty</value>
-  </data>
-  <data name="FirstnameValidationLength" xml:space="preserve">
-    <value>The First Name should have a maximun of 20 digits and minimun of 2</value>
-  </data>
-  <data name="LastNameValidationEmpty" xml:space="preserve">
-    <value>Last Name cannot be empty</value>
-  </data>
-  <data name="LastNameValidationLength" xml:space="preserve">
-    <value>The Last Name should have a maximun of 20 digits and minimun of 2</value>
-  </data>
-  <data name="LoginButtonEnter" xml:space="preserve">
+  <data name="BtnEnterLabel" xml:space="preserve">
     <value>Enter</value>
   </data>
-  <data name="LoginButtonRegister" xml:space="preserve">
-    <value>Register</value>
+  <data name="BtnRegisterLabel" xml:space="preserve">
+    <value>Register New User</value>
   </data>
-  <data name="LoginEmailPlaceholder" xml:space="preserve">
-    <value>Enter your Email</value>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>Email Address</value>
   </data>
-  <data name="LoginForgetPassword" xml:space="preserve">
-    <value>Forget your Password?</value>
+  <data name="EmailPlaceholder" xml:space="preserve">
+    <value>Enter your Email Address</value>
   </data>
-  <data name="LoginPasswordPlaceholder" xml:space="preserve">
-    <value>Enter your Password</value>
+  <data name="ErrorEmailEmptyLabel" xml:space="preserve">
+    <value>You must enter an Email Address</value>
   </data>
-  <data name="LoginRememberData" xml:space="preserve">
-    <value>Remember my data?</value>
+  <data name="ErrorEmailInvalidLabel" xml:space="preserve">
+    <value>You must enter a valid Email Address</value>
   </data>
-  <data name="LoginValidationEmailEmptyMessage" xml:space="preserve">
-    <value>You must enter an email</value>
+  <data name="ErrorPasswordEmptyLabel" xml:space="preserve">
+    <value>You must enter a Password</value>
   </data>
-  <data name="LoginValidationEmailInvalidMessage" xml:space="preserve">
-    <value>You must enter an valid email address</value>
-  </data>
-  <data name="LoginValidationErrorMessage" xml:space="preserve">
-    <value>Email or Password are incorrect</value>
-  </data>
-  <data name="LoginValidationErrorTitle" xml:space="preserve">
+  <data name="ErrorTitleDialog" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="LoginValidationPasswordEmpty" xml:space="preserve">
-    <value>You must enter an password</value>
-  </data>
-  <data name="MiddleNameValidationLength" xml:space="preserve">
-    <value>The Middle Name should have a maximun of 20 digits and minimun of 2</value>
-  </data>
-  <data name="OcupationLabel" xml:space="preserve">
-    <value>Ocupations</value>
-  </data>
-  <data name="PasswordValidationConfirm" xml:space="preserve">
-    <value>These passwords do not match</value>
-  </data>
-  <data name="PasswordValidationCorrect" xml:space="preserve">
-    <value>Password between 6-20 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character</value>
-  </data>
-  <data name="RegisterBtn" xml:space="preserve">
-    <value>Register</value>
-  </data>
-  <data name="RegisterConfirmationMessage" xml:space="preserve">
-    <value>Data successfully saved. Now you can login with your credentials</value>
-  </data>
-  <data name="RegisterConfirmationTitleDialog" xml:space="preserve">
-    <value>Successfully Registered</value>
-  </data>
-  <data name="RegisterEmailLabel" xml:space="preserve">
-    <value>E-mail</value>
-  </data>
-  <data name="RegisterFirstName" xml:space="preserve">
-    <value>First Name</value>
-  </data>
-  <data name="RegisterLastName" xml:space="preserve">
-    <value>Last Name</value>
-  </data>
-  <data name="RegisterMiddleName" xml:space="preserve">
-    <value>Middle Name (Optional)</value>
-  </data>
-  <data name="RegisterPage" xml:space="preserve">
-    <value>User Register</value>
-  </data>
-  <data name="RegisterPasswordLabel" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="RegisterTitlePage" xml:space="preserve">
-    <value>User Register</value>
-  </data>
-  <data name="SearchPlaceholder" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="SelectCountryPlaceHolder" xml:space="preserve">
-    <value>Choose Country</value>
-  </data>
-  <data name="SelectDocumentTypeLabel" xml:space="preserve">
-    <value>Select an document type</value>
-  </data>
-  <data name="SelectOcupationLabel" xml:space="preserve">
-    <value>Select an Ocupation</value>
-  </data>
-  <data name="SelectStateProvincePlaceholder" xml:space="preserve">
-    <value>Choose State/Province</value>
-  </data>
-  <data name="StateProvinceLabel" xml:space="preserve">
-    <value>State or Province</value>
-  </data>
-  <data name="TakePicDialogCamera" xml:space="preserve">
-    <value>Camera</value>
-  </data>
-  <data name="TakePicDialogGallery" xml:space="preserve">
-    <value>Gallery</value>
-  </data>
-  <data name="TakePicTitleDialog" xml:space="preserve">
-    <value>Take picture from:</value>
-  </data>
-  <data name="TermAndConditionsLabel" xml:space="preserve">
-    <value>I Agree with terms and conditions</value>
-  </data>
-  <data name="TermAndConditionValidationMessage" xml:space="preserve">
-    <value>Please accept tems and condition</value>
-  </data>
-  <data name="UsernameLabel" xml:space="preserve">
-    <value>Username</value>
-  </data>
-  <data name="UserNameValidationEmpty" xml:space="preserve">
-    <value>UserName cannot be empty</value>
-  </data>
-  <data name="UserTypeCustomer" xml:space="preserve">
-    <value>Customer</value>
-  </data>
-  <data name="UserTypeProvider" xml:space="preserve">
-    <value>Freelancer</value>
-  </data>
-  <data name="UserTypeTitleRegister" xml:space="preserve">
-    <value>User type</value>
+  <data name="ForgetPasswordLabel" xml:space="preserve">
+    <value>Forgot your password?</value>
   </data>
   <data name="LoginTitlePage" xml:space="preserve">
     <value>Sign In</value>
+  </data>
+  <data name="NoInternetDialog" xml:space="preserve">
+    <value>Please, enable your internet connection</value>
+  </data>
+  <data name="NoIntertnetWorkingDialog" xml:space="preserve">
+    <value>Please check your internet connection</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordPlaceholder" xml:space="preserve">
+    <value>Enter your Password</value>
+  </data>
+  <data name="RememberMyDataLabel" xml:space="preserve">
+    <value>Remember my data?</value>
   </data>
 </root>

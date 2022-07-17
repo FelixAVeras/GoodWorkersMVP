@@ -21,22 +21,22 @@
 
 
                 <Entry Keyboard="Email"
-                   Placeholder="{i18n:Translate LoginEmailPlaceholder}"
+                   Placeholder="{i18n:Translate EmailPlaceholder}"
                    Margin="0,13,0,13"
                    Text="{Binding Email, Mode=TwoWay}"></Entry>
 
-                <Entry Placeholder="{i18n:Translate LoginPasswordPlaceholder}"
+                <Entry Placeholder="{i18n:Translate PasswordPlaceholder}"
                    Margin="0,0,0,13"
                    Text="{Binding Password, Mode=TwoWay}"></Entry>
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="{i18n:Translate LoginRememberData}"
+                    <Label Text="{i18n:Translate RememberMyDataLabel}"
                            VerticalOptions="Center"
                        HorizontalOptions="StartAndExpand"></Label>
                     <Switch IsToggled="{Binding IsToggle, Mode=TwoWay}" HorizontalOptions="End"></Switch>
                 </StackLayout>
 
-                <Label Text="{i18n:Translate LoginForgetPassword}"
+                <Label Text="{i18n:Translate ForgetPasswordLabel}"
                        HorizontalOptions="CenterAndExpand"
                        VerticalOptions="Center"
                        Margin="0,0,0,17"
@@ -52,7 +52,7 @@
 
 
                 <StackLayout>
-                    <Button Text="{i18n:Translate LoginButtonEnter}" 
+                    <Button Text="{i18n:Translate BtnEnterLabel}" 
                         Command="{Binding LoginCommand}" 
                         BackgroundColor="#3459E6"
                         TextColor="White"

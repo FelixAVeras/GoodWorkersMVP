@@ -19,7 +19,7 @@ namespace GoodWorkersMVP.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resource {
@@ -39,7 +39,7 @@ namespace GoodWorkersMVP.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GoodWorkers.Resources.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GoodWorkersMVP.Resources.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,625 +61,155 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About me.
-        /// </summary>
-        public static string AboutMeLabel {
-            get {
-                return ResourceManager.GetString("AboutMeLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tell us about you, say how good how you are.
-        /// </summary>
-        public static string AboutMePlaceholder {
-            get {
-                return ResourceManager.GetString("AboutMePlaceholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This field should have a maximun of 160 digits and minimun of 20.
-        /// </summary>
-        public static string AboutMeValidation {
-            get {
-                return ResourceManager.GetString("AboutMeValidation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This field cannot be empty.
-        /// </summary>
-        public static string AboutMeValidationEmpty {
-            get {
-                return ResourceManager.GetString("AboutMeValidationEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Address.
-        /// </summary>
-        public static string AddressLabel {
-            get {
-                return ResourceManager.GetString("AddressLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The Address cannot be empty.
-        /// </summary>
-        public static string AddressValidationEmpty {
-            get {
-                return ResourceManager.GetString("AddressValidationEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The Address should have a maximun of 160 digits and minimun of 20.
-        /// </summary>
-        public static string AddressValidationLength {
-            get {
-                return ResourceManager.GetString("AddressValidationLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You must be 21 years of age or older.
-        /// </summary>
-        public static string AgeValidationMessage {
-            get {
-                return ResourceManager.GetString("AgeValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Birthdate.
-        /// </summary>
-        public static string BirthdateLabel {
-            get {
-                return ResourceManager.GetString("BirthdateLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cellphone.
-        /// </summary>
-        public static string CellPhoneLabel {
-            get {
-                return ResourceManager.GetString("CellPhoneLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The Cellphone cannot be empty.
-        /// </summary>
-        public static string CellPhoneValidationEmpty {
-            get {
-                return ResourceManager.GetString("CellPhoneValidationEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tap here for change the image.
-        /// </summary>
-        public static string ChangeImageProfileLabel {
-            get {
-                return ResourceManager.GetString("ChangeImageProfileLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please, verify your internet connection.
-        /// </summary>
-        public static string CheckConnection {
-            get {
-                return ResourceManager.GetString("CheckConnection", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Confirm Password.
-        /// </summary>
-        public static string ConfirmedPasswordLabel {
-            get {
-                return ResourceManager.GetString("ConfirmedPasswordLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Country.
-        /// </summary>
-        public static string CountryLabel {
-            get {
-                return ResourceManager.GetString("CountryLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Accept.
         /// </summary>
-        public static string DialogBtnAccept {
+        public static string BtnAcceptDialog {
             get {
-                return ResourceManager.GetString("DialogBtnAccept", resourceCulture);
+                return ResourceManager.GetString("BtnAcceptDialog", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string DialogBtnCancel {
+        public static string BtnCancelDialog {
             get {
-                return ResourceManager.GetString("DialogBtnCancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The Document Number cannot be empty.
-        /// </summary>
-        public static string DocumentNumberEmpty {
-            get {
-                return ResourceManager.GetString("DocumentNumberEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Document Number.
-        /// </summary>
-        public static string DocumentNumberLabel {
-            get {
-                return ResourceManager.GetString("DocumentNumberLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Document Type.
-        /// </summary>
-        public static string DocumentTypeLabel {
-            get {
-                return ResourceManager.GetString("DocumentTypeLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Email or Password are incorrect.
-        /// </summary>
-        public static string EmailPasswordInvalid {
-            get {
-                return ResourceManager.GetString("EmailPasswordInvalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You must enter a valid email address.
-        /// </summary>
-        public static string EmailValidationCorrect {
-            get {
-                return ResourceManager.GetString("EmailValidationCorrect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please, enable your internet connection.
-        /// </summary>
-        public static string EnableConnection {
-            get {
-                return ResourceManager.GetString("EnableConnection", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to First Name cannot be empty.
-        /// </summary>
-        public static string FirstNameValidationEmpty {
-            get {
-                return ResourceManager.GetString("FirstNameValidationEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The First Name should have a maximun of 20 digits and minimun of 2.
-        /// </summary>
-        public static string FirstnameValidationLength {
-            get {
-                return ResourceManager.GetString("FirstnameValidationLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Last Name cannot be empty.
-        /// </summary>
-        public static string LastNameValidationEmpty {
-            get {
-                return ResourceManager.GetString("LastNameValidationEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The Last Name should have a maximun of 20 digits and minimun of 2.
-        /// </summary>
-        public static string LastNameValidationLength {
-            get {
-                return ResourceManager.GetString("LastNameValidationLength", resourceCulture);
+                return ResourceManager.GetString("BtnCancelDialog", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Enter.
         /// </summary>
-        public static string LoginButtonEnter {
+        public static string BtnEnterLabel {
             get {
-                return ResourceManager.GetString("LoginButtonEnter", resourceCulture);
+                return ResourceManager.GetString("BtnEnterLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Register.
+        ///   Looks up a localized string similar to Register New User.
         /// </summary>
-        public static string LoginButtonRegister {
+        public static string BtnRegisterLabel {
             get {
-                return ResourceManager.GetString("LoginButtonRegister", resourceCulture);
+                return ResourceManager.GetString("BtnRegisterLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter your Email.
+        ///   Looks up a localized string similar to Email Address.
         /// </summary>
-        public static string LoginEmailPlaceholder {
+        public static string EmailLabel {
             get {
-                return ResourceManager.GetString("LoginEmailPlaceholder", resourceCulture);
+                return ResourceManager.GetString("EmailLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Forget your Password?.
+        ///   Looks up a localized string similar to Enter your Email Address.
         /// </summary>
-        public static string LoginForgetPassword {
+        public static string EmailPlaceholder {
             get {
-                return ResourceManager.GetString("LoginForgetPassword", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Title Login Page.
-        /// </summary>
-        public static string LoginTitlePage
-        {
-            get
-            {
-                return ResourceManager.GetString("LoginTitlePage", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Enter your Password.
-        /// </summary>
-        public static string LoginPasswordPlaceholder {
-            get {
-                return ResourceManager.GetString("LoginPasswordPlaceholder", resourceCulture);
+                return ResourceManager.GetString("EmailPlaceholder", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remember my data?.
+        ///   Looks up a localized string similar to You must enter an Email Address.
         /// </summary>
-        public static string LoginRememberData {
+        public static string ErrorEmailEmptyLabel {
             get {
-                return ResourceManager.GetString("LoginRememberData", resourceCulture);
+                return ResourceManager.GetString("ErrorEmailEmptyLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must enter an email.
+        ///   Looks up a localized string similar to You must enter a valid Email Address.
         /// </summary>
-        public static string LoginValidationEmailEmptyMessage {
+        public static string ErrorEmailInvalidLabel {
             get {
-                return ResourceManager.GetString("LoginValidationEmailEmptyMessage", resourceCulture);
+                return ResourceManager.GetString("ErrorEmailInvalidLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must enter an valid email address.
+        ///   Looks up a localized string similar to You must enter a Password.
         /// </summary>
-        public static string LoginValidationEmailInvalidMessage {
+        public static string ErrorPasswordEmptyLabel {
             get {
-                return ResourceManager.GetString("LoginValidationEmailInvalidMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Email or Password are incorrect.
-        /// </summary>
-        public static string LoginValidationErrorMessage {
-            get {
-                return ResourceManager.GetString("LoginValidationErrorMessage", resourceCulture);
+                return ResourceManager.GetString("ErrorPasswordEmptyLabel", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
-        public static string LoginValidationErrorTitle {
+        public static string ErrorTitleDialog {
             get {
-                return ResourceManager.GetString("LoginValidationErrorTitle", resourceCulture);
+                return ResourceManager.GetString("ErrorTitleDialog", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must enter an password.
+        ///   Looks up a localized string similar to Forgot your password?.
         /// </summary>
-        public static string LoginValidationPasswordEmpty {
+        public static string ForgetPasswordLabel {
             get {
-                return ResourceManager.GetString("LoginValidationPasswordEmpty", resourceCulture);
+                return ResourceManager.GetString("ForgetPasswordLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Middle Name should have a maximun of 20 digits and minimun of 2.
+        ///   Looks up a localized string similar to Sign In.
         /// </summary>
-        public static string MiddleNameValidationLength {
+        public static string LoginTitlePage {
             get {
-                return ResourceManager.GetString("MiddleNameValidationLength", resourceCulture);
+                return ResourceManager.GetString("LoginTitlePage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ocupations.
+        ///   Looks up a localized string similar to Please, enable your internet connection.
         /// </summary>
-        public static string OcupationLabel {
+        public static string NoInternetDialog {
             get {
-                return ResourceManager.GetString("OcupationLabel", resourceCulture);
+                return ResourceManager.GetString("NoInternetDialog", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These passwords do not match.
+        ///   Looks up a localized string similar to Please check your internet connection.
         /// </summary>
-        public static string PasswordValidationConfirm {
+        public static string NoIntertnetWorkingDialog {
             get {
-                return ResourceManager.GetString("PasswordValidationConfirm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Password between 6-20 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.
-        /// </summary>
-        public static string PasswordValidationCorrect {
-            get {
-                return ResourceManager.GetString("PasswordValidationCorrect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Register.
-        /// </summary>
-        public static string RegisterBtn {
-            get {
-                return ResourceManager.GetString("RegisterBtn", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Data successfully saved. Now you can login with your credentials.
-        /// </summary>
-        public static string RegisterConfirmationMessage {
-            get {
-                return ResourceManager.GetString("RegisterConfirmationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Successfully Registered.
-        /// </summary>
-        public static string RegisterConfirmationTitleDialog {
-            get {
-                return ResourceManager.GetString("RegisterConfirmationTitleDialog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to E-mail.
-        /// </summary>
-        public static string RegisterEmailLabel {
-            get {
-                return ResourceManager.GetString("RegisterEmailLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to First Name.
-        /// </summary>
-        public static string RegisterFirstName {
-            get {
-                return ResourceManager.GetString("RegisterFirstName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Last Name.
-        /// </summary>
-        public static string RegisterLastName {
-            get {
-                return ResourceManager.GetString("RegisterLastName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Middle Name (Optional).
-        /// </summary>
-        public static string RegisterMiddleName {
-            get {
-                return ResourceManager.GetString("RegisterMiddleName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User Register.
-        /// </summary>
-        public static string RegisterPage {
-            get {
-                return ResourceManager.GetString("RegisterPage", resourceCulture);
+                return ResourceManager.GetString("NoIntertnetWorkingDialog", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
-        public static string RegisterPasswordLabel {
+        public static string PasswordLabel {
             get {
-                return ResourceManager.GetString("RegisterPasswordLabel", resourceCulture);
+                return ResourceManager.GetString("PasswordLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User Register.
+        ///   Looks up a localized string similar to Enter your Password.
         /// </summary>
-        public static string RegisterTitlePage {
+        public static string PasswordPlaceholder {
             get {
-                return ResourceManager.GetString("RegisterTitlePage", resourceCulture);
+                return ResourceManager.GetString("PasswordPlaceholder", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search.
+        ///   Looks up a localized string similar to Remember my data?.
         /// </summary>
-        public static string SearchPlaceholder {
+        public static string RememberMyDataLabel {
             get {
-                return ResourceManager.GetString("SearchPlaceholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Choose Country.
-        /// </summary>
-        public static string SelectCountryPlaceHolder {
-            get {
-                return ResourceManager.GetString("SelectCountryPlaceHolder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select an document type.
-        /// </summary>
-        public static string SelectDocumentTypeLabel {
-            get {
-                return ResourceManager.GetString("SelectDocumentTypeLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select an Ocupation.
-        /// </summary>
-        public static string SelectOcupationLabel {
-            get {
-                return ResourceManager.GetString("SelectOcupationLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Choose State/Province.
-        /// </summary>
-        public static string SelectStateProvincePlaceholder {
-            get {
-                return ResourceManager.GetString("SelectStateProvincePlaceholder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to State or Province.
-        /// </summary>
-        public static string StateProvinceLabel {
-            get {
-                return ResourceManager.GetString("StateProvinceLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Camera.
-        /// </summary>
-        public static string TakePicDialogCamera {
-            get {
-                return ResourceManager.GetString("TakePicDialogCamera", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gallery.
-        /// </summary>
-        public static string TakePicDialogGallery {
-            get {
-                return ResourceManager.GetString("TakePicDialogGallery", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Take picture from:.
-        /// </summary>
-        public static string TakePicTitleDialog {
-            get {
-                return ResourceManager.GetString("TakePicTitleDialog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to I Agree with terms and conditions.
-        /// </summary>
-        public static string TermAndConditionsLabel {
-            get {
-                return ResourceManager.GetString("TermAndConditionsLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please accept tems and condition.
-        /// </summary>
-        public static string TermAndConditionValidationMessage {
-            get {
-                return ResourceManager.GetString("TermAndConditionValidationMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Username.
-        /// </summary>
-        public static string UsernameLabel {
-            get {
-                return ResourceManager.GetString("UsernameLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UserName cannot be empty.
-        /// </summary>
-        public static string UserNameValidationEmpty {
-            get {
-                return ResourceManager.GetString("UserNameValidationEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Customer.
-        /// </summary>
-        public static string UserTypeCustomer {
-            get {
-                return ResourceManager.GetString("UserTypeCustomer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Freelancer.
-        /// </summary>
-        public static string UserTypeProvider {
-            get {
-                return ResourceManager.GetString("UserTypeProvider", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User type.
-        /// </summary>
-        public static string UserTypeTitleRegister {
-            get {
-                return ResourceManager.GetString("UserTypeTitleRegister", resourceCulture);
+                return ResourceManager.GetString("RememberMyDataLabel", resourceCulture);
             }
         }
     }

@@ -121,51 +121,51 @@
     <value>Entrar</value>
   </data>
   <data name="BtnRegisterLabel" xml:space="preserve">
-    <value>Registrar Nuevo Usuario</value>
+    <value>Registar Novo Formando</value>
   </data>
   <data name="EmailLabel" xml:space="preserve">
-    <value>Dirección de correo electrónico</value>
+    <value>Endereço de E-mail</value>
   </data>
   <data name="EmailPlaceholder" xml:space="preserve">
-    <value>Introduce tú correo electrónico</value>
+    <value>Digite o seu e-mail</value>
   </data>
   <data name="ErrorEmailEmptyLabel" xml:space="preserve">
-    <value>Debes poner una dirección de correo electrónico</value>
+    <value>Você precisa inserir o seu endereço de email.</value>
   </data>
   <data name="ErrorEmailInvalidLabel" xml:space="preserve">
-    <value>Debes introducir una dirección de email válida.</value>
+    <value>Deve inserir um endereço de email válido</value>
   </data>
   <data name="ErrorPasswordEmptyLabel" xml:space="preserve">
-    <value>Debe poner una contraseña.</value>
+    <value>Tem de introduzir uma senha</value>
   </data>
   <data name="ErrorTitleDialog" xml:space="preserve">
-    <value>¡Error!</value>
+    <value>Erro!</value>
   </data>
   <data name="ForgetPasswordLabel" xml:space="preserve">
-    <value>Olvidaste tu contraseña</value>
+    <value>Esqueceu sua senha</value>
   </data>
   <data name="LoginTitlePage" xml:space="preserve">
-    <value>Iniciar sesión</value>
+    <value>Iniciar sessão</value>
   </data>
   <data name="PasswordLabel" xml:space="preserve">
-    <value>Contraseña</value>
+    <value>Palavra-passe</value>
   </data>
   <data name="PasswordPlaceholder" xml:space="preserve">
-    <value>Introduzca su contraseña</value>
+    <value>Introduza a sua palavra-passe</value>
   </data>
   <data name="RememberMyDataLabel" xml:space="preserve">
-    <value>Recordar mis datos</value>
+    <value>Lembras-te dos meus dados?</value>
   </data>
   <data name="BtnAcceptDialog" xml:space="preserve">
-    <value>Aceptar</value>
+    <value>Aceitar</value>
   </data>
   <data name="BtnCancelDialog" xml:space="preserve">
     <value>Cancelar</value>
   </data>
   <data name="NoInternetDialog" xml:space="preserve">
-    <value>Por favor, habilite su conexión a Internet</value>
+    <value>Por favor, ative a sua ligação à Internet!</value>
   </data>
   <data name="NoIntertnetWorkingDialog" xml:space="preserve">
-    <value>Por favor, compruebe su conexión a Internet.</value>
+    <value>Por favor verifique a sua ligação à Internet</value>
   </data>
 </root>
