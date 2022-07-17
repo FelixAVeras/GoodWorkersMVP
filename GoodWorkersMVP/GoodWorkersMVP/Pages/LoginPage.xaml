@@ -60,13 +60,13 @@
                         HorizontalOptions="FillAndExpand"
                         IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
 
-                    <Button Text="{i18n:Translate LoginButtonRegister}"
+                    <!--<Button Text="{i18n:Translate LoginButtonRegister}"
                         BackgroundColor="#1A2C73"
                         TextColor="White"
                         CornerRadius="10"
                         HorizontalOptions="FillAndExpand"
                         Command="{Binding RegisterCommand}" 
-                        IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
+                        IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>-->
 
                 </StackLayout>
             </StackLayout>

@@ -15,6 +15,8 @@ namespace GoodWorkersMVP.ViewModels
 
         ApiService apiService;
 
+        NavigationService navigationService;
+
         private bool _isRunning;
         private bool _isEnable;
 
@@ -75,6 +77,7 @@ namespace GoodWorkersMVP.ViewModels
         public RegisterViewModel()
         {
             this.apiService = new ApiService();
+            this.navigationService = new NavigationService();
 
             this._isEnable = true;
             //this.imageSource = "camera";
@@ -303,7 +306,9 @@ namespace GoodWorkersMVP.ViewModels
                 Languages.RegisterConfirmationMessage,
                 Languages.AcceptDialogButton);
 
-            await Application.Current.MainPage.Navigation.PopAsync();
+            //await Application.Current.MainPage.Navigation.PopAsync();
+            await navigationService.BackOnLogin();
+            navigationService.SetMainPage("MasterPage");
         }
 
         //public void OnNavigatedTo(INavigationParameters parameters)

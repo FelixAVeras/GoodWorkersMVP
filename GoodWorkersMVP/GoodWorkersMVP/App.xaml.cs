@@ -18,6 +18,7 @@ namespace GoodWorkersMVP
             {
                 BarBackgroundColor = Color.FromHex("#3459E6")
             };
+
         }
 
         protected override void OnStart()

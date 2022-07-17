@@ -1,12 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GoodWorkersMVP.Pages.MapsPage">
+             x:Class="GoodWorkersMVP.Pages.MapsPage"
+             Title="Explorar">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="8">
+            <Label Text="Ingresa la Direccion"></Label>
+            <Entry x:Name="addressEntry" Text="{Binding Address}"></Entry>
+
+            <Button Margin="0, 14, 0, 0"
+                    Text="Buscar Direccion"
+                    BackgroundColor="#1A2C73"
+                    TextColor="White"
+                    FontFamily="Custom_Normal_Font"
+                    CornerRadius="10"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding GetPositionCommand}"></Button>
+
+            <Label Text="Coordenadas" Margin="0, 24, 0, 0"></Label>
+            <Entry x:Name="latitudeEntry" Placeholder="Latitud" Keyboard="Numeric"></Entry>
+            <Entry x:Name="longitudeEntry" Placeholder="Longitud" Keyboard="Numeric"></Entry>
+
+            <Button x:Name="btnGetLocation"
+                    Clicked="btnGetLocation_Clicked"
+                    Text="Ubicación Actual"
+                    BackgroundColor="Transparent"
+                    BorderColor="#3459E6"
+                    TextColor="#3459E6"
+                    FontFamily="Custom_Normal_Font"
+                    CornerRadius="10"
+                    HorizontalOptions="FillAndExpand"></Button>
+
+            <Button x:Name="btnGoToMap"
+                    Margin="0, 14, 0, 0"
+                    Clicked="btnGoToMap_Clicked"
+                    Text="Ver en el mapa"
+                    BackgroundColor="#3459E6"
+                    TextColor="White"
+                    FontFamily="Custom_Normal_Font"
+                    CornerRadius="10"
+                    HorizontalOptions="FillAndExpand"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

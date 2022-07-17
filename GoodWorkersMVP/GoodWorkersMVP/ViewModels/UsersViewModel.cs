@@ -21,7 +21,7 @@ namespace GoodWorkersMVP.ViewModels
         public UsersViewModel(List<User> users)
         {
             this.users = users;
-            Users = new ObservableCollection<User>(users.OrderBy(u => u.LastName));
+            Users = new ObservableCollection<User>(users.OrderBy(u => u.FullName));
         }
     }
 }

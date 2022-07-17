@@ -21,13 +21,17 @@ namespace GoodWorkersMVP.Services
             }
         }
 
-        public async Task NavigateOnLogin(string pageName)
+        public void NavigateOnLogin(string pageName)
         {
             switch (pageName)
             {
                 case "RegisterPage":
                     Application.Current.MainPage = new NavigationPage(new RegisterPage());
                     break;
+
+                //case "RecoverPasswordPage":
+                //    Application.Current.MainPage = new NavigationPage(new RecoverPasswordPage());
+                //    break;
             }
         }
 
@@ -40,7 +44,7 @@ namespace GoodWorkersMVP.Services
                 case "OcupationPage": await App.Navigator.PushAsync(new OcupationPage());
                         break;
 
-                case "UserPage": await App.Navigator.PushAsync(new OcupationPage());
+                case "UserPage": await App.Navigator.PushAsync(new UsersPage());
                     break;
             }
         }

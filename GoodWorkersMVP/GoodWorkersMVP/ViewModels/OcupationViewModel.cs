@@ -14,6 +14,7 @@ namespace GoodWorkersMVP.ViewModels
     public class OcupationViewModel : BaseViewModel
     {
         ApiService apiService;
+        NavigationService navigationService;
 
         private bool isRefreshing;
         ObservableCollection<Ocupation> _ocupations;
@@ -32,6 +33,7 @@ namespace GoodWorkersMVP.ViewModels
 
         public OcupationViewModel()
         {
+            navigationService = new NavigationService();
             apiService = new ApiService();
             LoadOcupations();
         }
@@ -79,6 +81,10 @@ namespace GoodWorkersMVP.ViewModels
 
             var ocupationList = (List<Ocupation>)response.Result;
             Ocupations = new ObservableCollection<Ocupation>(ocupationList.OrderBy(o => o.OcupationName));
+
+            await navigationService.BackOnLogin();
+
+            navigationService.SetMainPage("MasterPage");
 
             IsRefreshing = false;
         }

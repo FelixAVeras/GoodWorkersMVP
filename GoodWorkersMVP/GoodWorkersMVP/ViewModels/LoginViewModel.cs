@@ -1,7 +1,6 @@
 ﻿using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GoodWorkersMVP.Helpers;
-using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
 using Xamarin.Forms;
 
@@ -136,7 +135,9 @@ namespace GoodWorkersMVP.ViewModels
             //}
 
             MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
-            Application.Current.MainPage = new MasterPage();
+            //Application.Current.MainPage = new MasterPage();
+            //await navigationService.NavigateOnMaster("OcupationPage"); 
+            navigationService.SetMainPage("MasterPage");
 
             IsRunning = false;
             IsEnable = true;
@@ -145,7 +146,7 @@ namespace GoodWorkersMVP.ViewModels
         async void Register()
         {
             MainViewModel.GetInstance().Register = new RegisterViewModel();
-            await navigationService.NavigateOnLogin("RegisterPage");
+            navigationService.NavigateOnLogin("RegisterPage");
         }
     }
 }
