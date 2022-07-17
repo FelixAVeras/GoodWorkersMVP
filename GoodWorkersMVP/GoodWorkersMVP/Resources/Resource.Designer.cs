@@ -304,6 +304,15 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Search....
+        /// </summary>
+        public static string SearchPLaceholderInput {
+            get {
+                return ResourceManager.GetString("SearchPLaceholderInput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Something went wrong.
         /// </summary>
         public static string SomethingWentWrong {

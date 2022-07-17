@@ -41,14 +41,12 @@ namespace GoodWorkersMVP.Helpers
         public static string RegisterConfirmationTitleDialog => Resource.RegisterConfirmationTitleDialog;
         public static string RegisterConfirmationMessage => Resource.RegisterConfirmationMessage;
 
-
         //Forms
         public static string EmailLabel => Resource.EmailLabel;
         public static string EmailPlaceholder => Resource.EmailPlaceholder;
         public static string PasswordLabel => Resource.PasswordLabel;
         public static string PasswordPlaceholder => Resource.PasswordPlaceholder;
-
-
+        public static string SearchPLaceholderInput => Resource.SearchPLaceholderInput;
 
         //Login
         public static string LoginTitlePage => Resource.LoginTitlePage;

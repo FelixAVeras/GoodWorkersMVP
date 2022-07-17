@@ -204,4 +204,7 @@
   <data name="RegisterConfirmationTitleDialog" xml:space="preserve">
     <value>¡Registrado E xitosamente！</value>
   </data>
+  <data name="SearchPLaceholderInput" xml:space="preserve">
+    <value>Buscar...</value>
+  </data>
 </root>

@@ -198,6 +198,9 @@
   <data name="RememberMyDataLabel" xml:space="preserve">
     <value>Remember my data?</value>
   </data>
+  <data name="SearchPLaceholderInput" xml:space="preserve">
+    <value>Search...</value>
+  </data>
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>Something went wrong</value>
   </data>

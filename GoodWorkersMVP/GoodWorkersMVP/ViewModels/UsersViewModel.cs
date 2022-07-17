@@ -18,9 +18,15 @@ namespace GoodWorkersMVP.ViewModels
             set { SetValue(ref _users, value); }
         }
 
-        public UsersViewModel(List<User> users)
+        //public UsersViewModel(List<User> users)
+        //{
+        //    this.users = users;
+        //    Users = new ObservableCollection<User>(users.OrderBy(u => u.FullName));
+        //}
+
+        public UsersViewModel()
         {
-            this.users = users;
+            //this.users = users;
             Users = new ObservableCollection<User>(users.OrderBy(u => u.FullName));
         }
     }
