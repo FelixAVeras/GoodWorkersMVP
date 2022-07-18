@@ -15,7 +15,6 @@ namespace GoodWorkersMVP.ViewModels
     public class OcupationViewModel : BaseViewModel
     {
         ApiService apiService;
-        NavigationService navigationService;
 
         private bool isRefreshing;
         ObservableCollection<Ocupation> _ocupations;
@@ -41,7 +40,6 @@ namespace GoodWorkersMVP.ViewModels
 
         public OcupationViewModel()
         {
-            navigationService = new NavigationService();
             apiService = new ApiService();
 
             LoadOcupations();

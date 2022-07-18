@@ -10,7 +10,6 @@ namespace GoodWorkersMVP.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         ApiService apiservice;
-        NavigationService navigationService;
 
         string _email;
         string _password;
@@ -62,7 +61,6 @@ namespace GoodWorkersMVP.ViewModels
         public LoginViewModel()
         {
             apiservice = new ApiService();
-            navigationService = new NavigationService();
 
             IsEnable = true;
             IsToggled = true;
@@ -147,7 +145,7 @@ namespace GoodWorkersMVP.ViewModels
         async void Register()
         {
             MainViewModel.GetInstance().Register = new RegisterViewModel();
-            navigationService.NavigateOnLogin("RegisterPage");
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
     }
 }
