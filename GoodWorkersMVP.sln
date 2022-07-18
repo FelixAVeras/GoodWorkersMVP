@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.2017
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodWorkersMVP.Android", "GoodWorkersMVP\GoodWorkersMVP.Android\GoodWorkersMVP.Android.csproj", "{CD70F98F-2356-47C1-BAA4-2D17CEF1807D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodWorkersMVP.iOS", "GoodWorkersMVP\GoodWorkersMVP.iOS\GoodWorkersMVP.iOS.csproj", "{2B949A4B-5859-4777-A004-CCA3191E1091}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodWorkersMVP", "GoodWorkersMVP\GoodWorkersMVP\GoodWorkersMVP.csproj", "{18864ECA-F85D-4C01-980D-00928EF908AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWorkersMVP", "GoodWorkersMVP\GoodWorkersMVP\GoodWorkersMVP.csproj", "{18864ECA-F85D-4C01-980D-00928EF908AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,13 +9,9 @@ using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
 {
-    public class RegisterViewModel : INotifyPropertyChanged
+    public class RegisterViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         ApiService apiService;
-
-        NavigationService navigationService;
 
         private bool _isRunning;
         private bool _isEnable;
@@ -32,27 +28,13 @@ namespace GoodWorkersMVP.ViewModels
         public bool IsRunning
         {
             get { return _isRunning; }
-            set
-            {
-                if (_isRunning != value)
-                {
-                    _isRunning = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsRunning)));
-                }
-            }
+            set { SetValue(ref _isRunning, value); }
         }
 
         public bool IsEnable
         {
             get { return _isEnable; }
-            set
-            {
-                if (_isEnable != value)
-                {
-                    _isEnable = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsEnable)));
-                }
-            }
+            set { SetValue(ref _isEnable, value); }
         }
 
         public string FirstName { get; set; }
@@ -77,7 +59,6 @@ namespace GoodWorkersMVP.ViewModels
         public RegisterViewModel()
         {
             this.apiService = new ApiService();
-            this.navigationService = new NavigationService();
 
             this._isEnable = true;
             //this.imageSource = "camera";
@@ -306,34 +287,7 @@ namespace GoodWorkersMVP.ViewModels
                 Languages.RegisterConfirmationMessage,
                 Languages.BtnAcceptDialog);
 
-            //await Application.Current.MainPage.Navigation.PopAsync();
-            await navigationService.BackOnLogin();
-            navigationService.SetMainPage("MasterPage");
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
-
-        //public void OnNavigatedTo(INavigationParameters parameters)
-        //{
-        //    base.OnNavigatedTo(parameters);
-
-        //    LoadDocumentTypes();
-        //}
-
-        //private async void LoadDocumentTypes()
-        //{
-        //    var url = Application.Current.Resources["UrlAPI"].ToString();
-        //    var response = await apiService.GetList<DocumentType>(url, "/api", "/documents");
-
-        //    if (!response.IsSuccess)
-        //    {
-        //        await Application.Current.MainPage.DisplayAlert(
-        //            Languages.ErrorTitleDialog,
-        //            response.Message,
-        //            Languages.BtnAcceptDialog);
-        //        return;
-        //    }
-
-        //    var documentTypes = (List<DocumentType>)response.Result;
-        //    DocumentTypesCollection = new ObservableCollection<DocumentType>(documentTypes);
-        //}
     }
 }
