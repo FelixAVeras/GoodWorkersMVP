@@ -11,59 +11,52 @@ namespace GoodWorkersMVP.ViewModels
     {
         ApiService apiservice;
 
-        string _email;
-        string _password;
-        bool _isToggled;
-        bool _isRunning;
-        bool _isEnable;
+        private string email;
+        private string password;
+        private bool isRemember;
+        private bool isRunning;
+        private bool isEnable;
 
         public string Email
         {
-            get { return _email; }
-            set { SetValue(ref _email, value); }
+            get => email;
+            set => SetValue(ref email, value);
         }
 
         public string Password
         {
-            get { return _password; }
-            set { SetValue(ref _password, value); }
+            get => password;
+            set => SetValue(ref password, value);
         }
 
-        public bool IsToggled
+        public bool IsRemember
         {
-            get { return _isToggled; }
-            set { SetValue(ref _isToggled, value); }
+            get => isRemember;
+            set => SetValue(ref isRemember, value);
         }
 
         public bool IsRunning
         {
-            get { return _isRunning; }
-            set { SetValue(ref _isRunning, value); }
+            get => isRunning;
+            set => SetValue(ref isRunning, value);
         }
 
         public bool IsEnable
         {
-            get { return _isEnable; }
-            set { SetValue(ref _isEnable, value); }
+            get => isEnable;
+            set => SetValue(ref isEnable, value);
         }
 
-        //Commands
-        public ICommand LoginCommand
-        {
-            get { return new RelayCommand(Login); }
-        }
+        public ICommand LoginCommand => new RelayCommand(Login);
 
-        public ICommand RegisterCommand
-        {
-            get { return new RelayCommand(Register); }
-        }
+        public ICommand RegisterCommand => new RelayCommand(Register);
 
         public LoginViewModel()
         {
             apiservice = new ApiService();
 
             IsEnable = true;
-            IsToggled = true;
+            IsRemember = true;
 
             this.Email = "edlopez23@yopmail.com";
             this.Password = "test1234";
@@ -135,8 +128,6 @@ namespace GoodWorkersMVP.ViewModels
 
             MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
             Application.Current.MainPage = new MasterPage();
-            //await navigationService.NavigateOnMaster("OcupationPage"); 
-            //navigationService.SetMainPage("MasterPage");
 
             IsRunning = false;
             IsEnable = true;

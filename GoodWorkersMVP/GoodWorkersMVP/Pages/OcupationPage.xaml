@@ -11,6 +11,7 @@
 
             <SearchBar BackgroundColor="Transparent"
                        HeightRequest="40"
+                       Text="{Binding Filter, Mode=TwoWay}"
                        SearchCommand="{Binding SearchCommand}"
                        Placeholder="{i18n:Translate SearchPLaceholderInput}">
             </SearchBar>
@@ -39,7 +40,7 @@
                                                VerticalOptions="Center"
                                                VerticalTextAlignment="Center"
                                                Text="{Binding OcupationName}"
-                                               TextColor="Black"></Label>
+                                               TextColor="#18bc9c"></Label>
                                 </StackLayout>
                                 <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="5, 15">
                                     <Image Source="next"></Image>

@@ -33,7 +33,9 @@
                     <Label Text="{i18n:Translate RememberMyDataLabel}"
                            VerticalOptions="Center"
                        HorizontalOptions="StartAndExpand"></Label>
-                    <Switch IsToggled="{Binding IsToggle, Mode=TwoWay}" HorizontalOptions="End"></Switch>
+                    <Switch IsToggled="{Binding IsRemember, Mode=TwoWay}"
+                            HorizontalOptions="End">
+                    </Switch>
                 </StackLayout>
 
                 <Label Text="{i18n:Translate ForgetPasswordLabel}"
@@ -41,32 +43,32 @@
                        VerticalOptions="Center"
                        Margin="0,0,0,17"
                        FontAttributes="Bold"
-                       TextColor="CornflowerBlue">
+                       TextColor="#18bc9c">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding RecoverPasswordCommand}"></TapGestureRecognizer>
                     </Label.GestureRecognizers>
                 </Label>
 
-                <ActivityIndicator Color="#3459E6"
+                <ActivityIndicator Color="#18bc9c"
                                    IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
 
 
-                <StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
                     <Button Text="{i18n:Translate BtnEnterLabel}" 
                         Command="{Binding LoginCommand}" 
-                        BackgroundColor="#3459E6"
+                        BackgroundColor="#253544"
                         TextColor="White"
                         CornerRadius="10"
                         HorizontalOptions="FillAndExpand"
                         IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
 
-                    <!--<Button Text="{i18n:Translate LoginButtonRegister}"
-                        BackgroundColor="#1A2C73"
+                    <Button Text="{i18n:Translate BtnRegisterLabel}"
+                        BackgroundColor="#95a5a6"
                         TextColor="White"
                         CornerRadius="10"
                         HorizontalOptions="FillAndExpand"
                         Command="{Binding RegisterCommand}" 
-                        IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>-->
+                        IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
 
                 </StackLayout>
             </StackLayout>

@@ -56,5 +56,6 @@ namespace GoodWorkersMVP.Helpers
         public static string BtnRegisterLabel => Resource.BtnRegisterLabel;
 
         //Register
+        public static string RegisterTitlePage => Resource.RegisterTitlePage;
     }
 }

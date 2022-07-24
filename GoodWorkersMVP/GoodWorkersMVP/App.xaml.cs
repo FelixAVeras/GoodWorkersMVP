@@ -16,7 +16,7 @@ namespace GoodWorkersMVP
 
             MainPage = new NavigationPage(new LoginPage())
             {
-                BarBackgroundColor = Color.FromHex("#3459E6")
+                BarBackgroundColor = Color.FromHex("#253544")
             };
 
         }

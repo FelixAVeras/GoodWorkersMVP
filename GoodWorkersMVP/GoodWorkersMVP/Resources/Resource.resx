@@ -130,10 +130,10 @@
     <value>Cancel</value>
   </data>
   <data name="BtnEnterLabel" xml:space="preserve">
-    <value>Enter</value>
+    <value>Log in</value>
   </data>
   <data name="BtnRegisterLabel" xml:space="preserve">
-    <value>Register New User</value>
+    <value>Register User</value>
   </data>
   <data name="CellphoneValidationEmpty" xml:space="preserve">
     <value>Cellphone cannot be empty</value>
@@ -194,6 +194,9 @@
   </data>
   <data name="RegisterConfirmationTitleDialog" xml:space="preserve">
     <value>Successfully Registered</value>
+  </data>
+  <data name="RegisterTitlePage" xml:space="preserve">
+    <value>Sign Up</value>
   </data>
   <data name="RememberMyDataLabel" xml:space="preserve">
     <value>Remember my data?</value>

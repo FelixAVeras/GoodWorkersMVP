@@ -97,7 +97,7 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter.
+        ///   Looks up a localized string similar to Log in.
         /// </summary>
         public static string BtnEnterLabel {
             get {
@@ -106,7 +106,7 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Register New User.
+        ///   Looks up a localized string similar to Register User.
         /// </summary>
         public static string BtnRegisterLabel {
             get {
@@ -291,6 +291,15 @@ namespace GoodWorkersMVP.Resources {
         public static string RegisterConfirmationTitleDialog {
             get {
                 return ResourceManager.GetString("RegisterConfirmationTitleDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign Up.
+        /// </summary>
+        public static string RegisterTitlePage {
+            get {
+                return ResourceManager.GetString("RegisterTitlePage", resourceCulture);
             }
         }
         

@@ -9,7 +9,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage x:Name="Navigator"
                         BarTextColor="#fff"
-                        BarBackgroundColor="#3459E6">
+                        BarBackgroundColor="#253544">
             <x:Arguments>
                 <page:OcupationPage></page:OcupationPage>
             </x:Arguments>

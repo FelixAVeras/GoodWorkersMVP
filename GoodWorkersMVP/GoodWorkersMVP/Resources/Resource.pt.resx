@@ -117,11 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BtnEnterLabel" xml:space="preserve">
-    <value>Entrar</value>
-  </data>
   <data name="BtnRegisterLabel" xml:space="preserve">
-    <value>Registar Novo Formando</value>
+    <value>Registar Formando</value>
   </data>
   <data name="EmailLabel" xml:space="preserve">
     <value>Endereço de E-mail</value>
@@ -206,5 +203,11 @@
   </data>
   <data name="SearchPLaceholderInput" xml:space="preserve">
     <value>Pesquisar...</value>
+  </data>
+  <data name="BtnEnterLabel" xml:space="preserve">
+    <value>Acessar</value>
+  </data>
+  <data name="RegisterTitlePage" xml:space="preserve">
+    <value>Registar</value>
   </data>
 </root>

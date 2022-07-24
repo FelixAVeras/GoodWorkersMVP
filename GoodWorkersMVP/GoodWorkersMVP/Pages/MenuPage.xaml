@@ -51,7 +51,7 @@
                                 <Label Grid.Column="1"
                                        Text="{Binding TitleIcon}"
                                        VerticalOptions="Center"
-                                       TextColor="#3459E6"
+                                       TextColor="#18bc9c"
                                        FontFamily="Custom_Normal_Font"
                                        FontAttributes="Bold"
                                        FontSize="16"></Label>
