@@ -1,33 +1,37 @@
-﻿using System.Collections.Generic;
+﻿using GoodWorkersMVP.Models;
+using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using GoodWorkersMVP.Models;
 
 namespace GoodWorkersMVP.ViewModels
 {
     public class UsersViewModel : BaseViewModel
     {
-        List<User> users;
+        private ObservableCollection<User> users { get; set; }
 
-        ObservableCollection<User> _users;
+        public Ocupation Ocupation { get; set; }
 
         public ObservableCollection<User> Users
         {
-            get { return _users; }
-            set { SetValue(ref _users, value); }
+            get { return this.users; }
+            set { this.SetValue(ref this.users, value); }
         }
 
-        //public UsersViewModel(List<User> users)
-        //{
-        //    this.users = users;
-        //    Users = new ObservableCollection<User>(users.OrderBy(u => u.FullName));
-        //}
-
-        public UsersViewModel()
+        public UsersViewModel(Ocupation ocupation)
         {
-            //this.users = users;
-            Users = new ObservableCollection<User>(users.OrderBy(u => u.FullName));
+            this.Ocupation = ocupation;
+            LoadUsers();
+        }
+
+        private void LoadUsers()
+        {
+            this.Users = new ObservableCollection<User>();
+
+            foreach(var user in this.Ocupation.Users)
+            {
+                var oc = MainViewModel.GetInstance().OcupationList
+                                                    .Where(o => o.Users == )
+            }
         }
     }
 }

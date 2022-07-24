@@ -3,35 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GoodWorkersMVP.Pages.UsersPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="{Binding OcupationName}">
+             Title="Users">
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Users}">
+        <StackLayout BindingContext="{Binding Ocupation}">
             <ListView ItemsSource="{Binding Users}" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <!--<Grid.GestureRecognizers>
+                            <Frame Margin="5"
+                                   CornerRadius="10"
+                                   HasShadow="True">
+                                <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
                                                 Command="{Binding SelectOcupationCommand}">
                                     </TapGestureRecognizer>
-                                </Grid.GestureRecognizers>-->
-                                <StackLayout Grid.Column="0" VerticalOptions="Center" Margin="5, 15">
-                                    <Label FontAttributes="Bold"
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <!--<Grid.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                                Command="{Binding SelectOcupationCommand}">
+                                        </TapGestureRecognizer>
+                                    </Grid.GestureRecognizers>-->
+                                    <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                        <Label FontAttributes="Bold"
                                                FontSize="Medium"
                                                VerticalOptions="Center"
                                                VerticalTextAlignment="Center"
-                                               Text="{Binding FullName}"
-                                               TextColor="Black"></Label>
-                                </StackLayout>
-                                <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="5, 15">
-                                    <Image Source="next"></Image>
-                                </StackLayout>
-                            </Grid>
+                                               Text="{Binding Ocupation.OcupationName}"
+                                               TextColor="#18bc9c"></Label>
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="5, 15">
+                                        <Image Source="next"></Image>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

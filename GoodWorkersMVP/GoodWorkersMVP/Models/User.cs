@@ -65,5 +65,8 @@ namespace GoodWorkersMVP.Models
 
         [JsonProperty("userType_id")]
         public long UserTypeId { get; set; }
+
+
+        public Ocupation Ocupation { get; set; }
     }
 }

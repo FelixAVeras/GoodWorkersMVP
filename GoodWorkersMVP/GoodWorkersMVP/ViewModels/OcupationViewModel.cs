@@ -3,6 +3,7 @@ using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -19,18 +20,18 @@ namespace GoodWorkersMVP.ViewModels
         private ObservableCollection<Ocupation> ocupations;
         private string filter;
 
-        private List<Ocupation> OcupationList;
+        //private List<Ocupation> OcupationList;
 
         public ObservableCollection<Ocupation> Ocupations
         {
-            get { return ocupations; }
-            set { SetValue(ref ocupations, value); }
+            get => ocupations;
+            set => SetValue(ref ocupations, value);
         }
 
         public bool IsRefreshing
         {
-            get { return isRefreshing; }
-            set { SetValue(ref isRefreshing, value); }
+            get => isRefreshing;
+            set => SetValue(ref isRefreshing, value);
         }
 
         public string Filter
@@ -90,33 +91,36 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            this.OcupationList = (List<Ocupation>)response.Result;
-            Ocupations = new ObservableCollection<Ocupation>(OcupationList.OrderBy(o => o.OcupationName));
+
+            MainViewModel.GetInstance().OcupationList = (List<Ocupation>)response.Result;
+            Ocupations = new ObservableCollection<Ocupation>(this.ToOcupationItemViewModel());
 
             Application.Current.MainPage = new MasterPage();
 
             //this.IsRefreshing = false;
         }
 
-        //private IEnumerable<OcupationItemViewModel> ToCategoryItemViewModel()
-        //{
-        //    return MainViewModel.GetInstance().Ocupations.Select(cl => new OcupationItemViewModel
-        //    {
-        //        Id = cl.Id,
-        //        OcupationName = cl.OcupationName
-        //    });
-        //}
+        private IEnumerable<Ocupation> ToOcupationItemViewModel()
+        {
+            return MainViewModel.GetInstance().OcupationList.Select(ol => new OcupationItemViewModel
+            {
+                OcupationId = ol.OcupationId,
+                OcupationName = ol.OcupationName
+            }).ToList();
+        }
 
         private void Search()   
         {
             if (string.IsNullOrEmpty(this.Filter))
             {
-                this.Ocupations = new ObservableCollection<Ocupation>(this.OcupationList);
+                Ocupations = new ObservableCollection<Ocupation>(this.ToOcupationItemViewModel());
             }
             else
             {
                 this.Ocupations = new ObservableCollection<Ocupation>(
-                    this.OcupationList.Where(ol => ol.OcupationName.ToLower().Contains(this.Filter.ToLower())));
+                    this.ToOcupationItemViewModel()
+                        .Where(ol => ol.OcupationName.ToLower()
+                        .Contains(this.Filter.ToLower())));
             }
         }
     }
