@@ -1,14 +1,14 @@
-﻿using GalaSoft.MvvmLight.Command;
-using GoodWorkersMVP.Helpers;
-using GoodWorkersMVP.Models;
-using GoodWorkersMVP.Pages;
-using GoodWorkersMVP.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
+using GalaSoft.MvvmLight.Command;
+using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Models;
+using GoodWorkersMVP.Pages;
+using GoodWorkersMVP.Services;
 
 namespace GoodWorkersMVP.ViewModels
 {
@@ -50,7 +50,7 @@ namespace GoodWorkersMVP.ViewModels
 
             LoadOcupations();
         }
-
+        
         public ICommand RefreshCommand => new RelayCommand(LoadOcupations);
         public ICommand SearchCommand => new RelayCommand(Search);
 

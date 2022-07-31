@@ -1,37 +1,37 @@
 ﻿using GoodWorkersMVP.Models;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 
 namespace GoodWorkersMVP.ViewModels
 {
-    public class UsersViewModel : BaseViewModel
+    public class UsersViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<User> users { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public Ocupation Ocupation { get; set; }
+        List<User> users { get; set; }
+        ObservableCollection<User> _users;
 
         public ObservableCollection<User> Users
         {
-            get { return this.users; }
-            set { this.SetValue(ref this.users, value); }
-        }
-
-        public UsersViewModel(Ocupation ocupation)
-        {
-            this.Ocupation = ocupation;
-            LoadUsers();
-        }
-
-        private void LoadUsers()
-        {
-            this.Users = new ObservableCollection<User>();
-
-            foreach(var user in this.Ocupation.Users)
+            get { return _users; }
+            set
             {
-                var oc = MainViewModel.GetInstance().OcupationList
-                                                    .Where(o => o.Users == )
+                if (_users != value)
+                {
+                    _users = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Users)));
+                }
             }
+        }
+
+        public UsersViewModel(List<User> users)
+        {
+            this.users = users;
+
+            Users = new ObservableCollection<User>(users.OrderBy(u => u.FullName));
         }
     }
 }

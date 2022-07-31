@@ -5,7 +5,7 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Users">
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Ocupation}">
+        <StackLayout BindingContext="{Binding Users}">
             <ListView ItemsSource="{Binding Users}" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -33,7 +33,7 @@
                                                FontSize="Medium"
                                                VerticalOptions="Center"
                                                VerticalTextAlignment="Center"
-                                               Text="{Binding Ocupation.OcupationName}"
+                                               Text="{Binding FullName}"
                                                TextColor="#18bc9c"></Label>
                                     </StackLayout>
                                     <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="5, 15">
