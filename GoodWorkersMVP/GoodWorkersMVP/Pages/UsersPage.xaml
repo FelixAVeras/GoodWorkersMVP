@@ -6,7 +6,7 @@
              Title="Users">
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Users}">
-            <ListView ItemsSource="{Binding Users}" HasUnevenRows="True">
+            <ListView ItemsSource="{Binding Users}" HasUnevenRows="True" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

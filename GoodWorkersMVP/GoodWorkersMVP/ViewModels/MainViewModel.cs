@@ -1,8 +1,4 @@
-﻿using GoodWorkersMVP.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 
 namespace GoodWorkersMVP.ViewModels
 {
@@ -13,10 +9,10 @@ namespace GoodWorkersMVP.ViewModels
         public RegisterViewModel Register { get; set; }
 
         public OcupationViewModel Ocupations { get; set; }
-        public Ocupation Ocupation { get; set; }
+        //public Ocupation Ocupation { get; set; }
         public UsersViewModel Users { get; set; }
 
-        public List<Ocupation> OcupationList { get; set; }
+        //public List<Ocupation> OcupationList { get; set; }
 
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
 
@@ -82,6 +78,6 @@ namespace GoodWorkersMVP.ViewModels
             };
         }
 
-        
+
     }
 }

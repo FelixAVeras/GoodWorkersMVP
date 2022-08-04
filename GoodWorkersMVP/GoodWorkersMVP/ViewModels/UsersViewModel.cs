@@ -1,5 +1,4 @@
 ﻿using GoodWorkersMVP.Models;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -11,7 +10,7 @@ namespace GoodWorkersMVP.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        List<User> users { get; set; }
+        List<User> users;
 
         ObservableCollection<User> _users;
 

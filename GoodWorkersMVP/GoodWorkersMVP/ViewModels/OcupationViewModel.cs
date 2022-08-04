@@ -1,14 +1,13 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Command;
+using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Models;
+using GoodWorkersMVP.Pages;
+using GoodWorkersMVP.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
-using GalaSoft.MvvmLight.Command;
-using GoodWorkersMVP.Helpers;
-using GoodWorkersMVP.Models;
-using GoodWorkersMVP.Pages;
-using GoodWorkersMVP.Services;
 
 namespace GoodWorkersMVP.ViewModels
 {
@@ -34,15 +33,15 @@ namespace GoodWorkersMVP.ViewModels
             set => SetValue(ref isRefreshing, value);
         }
 
-        public string Filter
-        {
-            get => filter;
-            set
-            {
-                SetValue(ref filter, value);
-                this.Search();
-            }
-        }
+        //public string Filter
+        //{
+        //    get => filter;
+        //    set
+        //    {
+        //        SetValue(ref filter, value);
+        //        this.Search();
+        //    }
+        //}
 
         public OcupationViewModel()
         {
@@ -50,9 +49,9 @@ namespace GoodWorkersMVP.ViewModels
 
             LoadOcupations();
         }
-        
+
         public ICommand RefreshCommand => new RelayCommand(LoadOcupations);
-        public ICommand SearchCommand => new RelayCommand(Search);
+        //public ICommand SearchCommand => new RelayCommand(Search);
 
         async void LoadOcupations()
         {
@@ -90,37 +89,39 @@ namespace GoodWorkersMVP.ViewModels
 
                 return;
             }
-            
-            MainViewModel.GetInstance().OcupationList = (List<Ocupation>)response.Result;
-            Ocupations = new ObservableCollection<Ocupation>(this.ToOcupationItemViewModel());
+
+            //MainViewModel.GetInstance().OcupationList = (List<Ocupation>)response.Result;
+            var ocupationList = (List<Ocupation>)response.Result;
+            //Ocupations = new ObservableCollection<Ocupation>(this.ToOcupationItemViewModel());
+            Ocupations = new ObservableCollection<Ocupation>(ocupationList.OrderBy(o => o.OcupationName));
 
             Application.Current.MainPage = new MasterPage();
 
             //this.IsRefreshing = false;
         }
 
-        private IEnumerable<Ocupation> ToOcupationItemViewModel()
-        {
-            return MainViewModel.GetInstance().OcupationList.Select(ol => new OcupationItemViewModel
-            {
-                Id = ol.Id,
-                OcupationName = ol.OcupationName
-            }).ToList();
-        }
+        //private IEnumerable<Ocupation> ToOcupationItemViewModel()
+        //{
+        //    return MainViewModel.GetInstance().OcupationList.Select(ol => new OcupationItemViewModel
+        //    {
+        //        Id = ol.Id,
+        //        OcupationName = ol.OcupationName
+        //    }).ToList();
+        //}
 
-        private void Search()   
-        {
-            if (string.IsNullOrEmpty(this.Filter))
-            {
-                Ocupations = new ObservableCollection<Ocupation>(this.ToOcupationItemViewModel());
-            }
-            else
-            {
-                this.Ocupations = new ObservableCollection<Ocupation>(
-                    this.ToOcupationItemViewModel()
-                        .Where(ol => ol.OcupationName.ToLower()
-                        .Contains(this.Filter.ToLower())));
-            }
-        }
+        //private void Search()   
+        //{
+        //    if (string.IsNullOrEmpty(this.Filter))
+        //    {
+        //        Ocupations = new ObservableCollection<Ocupation>(this.ToOcupationItemViewModel());
+        //    }
+        //    else
+        //    {
+        //        this.Ocupations = new ObservableCollection<Ocupation>(
+        //            this.ToOcupationItemViewModel()
+        //                .Where(ol => ol.OcupationName.ToLower()
+        //                .Contains(this.Filter.ToLower())));
+        //    }
+        //}
     }
 }

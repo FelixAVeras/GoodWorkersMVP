@@ -2,9 +2,7 @@
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.ViewModels;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace GoodWorkersMVP.Models
 {
@@ -16,18 +14,19 @@ namespace GoodWorkersMVP.Models
 
         public List<User> Users { get; set; }
 
-        //public ICommand SelectOcupationCommand
-        //{
-        //    get
-        //    {
-        //        return new RelayCommand(SelectOcupation);
-        //    }
-        //}
+        public ICommand SelectOcupationCommand
+        {
+            get
+            {
+                return new RelayCommand(SelectOcupation);
+            }
+        }
 
-        //async void SelectOcupation()
-        //{
-        //    MainViewModel.GetInstance().Users = new UsersViewModel(Users);
-        //    await Application.Current.MainPage.Navigation.PushAsync(new UsersPage());
-        //}
+        async void SelectOcupation()
+        {
+            MainViewModel.GetInstance().Users = new UsersViewModel(Users);
+            //await Application.Current.MainPage.Navigation.PushAsync(new UsersPage());
+            await App.Navigator.PushAsync(new UsersPage());
+        }
     }
 }
