@@ -90,8 +90,7 @@ namespace GoodWorkersMVP.ViewModels
 
                 return;
             }
-
-
+            
             MainViewModel.GetInstance().OcupationList = (List<Ocupation>)response.Result;
             Ocupations = new ObservableCollection<Ocupation>(this.ToOcupationItemViewModel());
 
@@ -104,7 +103,7 @@ namespace GoodWorkersMVP.ViewModels
         {
             return MainViewModel.GetInstance().OcupationList.Select(ol => new OcupationItemViewModel
             {
-                OcupationId = ol.OcupationId,
+                Id = ol.Id,
                 OcupationName = ol.OcupationName
             }).ToList();
         }
