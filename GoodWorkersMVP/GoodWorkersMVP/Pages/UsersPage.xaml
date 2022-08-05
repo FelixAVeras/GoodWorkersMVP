@@ -16,20 +16,20 @@
                                    HasShadow="True">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
-                                                Command="{Binding SelectOcupationCommand}">
+                                                Command="{Binding SelectUserCommand}">
                                     </TapGestureRecognizer>
                                 </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                         <ColumnDefinition Width="auto"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <!--<Grid.GestureRecognizers>
-                                        <TapGestureRecognizer 
-                                                Command="{Binding SelectOcupationCommand}">
-                                        </TapGestureRecognizer>
-                                    </Grid.GestureRecognizers>-->
-                                    <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                    <Image Grid.Column="0" Source="user"
+                                           HeightRequest="64"
+                                           HorizontalOptions="Center"
+                                           Aspect="AspectFit"></Image>
+                                    <StackLayout Grid.Column="1" VerticalOptions="Center">
                                         <Label FontAttributes="Bold"
                                                FontSize="Medium"
                                                VerticalOptions="Center"
@@ -37,7 +37,7 @@
                                                Text="{Binding FullName}"
                                                TextColor="#18bc9c"></Label>
                                     </StackLayout>
-                                    <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="5, 15">
+                                    <StackLayout Grid.Column="2" VerticalOptions="Center" Margin="5, 15">
                                         <Image Source="next"></Image>
                                     </StackLayout>
                                 </Grid>

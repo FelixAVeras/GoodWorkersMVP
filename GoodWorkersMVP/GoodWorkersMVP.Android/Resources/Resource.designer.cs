@@ -3053,10 +3053,13 @@ namespace GoodWorkersMVP.Droid
 			public const int tooltip_frame_light = 2131165510;
 			
 			// aapt resource value: 0x7F070147
-			public const int usericon = 2131165511;
+			public const int user = 2131165511;
 			
 			// aapt resource value: 0x7F070148
-			public const int workers = 2131165512;
+			public const int usericon = 2131165512;
+			
+			// aapt resource value: 0x7F070149
+			public const int workers = 2131165513;
 			
 			static Drawable()
 			{
