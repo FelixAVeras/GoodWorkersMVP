@@ -57,5 +57,8 @@ namespace GoodWorkersMVP.Helpers
 
         //Register
         public static string RegisterTitlePage => Resource.RegisterTitlePage;
+
+        //Miselaneous
+        public static string UsersTitlePage => Resource.UsersTitlePage;
     }
 }

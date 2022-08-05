@@ -210,4 +210,7 @@
   <data name="RegisterTitlePage" xml:space="preserve">
     <value>Registar</value>
   </data>
+  <data name="UsersTitlePage" xml:space="preserve">
+    <value>Usuários</value>
+  </data>
 </root>

@@ -33,15 +33,16 @@ namespace GoodWorkersMVP.ViewModels
             set => SetValue(ref isRefreshing, value);
         }
 
-        //public string Filter
-        //{
-        //    get => filter;
-        //    set
-        //    {
-        //        SetValue(ref filter, value);
-        //        this.Search();
-        //    }
-        //}
+        public string Filter
+        {
+            get => filter;
+            set { SetValue(ref filter, value); this.RefreshList(); }
+            //set
+            //{
+            //    SetValue(ref filter, value);
+            //    this.Search();
+            //}
+        }
 
         public OcupationViewModel()
         {
@@ -51,7 +52,9 @@ namespace GoodWorkersMVP.ViewModels
         }
 
         public ICommand RefreshCommand => new RelayCommand(LoadOcupations);
+        
         //public ICommand SearchCommand => new RelayCommand(Search);
+        public ICommand SearchCommand => new RelayCommand(RefreshList);
 
         async void LoadOcupations()
         {
@@ -123,5 +126,31 @@ namespace GoodWorkersMVP.ViewModels
         //                .Contains(this.Filter.ToLower())));
         //    }
         //}
+
+        public void RefreshList()
+        {
+            if (string.IsNullOrEmpty(this.Filter))
+            {
+                var myOcupationList = Ocupations.Select(o => new Ocupation
+                {
+                    Id = o.Id,
+                    OcupationName = o.OcupationName
+                });
+
+                Ocupations = new ObservableCollection<Ocupation>
+                        (myOcupationList.OrderBy(ol => ol.OcupationName));
+            }
+            else
+            {
+                var myOcupationList = Ocupations.Select(o => new Ocupation
+                {
+                    Id = o.Id,
+                    OcupationName = o.OcupationName
+                }).Where(o => o.OcupationName.ToLower().Contains(Filter.ToLower())).ToList();
+
+                Ocupations = new ObservableCollection<Ocupation>
+                        (myOcupationList.OrderBy(ol => ol.OcupationName));
+            }
+        }
     }
 }

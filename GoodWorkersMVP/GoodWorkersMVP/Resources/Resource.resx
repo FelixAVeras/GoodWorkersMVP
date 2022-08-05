@@ -169,7 +169,7 @@
     <value>Last name cannot be empty</value>
   </data>
   <data name="LoginTitlePage" xml:space="preserve">
-    <value>Sign In</value>
+    <value>Log In</value>
   </data>
   <data name="NoInternetDialog" xml:space="preserve">
     <value>Please, enable your internet connection</value>
@@ -196,7 +196,7 @@
     <value>Successfully Registered</value>
   </data>
   <data name="RegisterTitlePage" xml:space="preserve">
-    <value>Sign Up</value>
+    <value>Register</value>
   </data>
   <data name="RememberMyDataLabel" xml:space="preserve">
     <value>Remember my data?</value>
@@ -209,5 +209,8 @@
   </data>
   <data name="UnableLocation" xml:space="preserve">
     <value>Unable to detect locations</value>
+  </data>
+  <data name="UsersTitlePage" xml:space="preserve">
+    <value>Users</value>
   </data>
 </root>
