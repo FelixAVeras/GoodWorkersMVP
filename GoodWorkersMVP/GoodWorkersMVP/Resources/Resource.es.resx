@@ -210,4 +210,7 @@
   <data name="RegisterTitlePage" xml:space="preserve">
     <value>Registrarte</value>
   </data>
+  <data name="ChangeImageProfileLabel" xml:space="preserve">
+    <value>Pulsa aquí para cambiar la imagen de perfil</value>
+  </data>
 </root>

@@ -24,8 +24,9 @@ namespace GoodWorkersMVP.Models
 
         async void SelectOcupation()
         {
-            MainViewModel.GetInstance().Users = new UsersViewModel(Users);
-            //await Application.Current.MainPage.Navigation.PushAsync(new UsersPage());
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.Ocupation = this;
+            mainViewModel.Users = new UsersViewModel(Users);
             await App.Navigator.PushAsync(new UsersPage());
         }
     }

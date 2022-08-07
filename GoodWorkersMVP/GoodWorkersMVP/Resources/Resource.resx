@@ -138,6 +138,9 @@
   <data name="CellphoneValidationEmpty" xml:space="preserve">
     <value>Cellphone cannot be empty</value>
   </data>
+  <data name="ChangeImageProfileLabel" xml:space="preserve">
+    <value>Tap here for change a image profile</value>
+  </data>
   <data name="DocumentNumberValidationEmpty" xml:space="preserve">
     <value>Document number cannot be empty</value>
   </data>

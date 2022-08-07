@@ -124,6 +124,15 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tap here for change a image profile.
+        /// </summary>
+        public static string ChangeImageProfileLabel {
+            get {
+                return ResourceManager.GetString("ChangeImageProfileLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Document number cannot be empty.
         /// </summary>
         public static string DocumentNumberValidationEmpty {

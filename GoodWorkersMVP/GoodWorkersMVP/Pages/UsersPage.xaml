@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GoodWorkersMVP.Pages.UsersPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Users">
+             Title="{Binding Ocupation.OcupationName}">
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Users}">
             <ListView ItemsSource="{Binding Users}" HasUnevenRows="True" SeparatorVisibility="None">
