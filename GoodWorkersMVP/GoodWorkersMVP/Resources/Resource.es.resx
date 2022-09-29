@@ -213,4 +213,73 @@
   <data name="ChangeImageProfileLabel" xml:space="preserve">
     <value>Pulsa aquí para cambiar la imagen de perfil</value>
   </data>
+  <data name="UserTypeTitleRegister" xml:space="preserve">
+    <value>Tipo de usuario</value>
+  </data>
+  <data name="SelectDocumentTypeLabel" xml:space="preserve">
+    <value>Selecciona el tipo de usuario</value>
+  </data>
+  <data name="RegisterFirstName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="BirthdateLabel" xml:space="preserve">
+    <value>Fecha de nacimiento</value>
+  </data>
+  <data name="RegisterLastName" xml:space="preserve">
+    <value>Apellidos</value>
+  </data>
+  <data name="RegisterMiddleName" xml:space="preserve">
+    <value>Segundo Nombre</value>
+  </data>
+  <data name="CellPhoneLabel" xml:space="preserve">
+    <value>Teléfono Celular</value>
+  </data>
+  <data name="DocumentTypeLabel" xml:space="preserve">
+    <value>Tipo de documento</value>
+  </data>
+  <data name="CountryLabel" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="DocumentNumberLabel" xml:space="preserve">
+    <value>Número del documento</value>
+  </data>
+  <data name="SelectCountryPlaceHolder" xml:space="preserve">
+    <value>Selecciona el país</value>
+  </data>
+  <data name="SelectStateProvincePlaceholder" xml:space="preserve">
+    <value>Seleccionar ciudad</value>
+  </data>
+  <data name="StateProvinceLabel" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+  <data name="AboutMeLabel" xml:space="preserve">
+    <value>Sobre mí</value>
+  </data>
+  <data name="AboutMePlaceholder" xml:space="preserve">
+    <value>Háblame un poco más de ti</value>
+  </data>
+  <data name="AddressLabel" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="ConfirmedPasswordLabel" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="OcupationLabel" xml:space="preserve">
+    <value>Ocupación</value>
+  </data>
+  <data name="RegisterEmailLabel" xml:space="preserve">
+    <value>Dirección de</value>
+  </data>
+  <data name="RegisterPasswordLabel" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="SelectOcupationLabel" xml:space="preserve">
+    <value>Seleccionar</value>
+  </data>
+  <data name="TermAndConditionsLabel" xml:space="preserve">
+    <value>Términos y condiciones</value>
+  </data>
+  <data name="RegisterBtn" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
 </root>

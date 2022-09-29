@@ -12,8 +12,7 @@ namespace GoodWorkersMVP.ViewModels
         public OcupationViewModel Ocupations { get; set; }
         public Ocupation Ocupation { get; set; }
         public UsersViewModel Users { get; set; }
-
-        //public List<Ocupation> OcupationList { get; set; }
+        public UserDetailViewModel UserDetail { get; set; }
 
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
 
@@ -35,19 +34,18 @@ namespace GoodWorkersMVP.ViewModels
             }
 
             return instance;
-
         }
 
         private void LoadMenu()
         {
             Menus = new ObservableCollection<MenuItemViewModel>
             {
-                new MenuItemViewModel()
-                {
-                    Icon = "internetexplorer",
-                    PageName = "MapsPage",
-                    TitleIcon = "Explorar"
-                },
+                //new MenuItemViewModel()
+                //{
+                //    Icon = "internetexplorer",
+                //    PageName = "MapsPage",
+                //    TitleIcon = "Explorar"
+                //},
 
                 new MenuItemViewModel()
                 {

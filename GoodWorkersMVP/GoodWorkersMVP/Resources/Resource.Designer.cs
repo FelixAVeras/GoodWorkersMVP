@@ -61,6 +61,24 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About me.
+        /// </summary>
+        public static string AboutMeLabel {
+            get {
+                return ResourceManager.GetString("AboutMeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tell me about you.
+        /// </summary>
+        public static string AboutMePlaceholder {
+            get {
+                return ResourceManager.GetString("AboutMePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About me field cannot be empty.
         /// </summary>
         public static string AboutMeValidationEmpty {
@@ -70,11 +88,29 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string AddressLabel {
+            get {
+                return ResourceManager.GetString("AddressLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address cannot be empty.
         /// </summary>
         public static string AddressValidationEmpty {
             get {
                 return ResourceManager.GetString("AddressValidationEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Birth date.
+        /// </summary>
+        public static string BirthdateLabel {
+            get {
+                return ResourceManager.GetString("BirthdateLabel", resourceCulture);
             }
         }
         
@@ -115,6 +151,15 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cell phone.
+        /// </summary>
+        public static string CellPhoneLabel {
+            get {
+                return ResourceManager.GetString("CellPhoneLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cellphone cannot be empty.
         /// </summary>
         public static string CellphoneValidationEmpty {
@@ -133,11 +178,47 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confrim password.
+        /// </summary>
+        public static string ConfirmedPasswordLabel {
+            get {
+                return ResourceManager.GetString("ConfirmedPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string CountryLabel {
+            get {
+                return ResourceManager.GetString("CountryLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Document Number.
+        /// </summary>
+        public static string DocumentNumberLabel {
+            get {
+                return ResourceManager.GetString("DocumentNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Document number cannot be empty.
         /// </summary>
         public static string DocumentNumberValidationEmpty {
             get {
                 return ResourceManager.GetString("DocumentNumberValidationEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Document Type.
+        /// </summary>
+        public static string DocumentTypeLabel {
+            get {
+                return ResourceManager.GetString("DocumentTypeLabel", resourceCulture);
             }
         }
         
@@ -250,6 +331,15 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ocupation.
+        /// </summary>
+        public static string OcupationLabel {
+            get {
+                return ResourceManager.GetString("OcupationLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string PasswordLabel {
@@ -286,6 +376,15 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Registrar.
+        /// </summary>
+        public static string RegisterBtn {
+            get {
+                return ResourceManager.GetString("RegisterBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You can login now.
         /// </summary>
         public static string RegisterConfirmationMessage {
@@ -300,6 +399,51 @@ namespace GoodWorkersMVP.Resources {
         public static string RegisterConfirmationTitleDialog {
             get {
                 return ResourceManager.GetString("RegisterConfirmationTitleDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string RegisterEmailLabel {
+            get {
+                return ResourceManager.GetString("RegisterEmailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Name.
+        /// </summary>
+        public static string RegisterFirstName {
+            get {
+                return ResourceManager.GetString("RegisterFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        public static string RegisterLastName {
+            get {
+                return ResourceManager.GetString("RegisterLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Middle Name.
+        /// </summary>
+        public static string RegisterMiddleName {
+            get {
+                return ResourceManager.GetString("RegisterMiddleName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string RegisterPasswordLabel {
+            get {
+                return ResourceManager.GetString("RegisterPasswordLabel", resourceCulture);
             }
         }
         
@@ -331,6 +475,42 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Country.
+        /// </summary>
+        public static string SelectCountryPlaceHolder {
+            get {
+                return ResourceManager.GetString("SelectCountryPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select user type.
+        /// </summary>
+        public static string SelectDocumentTypeLabel {
+            get {
+                return ResourceManager.GetString("SelectDocumentTypeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Ocupation.
+        /// </summary>
+        public static string SelectOcupationLabel {
+            get {
+                return ResourceManager.GetString("SelectOcupationLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select City.
+        /// </summary>
+        public static string SelectStateProvincePlaceholder {
+            get {
+                return ResourceManager.GetString("SelectStateProvincePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Something went wrong.
         /// </summary>
         public static string SomethingWentWrong {
@@ -340,11 +520,38 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string StateProvinceLabel {
+            get {
+                return ResourceManager.GetString("StateProvinceLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terms and conditions.
+        /// </summary>
+        public static string TermAndConditionsLabel {
+            get {
+                return ResourceManager.GetString("TermAndConditionsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to detect locations.
         /// </summary>
         public static string UnableLocation {
             get {
                 return ResourceManager.GetString("UnableLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Type.
+        /// </summary>
+        public static string UserTypeTitleRegister {
+            get {
+                return ResourceManager.GetString("UserTypeTitleRegister", resourceCulture);
             }
         }
     }

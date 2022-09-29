@@ -126,7 +126,7 @@
                            FontFamily="Custom_Normal_Font"
                        Text="{Binding DocumentNumber, Mode=TwoWay}"></Entry>
 
-                        <Label Text="{i18n:Translate CountryLabel}"
+                        <!--<Label Text="{i18n:Translate CountryLabel}"
                            FontSize="16"
                            FontFamily="Custom_Normal_Font"
                            TextColor="black"></Label>
@@ -148,7 +148,7 @@
                             TextColor="#3459E6">
                             <Picker.ItemsSource>
                             </Picker.ItemsSource>
-                        </Picker>
+                        </Picker>-->
 
                         <Label Text="{i18n:Translate AddressLabel}"
                            FontSize="16"
@@ -239,10 +239,10 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
-                            <Label Grid.Column="1" Text="{i18n:Translate TermAndConditionsLabel}"
+                            <!--<Label Grid.Column="1" Text="{i18n:Translate TermAndConditionsLabel}"
                                 VerticalOptions="Center" />
 
-                            <!--<CheckBox Grid.Column="0"
+                            <CheckBox Grid.Column="0"
                                   VerticalOptions="Center" />-->
 
                         </Grid>

@@ -14,13 +14,7 @@ namespace GoodWorkersMVP.Models
 
         public List<User> Users { get; set; }
 
-        public ICommand SelectOcupationCommand
-        {
-            get
-            {
-                return new RelayCommand(SelectOcupation);
-            }
-        }
+        public ICommand SelectOcupationCommand => new RelayCommand(SelectOcupation);
 
         async void SelectOcupation()
         {

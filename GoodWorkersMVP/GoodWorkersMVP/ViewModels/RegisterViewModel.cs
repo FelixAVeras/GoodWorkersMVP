@@ -16,14 +16,14 @@ namespace GoodWorkersMVP.ViewModels
         private bool _isRunning;
         private bool _isEnable;
 
-        //private ImageSource imageSource;
+        private ImageSource imageSource;
         //private MediaFile file;
 
-        //public ImageSource ImageSource
-        //{
-        //    get => this.imageSource;
-        //    set => SetValue(ref this.imageSource, value);
-        //}
+        public ImageSource ImageSource
+        {
+            get => this.imageSource;
+            set => SetValue(ref this.imageSource, value);
+        }
 
         public bool IsRunning
         {
@@ -61,7 +61,7 @@ namespace GoodWorkersMVP.ViewModels
             this.apiService = new ApiService();
 
             this._isEnable = true;
-            //this.imageSource = "camera";
+            this.imageSource = "camera";
 
             // LoadDocumentTypes();
         }

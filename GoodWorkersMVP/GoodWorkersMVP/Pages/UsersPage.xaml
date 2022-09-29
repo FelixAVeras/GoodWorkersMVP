@@ -5,7 +5,7 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="{Binding Ocupation.OcupationName}">
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Users}">
+        <StackLayout BindingContext="{Binding Users}" Padding="8">
             <ListView ItemsSource="{Binding Users}" HasUnevenRows="True" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
