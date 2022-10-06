@@ -37,8 +37,8 @@ namespace GoodWorkersMVP.Pages
         {
             try
             {
-                var address = addressEntry.Text;
-                var locations = await Geocoding.GetLocationsAsync(address);
+                string address = addressEntry.Text;
+                IEnumerable<Location> locations = await Geocoding.GetLocationsAsync(address);
 
                 Location location = locations.FirstOrDefault();
 
@@ -70,8 +70,15 @@ namespace GoodWorkersMVP.Pages
 
         private async void btnGoToMap_Clicked(object sender, EventArgs e)
         {
-            if (!double.TryParse(latitudeEntry.Text, out double lat)) return;
-            if (!double.TryParse(longitudeEntry.Text, out double lng)) return;
+            if (!double.TryParse(latitudeEntry.Text, out double lat))
+            {
+                return;
+            }
+
+            if (!double.TryParse(longitudeEntry.Text, out double lng))
+            {
+                return;
+            }
 
             await Map.OpenAsync(lat, lng, new MapLaunchOptions
             {
@@ -110,10 +117,14 @@ namespace GoodWorkersMVP.Pages
         protected virtual bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName] string propertyName = "", Action onChanged = null, Func<T, T, bool> validateValue = null)
         {
             if (EqualityComparer<T>.Default.Equals(backingStore, value))
+            {
                 return false;
+            }
 
             if (validateValue != null && !validateValue(backingStore, value))
+            {
                 return false;
+            }
 
             backingStore = value;
             onChanged?.Invoke();

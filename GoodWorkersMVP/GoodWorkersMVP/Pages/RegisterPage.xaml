@@ -254,7 +254,7 @@
             </ScrollView>
 
             <Button Text="{i18n:Translate RegisterBtn}"
-                    BackgroundColor="#3459E6"
+                    BackgroundColor="#253544"
                     TextColor="White"
                     FontFamily="Custom_Normal_Font"
                     CornerRadius="10"

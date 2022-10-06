@@ -40,12 +40,12 @@ namespace GoodWorkersMVP.ViewModels
         {
             Menus = new ObservableCollection<MenuItemViewModel>
             {
-                //new MenuItemViewModel()
-                //{
-                //    Icon = "internetexplorer",
-                //    PageName = "MapsPage",
-                //    TitleIcon = "Explorar"
-                //},
+                new MenuItemViewModel()
+                {
+                    Icon = "internetexplorer",
+                    PageName = "MapsPage",
+                    TitleIcon = "Explorar"
+                },
 
                 new MenuItemViewModel()
                 {
