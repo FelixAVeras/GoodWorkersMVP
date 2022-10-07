@@ -38,8 +38,8 @@ namespace GoodWorkersMVP.ViewModels
         }
 
         public ICommand RefreshCommand => new RelayCommand(LoadOcupations);
-        
-        async void LoadOcupations()
+
+        private async void LoadOcupations()
         {
             this.IsRefreshing = true;
 
