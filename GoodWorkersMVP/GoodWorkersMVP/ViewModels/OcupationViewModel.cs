@@ -1,12 +1,12 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
 using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels

@@ -177,6 +177,9 @@
   <data name="EmailPlaceholder" xml:space="preserve">
     <value>Enter your Email Address</value>
   </data>
+  <data name="EmailValidationCorrect" xml:space="preserve">
+    <value>Please, enter a valid email</value>
+  </data>
   <data name="ErrorEmailEmptyLabel" xml:space="preserve">
     <value>You must enter an Email Address</value>
   </data>
@@ -273,6 +276,15 @@
   <data name="StateProvinceLabel" xml:space="preserve">
     <value>City</value>
   </data>
+  <data name="TakePicDialogCamera" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="TakePicDialogGallery" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="TakePickFrom" xml:space="preserve">
+    <value>Take image from</value>
+  </data>
   <data name="TermAndConditionsLabel" xml:space="preserve">
     <value>Terms and conditions</value>
   </data>
@@ -281,5 +293,11 @@
   </data>
   <data name="UserTypeTitleRegister" xml:space="preserve">
     <value>User Type</value>
+  </data>
+  <data name="ValidationEmailEmptyMessage" xml:space="preserve">
+    <value>Email cannot be empty</value>
+  </data>
+  <data name="ValidationPasswordEmpty" xml:space="preserve">
+    <value>Password cannot be empty</value>
   </data>
 </root>

@@ -76,5 +76,15 @@ namespace GoodWorkersMVP.Helpers
         public static string ConfirmedPasswordLabel => Resource.ConfirmedPasswordLabel;
         public static string TermAndConditionsLabel => Resource.TermAndConditionsLabel;
         public static string RegisterBtn => Resource.RegisterBtn;
+        public static string ValidationPasswordEmpty => Resource.ValidationPasswordEmpty;
+        public static string EmailValidationCorrect => Resource.EmailValidationCorrect;
+        public static string ValidationEmailEmptyMessage => Resource.ValidationEmailEmptyMessage;
+        public static string TakePicDialogCamera => Resource.TakePicDialogCamera;
+        public static string TakePicDialogGallery => Resource.TakePicDialogGallery;
+        public static string TakePickFrom => Resource.TakePickFrom;
+        public static string CancelDialogBtn => Resource.BtnCancelDialog;
+        public static string AcceptDialogBtn => Resource.BtnAcceptDialog;
+        public static string TitleErrorDialog => Resource.ErrorTitleDialog;
+
     }
 }

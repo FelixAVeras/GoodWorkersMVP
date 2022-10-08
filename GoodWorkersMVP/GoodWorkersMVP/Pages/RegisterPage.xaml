@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GoodWorkersMVP.Pages.RegisterPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             xmlns:local="clr-namespace:GoodWorkers.Helpers"
+             Title="GoodWorkers APP">
+    <ContentPage.Content>
+        <StackLayout Padding="8" BindingContext="{Binding Register}">
+            <ScrollView>
+                <StackLayout Padding="8">
+                    <Image Source="{Binding ImageSource}"
+                           HeightRequest="150"
+                           Aspect="AspectFit">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeUserPhotoCommand}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <StackLayout>
+                        <Label Text="{local:Translate ChangeImageProfileLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"
+                           HorizontalOptions="CenterAndExpand"></Label>
+
+                        <StackLayout Margin="0, 15, 0, 18">
+                            <Label Text="{local:Translate UserTypeTitleRegister}"
+                               FontSize="16"
+                               TextColor="black"></Label>
+                            <StackLayout Orientation="Horizontal">
+                                <RadioButton Content="{local:Translate UserTypeCustomer}" 
+                                         FontFamily="Custom_Normal_Font"
+                                         Margin="0, 10, 0, 10" IsChecked="True"></RadioButton>
+                                <RadioButton Content="{local:Translate UserTypeProvider}"
+                                         FontFamily="Custom_Normal_Font"
+                                         Margin="20, 10, 0, 10"></RadioButton>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <Label Text="{local:Translate RegisterFirstName}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Entry Placeholder="{local:Translate RegisterFirstName}"
+                           Margin="0,13,0,13"
+                           FontFamily="Custom_Normal_Font"
+                           Text="{Binding FirstName, Mode=TwoWay}"></Entry>
+
+                        <Label Text="{local:Translate RegisterMiddleName}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Entry Placeholder="{local:Translate RegisterMiddleName}"
+                       Margin="0,13,0,13"
+                           FontFamily="Custom_Normal_Font"
+                       Text="{Binding MiddleName, Mode=TwoWay}"></Entry>
+
+                        <Label Text="{local:Translate RegisterLastName}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Entry Placeholder="{local:Translate RegisterLastName}"
+                       Margin="0,13,0,13"
+                           FontFamily="Custom_Normal_Font"
+                       Text="{Binding LastName, Mode=TwoWay}"></Entry>
+
+                        <Label Text="{local:Translate BirthdateLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <DatePicker MinimumDate="01/01/1960"
+                                MaximumDate="01/01/2000"
+                                Margin="0,13,0,13"/>
+
+                        <Label Text="{local:Translate CellPhoneLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Entry Placeholder="{local:Translate CellPhoneLabel}"
+                       Margin="0,13,0,13"
+                           FontFamily="Custom_Normal_Font"
+                               Keyboard="Telephone"
+                       Text="{Binding Cellphone, Mode=TwoWay}"></Entry>
+
+
+                        <Label Text="{local:Translate DocumentTypeLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Picker Title="{local:Translate SelectDocumentTypeLabel}"
+                            TitleColor="#3459E6"
+                            FontFamily="Custom_Normal_Font"
+                            FontAttributes="Italic"
+                            TextColor="#3459E6"
+                                ItemDisplayBinding="{Binding DocumentTypes.DocumentTypeName}"
+                                ItemsSource="{Binding DocumentTypes}"
+                                SelectedItem="{Binding DocumentType}">
+                            <!--<Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Cedula</x:String>
+                                    <x:String>Pasaporte</x:String>
+                                    <x:String>RNC</x:String>
+                                    <x:String>Cedula de Extranjeria</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>-->
+                        </Picker>
+
+                        <Label Text="{local:Translate DocumentNumberLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Entry Placeholder="{local:Translate DocumentNumberLabel}"
+                       Margin="0,13,0,13"
+                           FontFamily="Custom_Normal_Font"
+                       Text="{Binding DocumentNumber, Mode=TwoWay}"></Entry>
+
+                        <Label Text="{local:Translate CountryLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Picker Title="{local:Translate SelectCountryPlaceHolder}"
+                            TitleColor="#3459E6"
+                            FontFamily="Custom_Normal_Font"
+                            FontAttributes="Italic"
+                            TextColor="#3459E6">
+                            <Picker.ItemsSource>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <Label Text="{local:Translate StateProvinceLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Picker Title="{local:Translate SelectStateProvincePlaceholder}"
+                            TitleColor="#3459E6"
+                            FontFamily="Custom_Normal_Font"
+                            FontAttributes="Italic"
+                            TextColor="#3459E6">
+                            <Picker.ItemsSource>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <Label Text="{local:Translate AddressLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Entry Placeholder="{local:Translate AddressLabel}"
+                               Margin="0,13,0,13"
+                           FontFamily="Custom_Normal_Font"
+                       Text="{Binding Address, Mode=TwoWay}"></Entry>
+
+                        <Label Text="{local:Translate OcupationLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Picker x:Name="OcupationPicker" Title="{local:Translate SelectOcupationLabel}"
+                            TitleColor="#3459E6"
+                            FontFamily="Custom_Normal_Font"
+                            FontAttributes="Italic"
+                            TextColor="#3459E6">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Albañíl</x:String>
+                                    <x:String>Electricista</x:String>
+                                    <x:String>Ebanisteria</x:String>
+                                    <x:String>Herreria</x:String>
+                                    <x:String>Plomeria</x:String>
+                                    <x:String>Transporte</x:String>
+                                    <x:String>Seguridad</x:String>
+                                    <x:String>Guarderia</x:String>
+                                    <x:String>Tec. Electrodomesticos</x:String>
+                                    <x:String>Chef</x:String>
+                                    <x:String>Servicio Domestico</x:String>
+                                    <x:String>Jardineria</x:String>
+                                    <x:String>Pintura</x:String>
+                                    <x:String>Otros</x:String>
+                                    <x:String>Zapatero</x:String>
+                                    <x:String>Estilismo</x:String>
+                                    <x:String>Peluquería</x:String>
+                                    <x:String>Manicure y Pedicure</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <Label Text="{local:Translate AboutMeLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Editor Placeholder="{local:Translate AboutMePlaceholder}"
+                            Margin="0,13,0,13"
+                            FontFamily="Custom_Normal_Font"
+                            AutoSize="TextChanges"
+                            Text="{Binding AboutMe, Mode=TwoWay}"></Editor>
+
+                        <Label Text="{local:Translate RegisterEmailLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Entry Placeholder="{local:Translate RegisterEmailLabel}"
+                           Keyboard="Email"
+                           FontFamily="Custom_Normal_Font"
+                           Margin="0,13,0,13"
+                           Text="{Binding Email, Mode=TwoWay}"></Entry>
+
+                        <Label Text="{local:Translate RegisterPasswordLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Entry Placeholder="{local:Translate RegisterPasswordLabel}"
+                           IsPassword="True"
+                       Margin="0,13,0,13"
+                       Text="{Binding Password, Mode=TwoWay}"></Entry>
+
+                        <Label Text="{local:Translate ConfirmedPasswordLabel}"
+                           FontSize="16"
+                           FontFamily="Custom_Normal_Font"
+                           TextColor="black"></Label>
+                        <Entry Placeholder="{local:Translate ConfirmedPasswordLabel}"
+                           IsPassword="True"
+                           FontFamily="Custom_Normal_Font"
+                       Margin="0,13,0,13"
+                       Text="{Binding PasswordConfirm, Mode=TwoWay}"></Entry>
+
+                        <Grid Margin="0, 0, 0, 10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="1" Text="{local:Translate TermAndConditionsLabel}"
+                                VerticalOptions="Center" />
+
+                            <CheckBox Grid.Column="0"
+                                  VerticalOptions="Center" />
+
+                        </Grid>
+
+                        <ActivityIndicator Color="#3459E6"
+                                   IsRunning="{Binding isRunning, Mode=TwoWay}"></ActivityIndicator>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <Button Text="{local:Translate RegisterBtn}"
+                    BackgroundColor="#3459E6"
+                    TextColor="White"
+                    FontFamily="Custom_Normal_Font"
+                    CornerRadius="10"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding RegisterCommand}"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"></Button>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

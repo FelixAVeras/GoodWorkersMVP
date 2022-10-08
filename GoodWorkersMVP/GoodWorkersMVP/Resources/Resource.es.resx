@@ -282,4 +282,22 @@
   <data name="RegisterBtn" xml:space="preserve">
     <value>Registrarse</value>
   </data>
+  <data name="EmailValidationCorrect" xml:space="preserve">
+    <value>Por favor, introduzca un correo electrónico válido.</value>
+  </data>
+  <data name="TakePicDialogCamera" xml:space="preserve">
+    <value>Cámara.</value>
+  </data>
+  <data name="TakePicDialogGallery" xml:space="preserve">
+    <value>Galería</value>
+  </data>
+  <data name="TakePickFrom" xml:space="preserve">
+    <value>Seleccionar la Imagen desde</value>
+  </data>
+  <data name="ValidationEmailEmptyMessage" xml:space="preserve">
+    <value>El campo de email no puede estar vac\ío</value>
+  </data>
+  <data name="ValidationPasswordEmpty" xml:space="preserve">
+    <value>La contraseña no puede estar vacía.</value>
+  </data>
 </root>
