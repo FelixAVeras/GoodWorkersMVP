@@ -9,7 +9,7 @@
             <infra:InstanceLocator x:Key="Locator" />
             
             <!-- Colors -->
-            <Color x:Key="PrimaryColor">#3459E6</Color>
+            <x:String x:Key="urlApi">https://goodworkers-api.herokuapp.com/api</x:String>
             
         </ResourceDictionary>
     </Application.Resources>

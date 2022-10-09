@@ -16,6 +16,7 @@ namespace GoodWorkersMVP.ViewModels
         ApiService apiService;
 
         private bool isRefreshing;
+        // private string filter;
         private ObservableCollection<Ocupation> ocupations;
 
         public ObservableCollection<Ocupation> Ocupations
@@ -30,16 +31,15 @@ namespace GoodWorkersMVP.ViewModels
             set => SetValue(ref isRefreshing, value);
         }
 
-        public string Filter
-        {
-            get => filter;
-            set { SetValue(ref filter, value); this.RefreshList(); }
-            //set
-            //{
-            //    SetValue(ref filter, value);
-            //    this.Search();
-            //}
-        }
+        //public string Filter
+        //{
+        //    get => this.filter;
+        //    set
+        //    {
+        //        SetValue(ref this.filter, value);
+        //        this.Search();
+        //    }
+        //}
 
         public OcupationViewModel()
         {
@@ -50,8 +50,7 @@ namespace GoodWorkersMVP.ViewModels
 
         public ICommand RefreshCommand => new RelayCommand(LoadOcupations);
         
-        //public ICommand SearchCommand => new RelayCommand(Search);
-        public ICommand SearchCommand => new RelayCommand(RefreshList);
+        // public ICommand SearchCommand => new RelayCommand(Search);
 
         private async void LoadOcupations()
         {
@@ -97,5 +96,13 @@ namespace GoodWorkersMVP.ViewModels
 
             Application.Current.MainPage = new MasterPage();
         }
+
+        //private void Search()
+        //{
+        //    if (string.IsNullOrEmpty(this.Filter))
+        //    {
+
+        //    }
+        //}
     }
 }

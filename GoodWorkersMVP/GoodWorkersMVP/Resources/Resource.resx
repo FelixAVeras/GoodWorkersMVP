@@ -195,6 +195,12 @@
   <data name="ForgetPasswordLabel" xml:space="preserve">
     <value>Forgot your password?</value>
   </data>
+  <data name="FromCamera" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
   <data name="LastNameValidationEmpty" xml:space="preserve">
     <value>Last name cannot be empty</value>
   </data>
@@ -272,6 +278,9 @@
   </data>
   <data name="StateProvinceLabel" xml:space="preserve">
     <value>City</value>
+  </data>
+  <data name="TakePhotoSource" xml:space="preserve">
+    <value>Take image from</value>
   </data>
   <data name="TermAndConditionsLabel" xml:space="preserve">
     <value>Terms and conditions</value>

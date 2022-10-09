@@ -295,6 +295,24 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Camera.
+        /// </summary>
+        public static string FromCamera {
+            get {
+                return ResourceManager.GetString("FromCamera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Gallery.
+        /// </summary>
+        public static string FromGallery {
+            get {
+                return ResourceManager.GetString("FromGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Last name cannot be empty.
         /// </summary>
         public static string LastNameValidationEmpty {
@@ -304,7 +322,7 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Sign In.
+        ///   Busca una cadena traducida similar a Log In.
         /// </summary>
         public static string LoginTitlePage {
             get {
@@ -448,7 +466,7 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Sign Up.
+        ///   Busca una cadena traducida similar a Register.
         /// </summary>
         public static string RegisterTitlePage {
             get {
@@ -525,6 +543,15 @@ namespace GoodWorkersMVP.Resources {
         public static string StateProvinceLabel {
             get {
                 return ResourceManager.GetString("StateProvinceLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Take image from.
+        /// </summary>
+        public static string TakePhotoSource {
+            get {
+                return ResourceManager.GetString("TakePhotoSource", resourceCulture);
             }
         }
         

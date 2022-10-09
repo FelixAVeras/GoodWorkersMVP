@@ -49,7 +49,7 @@ namespace GoodWorkersMVP.ViewModels
 
         public ICommand LoginCommand => new RelayCommand(Login);
 
-        // public ICommand RegisterCommand => new RelayCommand(Register);
+        public ICommand RegisterCommand => new RelayCommand(Register);
 
         public LoginViewModel()
         {
@@ -111,7 +111,8 @@ namespace GoodWorkersMVP.ViewModels
 
                 return;
             }
-
+            
+            var urlApi = Application.Current.Resources["urlApi"].ToString();
             //var response = await apiservice.GetToken(
             //    "https://goodworkers-api.herokuapp.com/api/login",
             //    Email, Password);
@@ -133,10 +134,10 @@ namespace GoodWorkersMVP.ViewModels
             IsEnable = true;
         }
 
-        //async void Register()
-        //{
-        //    MainViewModel.GetInstance().Register = new RegisterViewModel();
-        //    await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
-        //}
+        private async void Register()
+        {
+            MainViewModel.GetInstance().Register = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+        }
     }
 }

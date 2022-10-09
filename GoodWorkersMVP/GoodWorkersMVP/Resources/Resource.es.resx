@@ -282,4 +282,13 @@
   <data name="RegisterBtn" xml:space="preserve">
     <value>Registrarse</value>
   </data>
+  <data name="TakePhotoSource" xml:space="preserve">
+    <value>Tomar imagen desde</value>
+  </data>
+  <data name="FromCamera" xml:space="preserve">
+    <value>Cámara.</value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>Galería</value>
+  </data>
 </root>

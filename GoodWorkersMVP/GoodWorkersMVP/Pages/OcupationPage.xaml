@@ -9,12 +9,12 @@
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Ocupations}" Padding="8">
 
-            <SearchBar BackgroundColor="Transparent"
+            <!--<SearchBar BackgroundColor="Transparent"
                        HeightRequest="40"
                        Text="{Binding Filter}"
                        SearchCommand="{Binding SearchCommand}"
                        Placeholder="{i18n:Translate SearchPLaceholderInput}">
-            </SearchBar>
+            </SearchBar>-->
 
                 <ListView ItemsSource="{Binding Ocupations}" 
                       HasUnevenRows="True"
