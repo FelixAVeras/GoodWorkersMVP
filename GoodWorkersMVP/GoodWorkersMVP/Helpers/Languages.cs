@@ -57,8 +57,24 @@ namespace GoodWorkersMVP.Helpers
 
         //Register
         public static string RegisterTitlePage => Resource.RegisterTitlePage;
-
-        //Miselaneous
-        public static string UsersTitlePage => Resource.UsersTitlePage;
+        public static string UserTypeTitleRegister => Resource.UserTypeTitleRegister;
+        public static string SelectDocumentTypeLabel => Resource.SelectDocumentTypeLabel;
+        public static string RegisterFirstName => Resource.RegisterFirstName;
+        public static string RegisterMiddleName => Resource.RegisterMiddleName;
+        public static string RegisterLastName => Resource.RegisterLastName;
+        public static string BirthdateLabel => Resource.BirthdateLabel;
+        public static string CellPhoneLabel => Resource.CellPhoneLabel;
+        public static string DocumentTypeLabel => Resource.DocumentTypeLabel;
+        public static string DocumentNumberLabel => Resource.DocumentNumberLabel;
+        public static string AddressLabel => Resource.AddressLabel;
+        public static string OcupationLabel => Resource.OcupationLabel;
+        public static string SelectOcupationLabel => Resource.SelectOcupationLabel;
+        public static string AboutMeLabel => Resource.AboutMeLabel;
+        public static string AboutMePlaceholder => Resource.AboutMePlaceholder;
+        public static string RegisterEmailLabel => Resource.RegisterEmailLabel;
+        public static string RegisterPasswordLabel => Resource.RegisterPasswordLabel;
+        public static string ConfirmedPasswordLabel => Resource.ConfirmedPasswordLabel;
+        public static string TermAndConditionsLabel => Resource.TermAndConditionsLabel;
+        public static string RegisterBtn => Resource.RegisterBtn;
     }
 }

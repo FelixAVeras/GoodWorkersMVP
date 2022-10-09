@@ -61,6 +61,24 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a About me.
+        /// </summary>
+        public static string AboutMeLabel {
+            get {
+                return ResourceManager.GetString("AboutMeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tell me about you.
+        /// </summary>
+        public static string AboutMePlaceholder {
+            get {
+                return ResourceManager.GetString("AboutMePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a About me field cannot be empty.
         /// </summary>
         public static string AboutMeValidationEmpty {
@@ -70,11 +88,29 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Address.
+        /// </summary>
+        public static string AddressLabel {
+            get {
+                return ResourceManager.GetString("AddressLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Address cannot be empty.
         /// </summary>
         public static string AddressValidationEmpty {
             get {
                 return ResourceManager.GetString("AddressValidationEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Birth date.
+        /// </summary>
+        public static string BirthdateLabel {
+            get {
+                return ResourceManager.GetString("BirthdateLabel", resourceCulture);
             }
         }
         
@@ -115,6 +151,15 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cell phone.
+        /// </summary>
+        public static string CellPhoneLabel {
+            get {
+                return ResourceManager.GetString("CellPhoneLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cellphone cannot be empty.
         /// </summary>
         public static string CellphoneValidationEmpty {
@@ -124,11 +169,56 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Tap here for change a image profile.
+        /// </summary>
+        public static string ChangeImageProfileLabel {
+            get {
+                return ResourceManager.GetString("ChangeImageProfileLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confrim password.
+        /// </summary>
+        public static string ConfirmedPasswordLabel {
+            get {
+                return ResourceManager.GetString("ConfirmedPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Country.
+        /// </summary>
+        public static string CountryLabel {
+            get {
+                return ResourceManager.GetString("CountryLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Document Number.
+        /// </summary>
+        public static string DocumentNumberLabel {
+            get {
+                return ResourceManager.GetString("DocumentNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Document number cannot be empty.
         /// </summary>
         public static string DocumentNumberValidationEmpty {
             get {
                 return ResourceManager.GetString("DocumentNumberValidationEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Document Type.
+        /// </summary>
+        public static string DocumentTypeLabel {
+            get {
+                return ResourceManager.GetString("DocumentTypeLabel", resourceCulture);
             }
         }
         
@@ -214,7 +304,7 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Log In.
+        ///   Busca una cadena traducida similar a Sign In.
         /// </summary>
         public static string LoginTitlePage {
             get {
@@ -237,6 +327,15 @@ namespace GoodWorkersMVP.Resources {
         public static string NoIntertnetWorkingDialog {
             get {
                 return ResourceManager.GetString("NoIntertnetWorkingDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ocupation.
+        /// </summary>
+        public static string OcupationLabel {
+            get {
+                return ResourceManager.GetString("OcupationLabel", resourceCulture);
             }
         }
         
@@ -277,6 +376,15 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Register.
+        /// </summary>
+        public static string RegisterBtn {
+            get {
+                return ResourceManager.GetString("RegisterBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a You can login now.
         /// </summary>
         public static string RegisterConfirmationMessage {
@@ -295,7 +403,52 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Register.
+        ///   Busca una cadena traducida similar a Email.
+        /// </summary>
+        public static string RegisterEmailLabel {
+            get {
+                return ResourceManager.GetString("RegisterEmailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a First Name.
+        /// </summary>
+        public static string RegisterFirstName {
+            get {
+                return ResourceManager.GetString("RegisterFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Last Name.
+        /// </summary>
+        public static string RegisterLastName {
+            get {
+                return ResourceManager.GetString("RegisterLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Middle Name.
+        /// </summary>
+        public static string RegisterMiddleName {
+            get {
+                return ResourceManager.GetString("RegisterMiddleName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Password.
+        /// </summary>
+        public static string RegisterPasswordLabel {
+            get {
+                return ResourceManager.GetString("RegisterPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sign Up.
         /// </summary>
         public static string RegisterTitlePage {
             get {
@@ -322,11 +475,65 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Select Country.
+        /// </summary>
+        public static string SelectCountryPlaceHolder {
+            get {
+                return ResourceManager.GetString("SelectCountryPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select user type.
+        /// </summary>
+        public static string SelectDocumentTypeLabel {
+            get {
+                return ResourceManager.GetString("SelectDocumentTypeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select Ocupation.
+        /// </summary>
+        public static string SelectOcupationLabel {
+            get {
+                return ResourceManager.GetString("SelectOcupationLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select City.
+        /// </summary>
+        public static string SelectStateProvincePlaceholder {
+            get {
+                return ResourceManager.GetString("SelectStateProvincePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Something went wrong.
         /// </summary>
         public static string SomethingWentWrong {
             get {
                 return ResourceManager.GetString("SomethingWentWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a City.
+        /// </summary>
+        public static string StateProvinceLabel {
+            get {
+                return ResourceManager.GetString("StateProvinceLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Terms and conditions.
+        /// </summary>
+        public static string TermAndConditionsLabel {
+            get {
+                return ResourceManager.GetString("TermAndConditionsLabel", resourceCulture);
             }
         }
         
@@ -340,11 +547,11 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Users.
+        ///   Busca una cadena traducida similar a User Type.
         /// </summary>
-        public static string UsersTitlePage {
+        public static string UserTypeTitleRegister {
             get {
-                return ResourceManager.GetString("UsersTitlePage", resourceCulture);
+                return ResourceManager.GetString("UserTypeTitleRegister", resourceCulture);
             }
         }
     }

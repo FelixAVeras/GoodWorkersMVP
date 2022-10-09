@@ -4,9 +4,9 @@
              x:Class="GoodWorkersMVP.Pages.UsersPage"
              xmlns:i18n="clr-namespace:GoodWorkersMVP.Helpers"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="{i18n:Translate UsersTitlePage}">
+             Title="{Binding Ocupation.OcupationName}">
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Users}">
+        <StackLayout BindingContext="{Binding Users}" Padding="8">
             <ListView ItemsSource="{Binding Users}" HasUnevenRows="True" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>

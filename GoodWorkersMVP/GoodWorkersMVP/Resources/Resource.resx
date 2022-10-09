@@ -117,11 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutMeLabel" xml:space="preserve">
+    <value>About me</value>
+  </data>
+  <data name="AboutMePlaceholder" xml:space="preserve">
+    <value>Tell me about you</value>
+  </data>
   <data name="AboutMeValidationEmpty" xml:space="preserve">
     <value>About me field cannot be empty</value>
   </data>
+  <data name="AddressLabel" xml:space="preserve">
+    <value>Address</value>
+  </data>
   <data name="AddressValidationEmpty" xml:space="preserve">
     <value>Address cannot be empty</value>
+  </data>
+  <data name="BirthdateLabel" xml:space="preserve">
+    <value>Birth date</value>
   </data>
   <data name="BtnAcceptDialog" xml:space="preserve">
     <value>Accept</value>
@@ -135,11 +147,29 @@
   <data name="BtnRegisterLabel" xml:space="preserve">
     <value>Register User</value>
   </data>
+  <data name="CellPhoneLabel" xml:space="preserve">
+    <value>Cell phone</value>
+  </data>
   <data name="CellphoneValidationEmpty" xml:space="preserve">
     <value>Cellphone cannot be empty</value>
   </data>
+  <data name="ChangeImageProfileLabel" xml:space="preserve">
+    <value>Tap here for change a image profile</value>
+  </data>
+  <data name="ConfirmedPasswordLabel" xml:space="preserve">
+    <value>Confrim password</value>
+  </data>
+  <data name="CountryLabel" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="DocumentNumberLabel" xml:space="preserve">
+    <value>Document Number</value>
+  </data>
   <data name="DocumentNumberValidationEmpty" xml:space="preserve">
     <value>Document number cannot be empty</value>
+  </data>
+  <data name="DocumentTypeLabel" xml:space="preserve">
+    <value>Document Type</value>
   </data>
   <data name="EmailLabel" xml:space="preserve">
     <value>Email Address</value>
@@ -177,6 +207,9 @@
   <data name="NoIntertnetWorkingDialog" xml:space="preserve">
     <value>Please check your internet connection</value>
   </data>
+  <data name="OcupationLabel" xml:space="preserve">
+    <value>Ocupation</value>
+  </data>
   <data name="PasswordLabel" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -189,11 +222,29 @@
   <data name="PasswordValidationCorrect" xml:space="preserve">
     <value>This password is not valid, please check</value>
   </data>
+  <data name="RegisterBtn" xml:space="preserve">
+    <value>Register</value>
+  </data>
   <data name="RegisterConfirmationMessage" xml:space="preserve">
     <value>You can login now</value>
   </data>
   <data name="RegisterConfirmationTitleDialog" xml:space="preserve">
     <value>Successfully Registered</value>
+  </data>
+  <data name="RegisterEmailLabel" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="RegisterFirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="RegisterLastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="RegisterMiddleName" xml:space="preserve">
+    <value>Middle Name</value>
+  </data>
+  <data name="RegisterPasswordLabel" xml:space="preserve">
+    <value>Password</value>
   </data>
   <data name="RegisterTitlePage" xml:space="preserve">
     <value>Register</value>
@@ -204,13 +255,31 @@
   <data name="SearchPLaceholderInput" xml:space="preserve">
     <value>Search...</value>
   </data>
+  <data name="SelectCountryPlaceHolder" xml:space="preserve">
+    <value>Select Country</value>
+  </data>
+  <data name="SelectDocumentTypeLabel" xml:space="preserve">
+    <value>Select user type</value>
+  </data>
+  <data name="SelectOcupationLabel" xml:space="preserve">
+    <value>Select Ocupation</value>
+  </data>
+  <data name="SelectStateProvincePlaceholder" xml:space="preserve">
+    <value>Select City</value>
+  </data>
   <data name="SomethingWentWrong" xml:space="preserve">
     <value>Something went wrong</value>
+  </data>
+  <data name="StateProvinceLabel" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="TermAndConditionsLabel" xml:space="preserve">
+    <value>Terms and conditions</value>
   </data>
   <data name="UnableLocation" xml:space="preserve">
     <value>Unable to detect locations</value>
   </data>
-  <data name="UsersTitlePage" xml:space="preserve">
-    <value>Users</value>
+  <data name="UserTypeTitleRegister" xml:space="preserve">
+    <value>User Type</value>
   </data>
 </root>

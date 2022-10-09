@@ -68,5 +68,6 @@ namespace GoodWorkersMVP.Models
 
 
         public Ocupation Ocupation { get; set; }
+        public int OcupationID { get; set; }
     }
 }

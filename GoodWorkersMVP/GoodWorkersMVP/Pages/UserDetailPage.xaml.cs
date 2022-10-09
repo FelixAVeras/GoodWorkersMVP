@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace GoodWorkersMVP.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RegisterPage : ContentPage
+	public partial class UserDetailPage : ContentPage
 	{
-		public RegisterPage ()
+		public UserDetailPage ()
 		{
 			InitializeComponent ();
 		}

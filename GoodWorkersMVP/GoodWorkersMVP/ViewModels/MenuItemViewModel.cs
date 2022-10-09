@@ -33,6 +33,7 @@ namespace GoodWorkersMVP.ViewModels
             {
                 //MainViewModel.GetInstance().MapsViewModel = new MapsViewModel();
                 App.Navigator.PushAsync(new MapsPage());
+                //App.
             }
 
             if (this.PageName == "LoginPage")
