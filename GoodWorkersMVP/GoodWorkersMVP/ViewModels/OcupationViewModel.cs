@@ -60,7 +60,7 @@ namespace GoodWorkersMVP.ViewModels
             }
 
             var response = await apiService.GetList<Ocupation>(
-                "https://goodworkers-api.herokuapp.com/",
+                "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
                 "api/",
                 "ocupations");
 

@@ -1,8 +1,10 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
@@ -48,8 +50,7 @@ namespace GoodWorkersMVP.ViewModels
         }
 
         public ICommand LoginCommand => new RelayCommand(Login);
-
-        // public ICommand RegisterCommand => new RelayCommand(Register);
+        public ICommand RegisterCommand => new RelayCommand(Register);
 
         public LoginViewModel()
         {
@@ -133,10 +134,10 @@ namespace GoodWorkersMVP.ViewModels
             IsEnable = true;
         }
 
-        //async void Register()
-        //{
-        //    MainViewModel.GetInstance().Register = new RegisterViewModel();
-        //    await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
-        //}
+        void Register()
+        {
+            var url = "https://www.google.com.do";
+            Launcher.OpenAsync(new Uri(url));
+        }
     }
 }
