@@ -136,8 +136,8 @@ namespace GoodWorkersMVP.ViewModels
 
         void Register()
         {
-            var url = "https://www.google.com.do";
-            Launcher.OpenAsync(new Uri(url));
+            //var url = "https://www.google.com.do";
+            //Launcher.OpenAsync(new Uri(url));
         }
     }
 }
