@@ -1,10 +1,11 @@
-﻿using System;
+﻿using GoodWorkersMVP.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace GoodWorkersMVP.ViewModels
 {
-    public class UserDetailViewModel
+    public class UserDetailViewModel : User
     {
     }
 }

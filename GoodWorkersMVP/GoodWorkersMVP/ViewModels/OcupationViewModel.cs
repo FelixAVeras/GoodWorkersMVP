@@ -3,9 +3,11 @@ using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
+using GoodWorkersMVP.ViewModels.ItemViewModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -17,10 +19,12 @@ namespace GoodWorkersMVP.ViewModels
 
         private bool isRefreshing;
         private string filter;
-        private ObservableCollection<Ocupation> ocupations;
+        //private ObservableCollection<Ocupation> ocupations;
+        private ObservableCollection<OcupationItemViewModel> ocupations;
         private List<Ocupation> ocupationsList;
 
-        public ObservableCollection<Ocupation> Ocupations
+        //public ObservableCollection<Ocupation> Ocupations
+        public ObservableCollection<OcupationItemViewModel> Ocupations
         {
             get => ocupations;
             set => SetValue(ref ocupations, value);
@@ -35,11 +39,7 @@ namespace GoodWorkersMVP.ViewModels
         public string Filter
         {
             get => filter;
-            set 
-            {
-                SetValue(ref filter, value);
-                this.Search();
-            } 
+            set { SetValue(ref filter, value); RefreshList(); } 
         }
 
         public OcupationViewModel()
@@ -49,18 +49,18 @@ namespace GoodWorkersMVP.ViewModels
             LoadOcupations();
         }
 
-        public ICommand SearchCommand => new RelayCommand(Search);
-        public ICommand RefreshCommand => new RelayCommand(LoadOcupations);
+        public ICommand SearchCommand => new RelayCommand(RefreshList);
+        public ICommand RefreshCommand => new RelayCommand(async () => await LoadOcupations());
 
-        private async void LoadOcupations()
+        private async Task LoadOcupations()
         {
-            this.IsRefreshing = true;
+            IsRefreshing = true;
 
             var connection = await apiService.CheckConnection();
 
             if (!connection.IsSuccess)
             {
-                this.IsRefreshing = false;
+                IsRefreshing = false;
 
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.ErrorTitleDialog,
@@ -72,14 +72,15 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            var response = await apiService.GetList<Ocupation>(
-                "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
-                "api/",
-                "ocupations");
+            var urlApi = Application.Current.Resources["UrlApi"].ToString();
+            var urlPrefix = Application.Current.Resources["urlPrefix"].ToString();
+            var urlController = Application.Current.Resources["UrlOcupations"].ToString();
+
+            var response = await apiService.GetList<Ocupation>(urlApi, urlPrefix, urlController);
 
             if (!response.IsSuccess)
             {
-                this.IsRefreshing = false;
+                IsRefreshing = false;
 
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.ErrorTitleDialog,
@@ -89,28 +90,67 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            //var ocupationList = (List<Ocupation>)response.Result;
-            //Ocupations = new ObservableCollection<Ocupation>(ocupationList.OrderBy(o => o.OcupationName));
+            ocupationsList = (List<Ocupation>)response.Result;
+            //Ocupations = new ObservableCollection<Ocupation>(ocupationsList);
+            //Ocupations = new ObservableCollection<OcupationItemViewModel>(this.ToOcupationItemViewModel());
 
-            this.ocupationsList = (List<Ocupation>)response.Result;
-            this.Ocupations = new ObservableCollection<Ocupation>(ocupationsList);
+            this.RefreshList();
 
-            this.IsRefreshing = false;
+            IsRefreshing = false;
 
             Application.Current.MainPage = new MasterPage();
         }
 
-        private void Search()
+        //private void Search()
+        //{
+        //    if (string.IsNullOrEmpty(this.Filter))
+        //    {
+        //        //Ocupations = new ObservableCollection<Ocupation>(ocupationsList);
+        //        Ocupations = new ObservableCollection<OcupationItemViewModel>(this.ToOcupationItemViewModel());
+        //    }
+        //    else
+        //    {
+        //        //Ocupations = new ObservableCollection<Ocupation>(
+        //        //    ocupationsList.Where(o => o.OcupationName.ToLower().Contains(filter.ToLower())));
+
+        //        Ocupations = new ObservableCollection<OcupationItemViewModel>(
+        //            ToOcupationItemViewModel()
+        //                .Where(o => o.OcupationName.ToLower().Contains(filter.ToLower())));
+        //    }
+        //}
+
+        private IEnumerable<OcupationItemViewModel> ToOcupationItemViewModel()
+        {
+            return this.ocupationsList.Select(ol => new OcupationItemViewModel
+            {
+                OcupationName = ol.OcupationName,
+                Users = ol.Users,
+            }).OrderBy(ol => ol.OcupationName);
+        }
+
+        private void RefreshList()
         {
             if (string.IsNullOrEmpty(this.Filter))
             {
-                this.Ocupations = new ObservableCollection<Ocupation>(this.ocupationsList);
+                var myOcupationsListItemViewModel = this.Ocupations.Select(o => new OcupationItemViewModel
+                {
+                    Id = o.Id,
+                    OcupationName = o.OcupationName
+                });
+
+                this.Ocupations = new ObservableCollection<OcupationItemViewModel>(
+                    myOcupationsListItemViewModel.OrderBy(o => o.OcupationName));
             }
             else
             {
-                this.Ocupations = new ObservableCollection<Ocupation>(
-                    this.ocupationsList.Where(o => o.OcupationName.ToLower()
-                                                              .Contains(this.filter.ToLower())));
+                var myOcupationsListItemViewModel = this.Ocupations.Select(o => new OcupationItemViewModel
+                {
+                    Id = o.Id,
+                    OcupationName = o.OcupationName
+                }).Where(o => o.OcupationName.ToLower().Contains(this.Filter.ToLower())).ToList();
+
+                this.Ocupations = new ObservableCollection<OcupationItemViewModel>(
+                    myOcupationsListItemViewModel.OrderBy(o => o.OcupationName));
             }
         }
     }

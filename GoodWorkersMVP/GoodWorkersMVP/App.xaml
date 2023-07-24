@@ -8,9 +8,13 @@
             <!-- Locator -->
             <infra:InstanceLocator x:Key="Locator" />
             
-            <!-- Colors -->
-            <Color x:Key="PrimaryColor">#3459E6</Color>
-            
+            <!-- UrlParameters -->
+            <x:String x:Key="UrlApi">https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/</x:String>
+            <x:String x:Key="UrlPrefix">api/</x:String>
+            <x:String x:Key="UrlOcupations">ocupations</x:String>
+            <!--<x:String x:Key="UrlOcupationUsers"></x:String>
+            <x:String x:Key="UrlUser"></x:String>-->
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

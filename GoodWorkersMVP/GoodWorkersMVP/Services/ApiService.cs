@@ -161,6 +161,48 @@ namespace GoodWorkersMVP.Services
             string urlBase,
             string servicePrefix,
             string controller,
+            int parameterId)
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri(urlBase);
+                var url = string.Format("{0}{1}{2}", servicePrefix, controller, parameterId);
+                var response = await client.GetAsync(url);
+                var result = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response 
+                    {
+                        IsSuccess = false,
+                        Message = result,
+                    };
+                }
+
+                var list = JsonConvert.DeserializeObject<List<T>>(result);
+
+                return new Response
+                {
+                    IsSuccess = true,
+                    Message = "Ok",
+                    Result = list,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
+
+        public async Task<Response> GetList<T>(
+            string urlBase,
+            string servicePrefix,
+            string controller,
             string tokenType,
             string accessToken)
         {
@@ -205,9 +247,9 @@ namespace GoodWorkersMVP.Services
             string urlBase,
             string servicePrefix,
             string controller,
+            int id,
             string tokenType,
-            string accessToken,
-            int id)
+            string accessToken)
         {
             try
             {
@@ -215,11 +257,7 @@ namespace GoodWorkersMVP.Services
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue(tokenType, accessToken);
                 client.BaseAddress = new Uri(urlBase);
-                var url = string.Format(
-                    "{0}{1}/{2}",
-                    servicePrefix,
-                    controller,
-                    id);
+                var url = $"{urlBase}{servicePrefix}/{id}";
                 var response = await client.GetAsync(url);
 
                 if (!response.IsSuccessStatusCode)
@@ -439,5 +477,10 @@ namespace GoodWorkersMVP.Services
                 };
             }
         }
+
+        //public static async Task<> GetOcupationUsersList(int ocupationId)
+        //{
+
+        //}
     }
 }

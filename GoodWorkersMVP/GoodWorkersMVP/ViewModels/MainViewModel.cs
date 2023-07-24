@@ -1,14 +1,16 @@
 ﻿using GoodWorkersMVP.Models;
+using GoodWorkersMVP.Services;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace GoodWorkersMVP.ViewModels
 {
     public class MainViewModel
     {
+        ApiService apiService;
+
         //Properties
         public LoginViewModel Login { get; set; }
-        // public RegisterViewModel Register { get; set; }
-
         public OcupationViewModel Ocupations { get; set; }
         public Ocupation Ocupation { get; set; }
         public UsersViewModel Users { get; set; }
@@ -76,7 +78,5 @@ namespace GoodWorkersMVP.ViewModels
                 }
             };
         }
-
-
     }
 }

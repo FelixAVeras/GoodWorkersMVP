@@ -14,14 +14,15 @@ namespace GoodWorkersMVP.Models
 
         public List<User> Users { get; set; }
 
-        public ICommand SelectOcupationCommand => new RelayCommand(SelectOcupation);
+        //public ICommand SelectOcupationCommand => new RelayCommand(SelectOcupation);
 
-        async void SelectOcupation()
-        {
-            var mainViewModel = MainViewModel.GetInstance();
-            mainViewModel.Ocupation = this;
-            mainViewModel.Users = new UsersViewModel(Users);
-            await App.Navigator.PushAsync(new UsersPage());
-        }
+        //async void SelectOcupation()
+        //{
+        //    var mainViewModel = MainViewModel.GetInstance(); 
+        //    mainViewModel.Ocupation = this;
+        //    mainViewModel.Users = new UsersViewModel(Users);
+
+        //    await App.Navigator.PushAsync(new UsersPage());
+        //}
     }
 }

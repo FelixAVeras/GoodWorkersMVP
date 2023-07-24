@@ -1,4 +1,5 @@
 ﻿using GoodWorkersMVP.Pages;
+using GoodWorkersMVP.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,7 +15,10 @@ namespace GoodWorkersMVP
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage())
+            var mainViewModel = MainViewModel.GetInstance();
+
+            mainViewModel.Login = new LoginViewModel();
+            this.MainPage = new NavigationPage(new LoginPage())
             {
                 BarBackgroundColor = Color.FromHex("#253544")
             };

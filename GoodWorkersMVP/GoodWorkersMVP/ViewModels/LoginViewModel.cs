@@ -114,7 +114,7 @@ namespace GoodWorkersMVP.ViewModels
             }
 
             //var response = await apiservice.GetToken(
-            //    "https://goodworkers-api.herokuapp.com/api/login",
+            //    "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/api/Access/Login",
             //    Email, Password);
 
             //if (response == null || string.IsNullOrEmpty(response.AccessToken))
@@ -134,10 +134,17 @@ namespace GoodWorkersMVP.ViewModels
             IsEnable = true;
         }
 
-        void Register()
+        async void Register()
         {
             //var url = "https://www.google.com.do";
             //Launcher.OpenAsync(new Uri(url));
+
+            await Application.Current.MainPage.DisplayAlert(
+                    "Registrar Usuario",
+                    "Esta funcion aun esta en desarrollo",
+                    Languages.BtnAcceptDialog);
+
+            return;
         }
     }
 }
