@@ -35,11 +35,7 @@ namespace GoodWorkersMVP.ViewModels
         public string Filter
         {
             get => filter;
-            set 
-            {
-                SetValue(ref filter, value);
-                this.Search();
-            } 
+            set { SetValue(ref filter, value); this.Search(); } 
         }
 
         public OcupationViewModel()
@@ -88,9 +84,6 @@ namespace GoodWorkersMVP.ViewModels
 
                 return;
             }
-
-            //var ocupationList = (List<Ocupation>)response.Result;
-            //Ocupations = new ObservableCollection<Ocupation>(ocupationList.OrderBy(o => o.OcupationName));
 
             this.ocupationsList = (List<Ocupation>)response.Result;
             this.Ocupations = new ObservableCollection<Ocupation>(ocupationsList);

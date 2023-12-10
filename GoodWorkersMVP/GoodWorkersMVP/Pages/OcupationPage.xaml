@@ -31,7 +31,8 @@
                                    HasShadow="True">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
-                                                Command="{Binding SelectOcupationCommand}">
+                                        Command="{Binding SelectOcupationCommand}" 
+                                        CommandParameter="{Binding .}">
                                     </TapGestureRecognizer>
                                 </Frame.GestureRecognizers>
                                 <Grid>

@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Models.ModelResponse;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
 using Xamarin.Essentials;
@@ -114,7 +115,7 @@ namespace GoodWorkersMVP.ViewModels
             }
 
             //var response = await apiservice.GetToken(
-            //    "https://goodworkers-api.herokuapp.com/api/login",
+            //    "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
             //    Email, Password);
 
             //if (response == null || string.IsNullOrEmpty(response.AccessToken))
@@ -128,7 +129,11 @@ namespace GoodWorkersMVP.ViewModels
             //}
 
             MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
+            // MainViewModel.GetInstance().Token = response;
             Application.Current.MainPage = new MasterPage();
+
+            this.Email = null;
+            this.Password = null;
 
             IsRunning = false;
             IsEnable = true;

@@ -69,5 +69,13 @@ namespace GoodWorkersMVP.Models
 
         public Ocupation Ocupation { get; set; }
         public int OcupationID { get; set; }
+
+        //public string ImageFullPath
+        //{
+        //    get
+        //    {
+        //        return string.Format('urlbackend/{0}', ProfileImage)
+        //    }
+        //}
     }
 }
