@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GoodWorkersMVP.Pages.ProfilePage">
+    <ScrollView>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" /> <!-- Foto -->
+                <RowDefinition Height="*" /> <!-- Nombre y Datos-->
+                <RowDefinition Height="*" /> <!-- btn Contacts -->
+                <RowDefinition Height="*" /> <!-- Fotos Anteriores -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Aspect="AspectFit"
+                   Source="man" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+
+            <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="White">
+                <Frame CornerRadius="35" Style="{StaticResource stlMainFrame}">
+                    <Grid Padding="8" RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Nombre Completo Usuario" FontAttributes="Bold" FontSize="24"/>
+                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Nombre Ocupacion" TextColor="#a5a2a2" FontSize="20"/>
+                        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="20">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Calificacion: " FontAttributes="Bold" />
+                                    <Span Text="4.8"  />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <!--4. Contact information: Board inforation-->
+                    </Grid>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Grid.Column="0">
+                <Button Style="{StaticResource stlContactBtn}" HorizontalOptions="End" Text="Phone" TextColor="white" />
+                <Button Style="{StaticResource stlContactBtn}" HorizontalOptions="Start" Text="Mail" TextColor="white"/>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

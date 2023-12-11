@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GoodWorkersMVP.Pages.RegisterPage">
+    <ContentPage.Content>
+        <!--<StackLayout Padding="8">
+            <ScrollView BindingContext="{Binding Register}">
+                <StackLayout>
+                    <Image Source="{Binding ImageSource}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeProfileImage}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label FontSize="Small" HorizontalOptions="Center" Text="Toca para cambiar imagen." Margin="5, 0, 5, 0"></Label>
+
+                    <Label Text="Tipo de Usuario"></Label>
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <RadioButton Grid.Column="0" Content="Cliente" IsChecked="{Binding IsCustomer}">
+                            <RadioButton.Triggers>
+                                <DataTrigger TargetType="RadioButton" Binding="{Binding IsCustomer}" Value="True">
+                                </DataTrigger>
+                            </RadioButton.Triggers>
+                        </RadioButton>
+                        <RadioButton Grid.Column="1" Content="Colaborador" IsChecked="{Binding IsWorker}">
+                            <RadioButton.Triggers>
+                                <DataTrigger TargetType="RadioButton" Binding="{Binding IsWorker}" Value="True">
+                                </DataTrigger>
+                            </RadioButton.Triggers>
+                        </RadioButton>
+                    </Grid>
+
+                    <Entry Placeholder="Nombre" HorizontalOptions="FillAndExpand"></Entry>
+                    <Entry Placeholder="Segundo Nombre (Opcional)" HorizontalOptions="FillAndExpand"></Entry>
+                    <Entry Placeholder="Apellido" HorizontalOptions="FillAndExpand"></Entry>
+
+                    <Label Text="Fecha de Nacimiento"></Label>
+                    <DatePicker></DatePicker>
+
+                    <Entry Placeholder="Direccion" HorizontalOptions="FillAndExpand"></Entry>
+                    <Entry Placeholder="Telefono" HorizontalOptions="FillAndExpand"></Entry>
+
+                    <Picker ItemsSource="{Binding DocumentType}"
+                            ItemDisplayBinding="{Binding DocumentTypeName}"
+                            SelectedItem="{Binding DocumentType}"
+                            Title="Seleccione una Ocupacion"/>
+
+
+                    <Entry Placeholder="No. Documento" HorizontalOptions="FillAndExpand"></Entry>
+
+                    <Entry Placeholder="Email" HorizontalOptions="FillAndExpand"></Entry>
+
+                    --><!--<Picker ItemsSource="{Binding Categories}" SelectedIndexChanged="{Binding PickerOcupationSelectedCommand}" />--><!--
+                    <Picker ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}">
+                        <Picker.Behaviors>
+                            <EventToCommandBehavior EventName="SelectedIndexChanged" Command="{Binding PickerOcupationSelectedCommand}" />
+                        </Picker.Behaviors>
+                    </Picker>
+                </StackLayout>
+            </ScrollView>
+
+            <Button Text="Registrar"
+                    BackgroundColor="#2c3e50"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HorizontalOptions="FillAndExpand"></Button>
+        </StackLayout>-->
+    </ContentPage.Content>
+</ContentPage>

@@ -19,7 +19,8 @@ namespace GoodWorkersMVP.ViewModels
         public OcupationViewModel Ocupations { get; set; }
         public Ocupation Ocupation { get; set; }
         public UsersViewModel Users { get; set; }
-        public UserDetailViewModel UserDetail { get; set; }
+        public User User { get; set; }
+        public ProfileViewModel Profile { get; set; }
 
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
 

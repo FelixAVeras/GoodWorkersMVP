@@ -9,8 +9,6 @@ namespace GoodWorkersMVP.Models
 {
     public class Ocupation
     {
-        private readonly OcupationService ocupationService;
-
         public int Id { get; set; }
 
         public string OcupationName { get; set; }
@@ -18,11 +16,6 @@ namespace GoodWorkersMVP.Models
         public List<User> Users { get; set; }
 
         public ICommand SelectOcupationCommand => new RelayCommand(SelectOcupation);
-
-        public Ocupation()
-        {
-            ocupationService = new OcupationService();
-        }
 
         async void SelectOcupation()
         {

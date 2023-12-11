@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GoodWorkersMVP.ViewModels
 {
-    public class UserDetailViewModel
+    public class ProfileViewModel : BaseViewModel
     {
     }
 }

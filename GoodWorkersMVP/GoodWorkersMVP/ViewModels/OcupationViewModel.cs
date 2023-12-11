@@ -86,7 +86,7 @@ namespace GoodWorkersMVP.ViewModels
             }
 
             this.ocupationsList = (List<Ocupation>)response.Result;
-            this.Ocupations = new ObservableCollection<Ocupation>(ocupationsList);
+            this.Ocupations = new ObservableCollection<Ocupation>(ocupationsList.OrderBy(o => o.OcupationName));
 
             this.IsRefreshing = false;
 

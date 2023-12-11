@@ -1,10 +1,13 @@
-﻿using GoodWorkersMVP.Helpers;
+﻿using GalaSoft.MvvmLight.Command;
+using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Models;
+using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace GoodWorkersMVP.ViewModels
 {
