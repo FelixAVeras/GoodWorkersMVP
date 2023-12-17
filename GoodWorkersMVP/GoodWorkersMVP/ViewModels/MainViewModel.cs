@@ -15,7 +15,7 @@ namespace GoodWorkersMVP.ViewModels
         public TokenResponse Token { get; set; }
 
         public LoginViewModel Login { get; set; }
-        //public RegisterViewModel Register { get; set; }
+        public RegisterViewModel Register { get; set; }
         public OcupationViewModel Ocupations { get; set; }
         public Ocupation Ocupation { get; set; }
         public UsersViewModel Users { get; set; }

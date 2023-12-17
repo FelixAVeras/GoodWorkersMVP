@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GoodWorkersMVP.Pages.RegisterPage">
+             x:Class="GoodWorkersMVP.Pages.RegisterPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Registro de Usuario">
     <ContentPage.Content>
-        <!--<StackLayout Padding="8">
+        <StackLayout Padding="8">
             <ScrollView BindingContext="{Binding Register}">
                 <StackLayout>
                     <Image Source="{Binding ImageSource}">
@@ -13,9 +15,12 @@
                     </Image>
                     <Label FontSize="Small" HorizontalOptions="Center" Text="Toca para cambiar imagen." Margin="5, 0, 5, 0"></Label>
 
-                    <Label Text="Tipo de Usuario"></Label>
-                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
-                        <RadioButton Grid.Column="0" Content="Cliente" IsChecked="{Binding IsCustomer}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <!--<RadioButton Grid.Column="0" Content="Cliente" IsChecked="{Binding IsCustomer}">
                             <RadioButton.Triggers>
                                 <DataTrigger TargetType="RadioButton" Binding="{Binding IsCustomer}" Value="True">
                                 </DataTrigger>
@@ -26,7 +31,15 @@
                                 <DataTrigger TargetType="RadioButton" Binding="{Binding IsWorker}" Value="True">
                                 </DataTrigger>
                             </RadioButton.Triggers>
-                        </RadioButton>
+                        </RadioButton>-->
+
+                        <Picker Title="Seleccione Tipo de Usuario" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Picker.Items>
+                                <x:String>Cliente</x:String>
+                                <x:String>Individual</x:String>
+                                <x:String>Empresa</x:String>
+                            </Picker.Items>
+                        </Picker>
                     </Grid>
 
                     <Entry Placeholder="Nombre" HorizontalOptions="FillAndExpand"></Entry>
@@ -39,22 +52,24 @@
                     <Entry Placeholder="Direccion" HorizontalOptions="FillAndExpand"></Entry>
                     <Entry Placeholder="Telefono" HorizontalOptions="FillAndExpand"></Entry>
 
-                    <Picker ItemsSource="{Binding DocumentType}"
-                            ItemDisplayBinding="{Binding DocumentTypeName}"
-                            SelectedItem="{Binding DocumentType}"
-                            Title="Seleccione una Ocupacion"/>
-
-
+                    <Picker Title="Seleccione Tipo de Docimento">
+                        <Picker.Items>
+                            <x:String>Cedula de Identidad</x:String>
+                            <x:String>Pasaporte</x:String>
+                            <x:String>Cedula de Extrajenria</x:String>
+                            <x:String>RNC</x:String>
+                        </Picker.Items>
+                    </Picker>
                     <Entry Placeholder="No. Documento" HorizontalOptions="FillAndExpand"></Entry>
 
                     <Entry Placeholder="Email" HorizontalOptions="FillAndExpand"></Entry>
 
-                    --><!--<Picker ItemsSource="{Binding Categories}" SelectedIndexChanged="{Binding PickerOcupationSelectedCommand}" />--><!--
-                    <Picker ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}">
+                    <!--<Picker ItemsSource="{Binding Categories}" SelectedIndexChanged="{Binding PickerOcupationSelectedCommand}" />-->
+                    <!--<Picker ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}">
                         <Picker.Behaviors>
                             <EventToCommandBehavior EventName="SelectedIndexChanged" Command="{Binding PickerOcupationSelectedCommand}" />
                         </Picker.Behaviors>
-                    </Picker>
+                    </Picker>-->
                 </StackLayout>
             </ScrollView>
 
@@ -63,6 +78,6 @@
                     TextColor="White"
                     CornerRadius="10"
                     HorizontalOptions="FillAndExpand"></Button>
-        </StackLayout>-->
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

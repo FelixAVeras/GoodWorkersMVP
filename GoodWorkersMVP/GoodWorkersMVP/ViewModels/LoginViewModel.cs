@@ -139,10 +139,13 @@ namespace GoodWorkersMVP.ViewModels
             IsEnable = true;
         }
 
-        void Register()
+        async void Register()
         {
             //var url = "https://www.google.com.do";
             //Launcher.OpenAsync(new Uri(url));
+
+            MainViewModel.GetInstance().Register = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
     }
 }
