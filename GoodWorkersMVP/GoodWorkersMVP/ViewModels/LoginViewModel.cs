@@ -50,6 +50,22 @@ namespace GoodWorkersMVP.ViewModels
             set => SetValue(ref isEnable, value);
         }
 
+        private bool _isExpanded;
+        public bool IsExpanded
+        {
+            get { return _isExpanded; }
+            set
+            {
+                if (_isExpanded != value)
+                {
+                    _isExpanded = value;
+                    OnPropertyChanged(nameof(IsExpanded));
+                }
+            }
+        }
+
+        public ICommand ToggleExpandCommand => new Command(() => IsExpanded = !IsExpanded);
+
         public ICommand LoginCommand => new RelayCommand(Login);
         public ICommand RegisterCommand => new RelayCommand(Register);
 
