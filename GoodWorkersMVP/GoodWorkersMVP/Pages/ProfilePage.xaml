@@ -1,7 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:GoodWorkersMVP.ViewModels"
              x:Class="GoodWorkersMVP.Pages.ProfilePage">
+
+    <ContentPage.BindingContext>
+        <local:ProfileViewModel />
+    </ContentPage.BindingContext>
+    
     <ScrollView>
         <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
@@ -35,9 +41,9 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        
-                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Nombre Completo Usuario" FontAttributes="Bold" FontSize="24"/>
-                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="Nombre Ocupacion" TextColor="#a5a2a2" FontSize="20"/>
+
+                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding User.FullName}" FontAttributes="Bold" FontSize="24"/>
+                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding User.Ocupation}" TextColor="#a5a2a2" FontSize="20"/>
                         <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="20">
                             <Label.FormattedText>
                                 <FormattedString>
@@ -46,15 +52,24 @@
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
+                        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
+                               Text="{Binding User.AboutMe}">
+                        </Label>
+                        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" 
+                                CornerRadius="10" BackgroundColor="#18bc9c" Margin="0,20,0,0"
+                                HorizontalOptions="FillAndExpand" Text="Phone" TextColor="white" />
+                        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" 
+                                CornerRadius="10" BackgroundColor="#18bc9c" Margin="0,20,0,0"
+                                HorizontalOptions="FillAndExpand" Text="Mail" TextColor="white"/>
                         <!--4. Contact information: Board inforation-->
                     </Grid>
                 </Frame>
             </StackLayout>
 
-            <StackLayout Grid.Row="2" Grid.Column="0">
+            <!--<StackLayout Grid.Row="2" Grid.Column="0">
                 <Button Style="{StaticResource stlContactBtn}" HorizontalOptions="End" Text="Phone" TextColor="white" />
                 <Button Style="{StaticResource stlContactBtn}" HorizontalOptions="Start" Text="Mail" TextColor="white"/>
-            </StackLayout>
+            </StackLayout>-->
         </Grid>
     </ScrollView>
 </ContentPage>

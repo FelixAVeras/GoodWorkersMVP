@@ -1,4 +1,5 @@
 ﻿using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Helpers.Mocks;
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Models.ModelResponse;
 using GoodWorkersMVP.Services;
@@ -9,7 +10,7 @@ using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel: BaseViewModel
     {
         //Properties
         public TokenResponse Token { get; set; }

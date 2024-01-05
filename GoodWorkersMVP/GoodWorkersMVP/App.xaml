@@ -7,24 +7,6 @@
         <ResourceDictionary>
             <!-- Locator -->
             <infra:InstanceLocator x:Key="Locator" />
-            
-            <!-- Colors -->
-            <Color x:Key="PrimaryColor">#3459E6</Color>
-
-            <Style x:Key="stlContactBtn" TargetType="Button">
-                <Setter Property="TranslationY"     Value="-50"/>
-                <Setter Property="TranslationX"     Value="45"/>
-                <Setter Property="BackgroundColor"  Value="#253544"/>
-                <Setter Property="WidthRequest"     Value="70"/>
-                <Setter Property="HeightRequest"    Value="65"/>
-                <Setter Property="CornerRadius"     Value="15"/>
-            </Style>
-
-            <Style x:Key="stlMainFrame" TargetType="Frame">
-                <Setter Property="TranslationY"    Value="{OnPlatform iOS='-150', Android='-33'}"/>
-                <Setter Property="HeightRequest"   Value="{OnPlatform iOS='120', Android='228'}"/>
-                <Setter Property="HasShadow"       Value="False" />
-            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

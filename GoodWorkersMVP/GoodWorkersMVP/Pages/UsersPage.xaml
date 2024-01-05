@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GoodWorkersMVP.Pages.UsersPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="{Binding Ocupation.OcupationName}">
+             Title="Usuarios">
+             <!--Title="{Binding Ocupation.OcupationName}">-->
     <ContentPage.Content>
-        <StackLayout BindingContext="{Binding Users}" Padding="8">
+        <!--<StackLayout BindingContext="{Binding Users}" Padding="8">
             <ListView ItemsSource="{Binding Users}" HasUnevenRows="True" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -42,6 +43,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+        </StackLayout>-->
+        <StackLayout BindingContext="{Binding Profile}">
+            <Label Text="{Binding UserProfile.FirstName}" FontAttributes="Bold" />
+            <Label Text="{Binding UserProfile.LastName}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -52,7 +52,7 @@
                     <Entry Placeholder="Direccion" HorizontalOptions="FillAndExpand"></Entry>
                     <Entry Placeholder="Telefono" HorizontalOptions="FillAndExpand"></Entry>
 
-                    <Picker Title="Seleccione Tipo de Docimento">
+                    <Picker Title="Seleccione Tipo de Documento">
                         <Picker.Items>
                             <x:String>Cedula de Identidad</x:String>
                             <x:String>Pasaporte</x:String>
@@ -79,5 +79,6 @@
                     CornerRadius="10"
                     HorizontalOptions="FillAndExpand"></Button>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

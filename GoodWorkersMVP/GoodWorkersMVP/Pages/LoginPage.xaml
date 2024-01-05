@@ -9,106 +9,84 @@
         <ScrollView BindingContext="{Binding Login}" Padding="8">
             <StackLayout>
 
-                <Image Source="human"
-                        WidthRequest="128"
+                <Image Source="business_people"
+                        WidthRequest="100"
                         HorizontalOptions="Center"
                         Aspect="AspectFit"></Image>
 
                 <Label FontSize="26"
                    FontAttributes="Bold"
                    HorizontalOptions="CenterAndExpand"
-                   Text="GoodWorkersMVP"
+                   Text="GoodWorkers"
                    TextColor="#253544"></Label>
 
-                <StackLayout>
-                    <Label Text="Iniciar con Email y Contraseña" FontSize="Medium" Margin="10" HorizontalOptions="CenterAndExpand">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ToggleExpandCommand}" />
-                        </Label.GestureRecognizers>
-                    </Label>
+                <!-- Contenido del formulario de inicio de sesión -->
+                <Entry Keyboard="Email"
+                   Placeholder="{i18n:Translate EmailPlaceholder}"
+                   Margin="0,13,0,13"
+                   Text="{Binding Email, Mode=TwoWay}"></Entry>
 
-                    <StackLayout x:Name="ExpanderContent" IsVisible="{Binding IsExpanded}">
-                        <!-- Contenido del formulario de inicio de sesión -->
-                        <Entry Keyboard="Email"
-                           Placeholder="{i18n:Translate EmailPlaceholder}"
-                           Margin="0,13,0,13"
-                           Text="{Binding Email, Mode=TwoWay}"></Entry>
+                                <Entry Placeholder="{i18n:Translate PasswordPlaceholder}"
+                       Margin="0,0,0,13"
+                       IsPassword="True"
+                       Text="{Binding Password, Mode=TwoWay}"></Entry>
 
-                        <Entry Placeholder="{i18n:Translate PasswordPlaceholder}"
-                               Margin="0,0,0,13"
-                               IsPassword="True"
-                               Text="{Binding Password, Mode=TwoWay}"></Entry>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{i18n:Translate RememberMyDataLabel}"
+                           VerticalOptions="Center"
+                       HorizontalOptions="StartAndExpand"></Label>
+                                    <Switch IsToggled="{Binding IsRemember, Mode=TwoWay}"
+                            HorizontalOptions="End">
+                                    </Switch>
+                                </StackLayout>
 
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{i18n:Translate RememberMyDataLabel}"
-                                   VerticalOptions="Center"
-                               HorizontalOptions="StartAndExpand"></Label>
-                            <Switch IsToggled="{Binding IsRemember, Mode=TwoWay}"
-                                    HorizontalOptions="End">
-                            </Switch>
-                        </StackLayout>
+                                <Label Text="{i18n:Translate ForgetPasswordLabel}"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="Center"
+                                       Margin="0,5,0,0"
+                                       FontAttributes="Bold"
+                                       TextColor="#18bc9c">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding RecoverPasswordCommand}"></TapGestureRecognizer>
+                                    </Label.GestureRecognizers>
+                                </Label>
 
-                        <Label Text="{i18n:Translate ForgetPasswordLabel}"
-                               HorizontalOptions="CenterAndExpand"
-                               VerticalOptions="Center"
-                               Margin="0,10,0,0"
-                               FontAttributes="Bold"
-                               TextColor="#18bc9c">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding RecoverPasswordCommand}"></TapGestureRecognizer>
-                            </Label.GestureRecognizers>
-                        </Label>
+                                <ActivityIndicator Color="#18bc9c"
+                                   IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
 
-                        <ActivityIndicator Color="#18bc9c"
-                                           IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
-
-                        <Button Text="{i18n:Translate BtnEnterLabel}" 
-                            Command="{Binding LoginCommand}" 
-                            BackgroundColor="#253544"
-                            TextColor="White"
-                            CornerRadius="10"
-                            HorizontalOptions="FillAndExpand"
-                            IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
-                    </StackLayout>
-                </StackLayout>
-
-                <BoxView HeightRequest="2" Color="#253544" HorizontalOptions="FillAndExpand" />
-                
-                <Button Text="Inciar con Google"
-                    BackgroundColor="#fff"
-                    TextColor="#8c8c8c"
-                    CornerRadius="10"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding RegisterCommand}" 
-                    IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
-
-                <Button Text="Inciar con Microsoft"
-                    BackgroundColor="#fff"
-                    TextColor="#8c8c8c"
-                    CornerRadius="10"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding RegisterCommand}" 
-                    IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
-                
-                <Button Text="Inciar con AppleID"
-                    BackgroundColor="#000"
+                 <Button Text="{i18n:Translate BtnEnterLabel}" 
+                    Command="{Binding LoginCommand}" 
+                    BackgroundColor="#253544"
+                    Margin="0,0,0,20"
                     TextColor="White"
                     CornerRadius="10"
                     HorizontalOptions="FillAndExpand"
-                    Command="{Binding RegisterCommand}" 
                     IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
 
-                <Button Text="Inciar con LinkedIn"
-                    BackgroundColor="#1d84d6"
-                    TextColor="White"
-                    CornerRadius="10"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding RegisterCommand}" 
-                    IsEnabled="{Binding IsEnable, Mode=TwoWay}"></Button>
+                <BoxView HeightRequest="2" Color="#e3e3e3" Margin="0,5,0,0" HorizontalOptions="FillAndExpand" />
 
-                <BoxView HeightRequest="2" Color="#253544" CornerRadius="10" HorizontalOptions="FillAndExpand" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Grid.Row="0" Source="google_logo" WidthRequest="100"></Image>
+                    <Image Grid.Column="1" Grid.Row="0" Source="apple_logo" WidthRequest="100"></Image>
+                    <Image Grid.Column="2" Grid.Row="0" Source="linkedin_logo" WidthRequest="100"></Image>
+                    <Image Grid.Column="3" Grid.Row="0" Source="microsoft_logo" WidthRequest="100"></Image>
+                </Grid>
+
+
+
+                <BoxView HeightRequest="2" Color="#e3e3e3" Margin="0,0,5,0" CornerRadius="10" HorizontalOptions="FillAndExpand" />
                 
-                <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
                     <Button Text="{i18n:Translate BtnRegisterLabel}"
                         BackgroundColor="#95a5a6"
                         TextColor="White"

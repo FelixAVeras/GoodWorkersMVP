@@ -3,13 +3,8 @@ using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Services;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Xml.Linq;
 using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
@@ -82,7 +77,7 @@ namespace GoodWorkersMVP.ViewModels
                 {
                     isWorker = value;
                     OnPropertyChanged();
-                    ChangeUserTypeCommand.Execute(null); // Ejecutar el comando cuando cambie IsCustomer
+                    ChangeUserTypeCommand.Execute(null);
                 }
             }
         }
@@ -127,7 +122,7 @@ namespace GoodWorkersMVP.ViewModels
         }
 
         public ICommand ChangeProfileImage => new RelayCommand(ChangeImage);
-        public ICommand PickerOcupationSelectedCommand => new RelayCommand(PickerOcupation);
+        //public ICommand PickerOcupationSelectedCommand => new RelayCommand(PickerOcupation);
         public ICommand ChangeUserTypeCommand => new RelayCommand(ChangeUserType);
 
         private async void ChangeImage()
@@ -185,22 +180,22 @@ namespace GoodWorkersMVP.ViewModels
         //    DocumentTypes = new ObservableCollection<DocumentType>(documentTypesList);
         //}
 
-        private async void PickerOcupation()
-        {
-            var response = await apiService.GetList<Ocupation>(
-                "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
-                "api/",
-                "ocupations");
+        //private async void PickerOcupation()
+        //{
+        //    var response = await apiService.GetList<Ocupation>(
+        //        "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
+        //        "api/",
+        //        "ocupations");
 
-            if (!response.IsSuccess)
-            {
-                await App.Current.MainPage.DisplayAlert("Error", "No se obtuvieron registros", "Cerrar");
-                return;
-            }
+        //    if (!response.IsSuccess)
+        //    {
+        //        await App.Current.MainPage.DisplayAlert("Error", "No se obtuvieron registros", "Cerrar");
+        //        return;
+        //    }
 
-            var ocupationList = (List<Ocupation>)response.Result;
-            Ocupations = new ObservableCollection<Ocupation>(ocupationList);
-        }
+        //    var ocupationList = (List<Ocupation>)response.Result;
+        //    Ocupations = new ObservableCollection<Ocupation>(ocupationList);
+        //}
 
         private void ChangeUserType()
         {

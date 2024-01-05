@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using GoodWorkersMVP.Helpers.Mocks;
 using GoodWorkersMVP.Pages;
 using Newtonsoft.Json;
 using System;
@@ -11,7 +12,7 @@ namespace GoodWorkersMVP.Models
     public class User
     {
         [JsonProperty("id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("firstName")]
         public string FirstName { get; set; }
@@ -34,7 +35,7 @@ namespace GoodWorkersMVP.Models
         public string Cellphone { get; set; }
 
         [JsonProperty("profile_image")]
-        public Uri ProfileImage { get; set; }
+        public string ProfileImage { get; set; }
 
         [JsonProperty("birthday")]
         public DateTimeOffset Birthday { get; set; }
@@ -90,7 +91,16 @@ namespace GoodWorkersMVP.Models
 
             //mainViewModel.Users = new UsersViewModel(Users);
 
-            await App.Navigator.PushAsync(new ProfilePage());
+            //await App.Navigator.PushAsync(new ProfilePage());
+
+            var userSelected = UsersMock.GetUserId(2);
+
+            if (userSelected != null)
+            {
+                int userId = userSelected.Id;
+
+                await App.Navigator.PushAsync(new ProfilePage());
+            }
         }
     }
 }

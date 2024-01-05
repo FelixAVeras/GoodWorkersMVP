@@ -14,7 +14,7 @@ namespace GoodWorkersMVP.Pages
 	{
 		public UsersPage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
 	}
 }
