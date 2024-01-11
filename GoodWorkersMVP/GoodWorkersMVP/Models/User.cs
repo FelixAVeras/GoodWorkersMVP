@@ -1,14 +1,18 @@
-﻿using Newtonsoft.Json;
+﻿using GalaSoft.MvvmLight.Command;
+using GoodWorkersMVP.Helpers.Mocks;
+using GoodWorkersMVP.Pages;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 
 namespace GoodWorkersMVP.Models
 {
     public class User
     {
         [JsonProperty("id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("firstName")]
         public string FirstName { get; set; }
@@ -31,7 +35,7 @@ namespace GoodWorkersMVP.Models
         public string Cellphone { get; set; }
 
         [JsonProperty("profile_image")]
-        public Uri ProfileImage { get; set; }
+        public string ProfileImage { get; set; }
 
         [JsonProperty("birthday")]
         public DateTimeOffset Birthday { get; set; }
@@ -69,5 +73,34 @@ namespace GoodWorkersMVP.Models
 
         public Ocupation Ocupation { get; set; }
         public int OcupationID { get; set; }
+
+        public string ImageFullPath
+        {
+            get
+            {
+                return string.Format("https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/{0}", ProfileImage);
+            }
+        }
+
+        public ICommand SelectUserCommand => new RelayCommand(SelectUser);
+
+        async void SelectUser()
+        {
+            //var mainViewModel = MainViewModel.GetInstance();
+            //mainViewModel.User = this;
+
+            //mainViewModel.Users = new UsersViewModel(Users);
+
+            //await App.Navigator.PushAsync(new ProfilePage());
+
+            var userSelected = UsersMock.GetUserId(2);
+
+            if (userSelected != null)
+            {
+                int userId = userSelected.Id;
+
+                await App.Navigator.PushAsync(new ProfilePage());
+            }
+        }
     }
 }

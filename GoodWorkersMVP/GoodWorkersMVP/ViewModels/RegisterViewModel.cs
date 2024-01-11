@@ -1,12 +1,9 @@
 ﻿using GalaSoft.MvvmLight.Command;
-using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Services;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -14,305 +11,202 @@ namespace GoodWorkersMVP.ViewModels
 {
     public class RegisterViewModel : BaseViewModel
     {
-        private readonly ApiService apiService;
+        private ApiService apiService;
 
-        private bool _isRunning;
-        private bool _isEnable;
-
-        private ImageSource imageSource;
         private MediaFile file;
+        private ImageSource imageSource;
 
-        public ImageSource ImageSource
+        private bool isRunning;
+        private bool isEnabled;
+
+        private bool isCustomer;
+        private bool isWorker;
+        private bool showOcupationPicker;
+
+        private ObservableCollection<DocumentType> documentTypes;
+        private DocumentType documentType;
+
+        private ObservableCollection<Ocupation> ocupations;
+        private Ocupation ocupation;
+
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public string ConfirmPassword { get; set; } = string.Empty;
+
+        public bool IsRunning
         {
-            get => this.imageSource;
-            set => SetValue(ref this.imageSource, value);
+            get => isRunning;
+            set => SetValue(ref isRunning, value);
         }
 
         public bool IsEnabled
         {
-            get => this._isEnable;
-            set => SetValue(ref this._isEnable, value);
+            get => isEnabled;
+            set => SetValue(ref isEnabled, value);
         }
 
-        public bool IsRunning
+        public ImageSource ImageSource
         {
-            get => this._isRunning;
-            set => SetValue(ref this._isRunning, value);
+            get => imageSource;
+            set => SetValue(ref imageSource, value);
         }
 
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
-        public string Cellphone { get; set; }
-        public DateTime Birthday { get; set; }
-        //public virtual DocumentType DocumentType { get; set; }
-        public int DocumentTypeID { get; set; }
-        public string DocumentNumber { get; set; }
-        //public virtual Ocupation Ocupation { get; set; }
-        public int OcupationID { get; set; }
-        public string AboutMe { get; set; }
-        public string UserName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string PasswordConfirm { get; set; }
-        public bool TermAndCondition { get; set; }
+        public bool IsCustomer
+        {
+            get => isCustomer;
+            set
+            {
+                if (isCustomer != value)
+                {
+                    isCustomer = value;
+                    OnPropertyChanged();
+                    ChangeUserTypeCommand.Execute(null);
+                }
+            }
+        }
 
-        //static HttpClient client;
+        public bool IsWorker
+        {
+            get => isWorker;
+            set
+            {
+                if (isWorker != value)
+                {
+                    isWorker = value;
+                    OnPropertyChanged();
+                    ChangeUserTypeCommand.Execute(null);
+                }
+            }
+        }
+
+        public bool ShowOcupationPicker
+        {
+            get => showOcupationPicker;
+            set => SetValue(ref showOcupationPicker, value);
+        }
+
+        //public ObservableCollection<DocumentType> DocumentTypes
+        //{
+        //    get => documentTypes;
+        //    set => SetValue(ref documentTypes, value);
+        //}
+
+        //public DocumentType DocumentType
+        //{
+        //    get => documentType;
+        //    set => SetValue(ref documentType, value);
+        //}
+
+        public ObservableCollection<Ocupation> Ocupations
+        {
+            get => ocupations;
+            set => SetValue(ref ocupations, value);
+        }
+
+        public Ocupation Ocupation
+        {
+            get => ocupation;
+            set => SetValue(ref ocupation, value);
+        }
+
         public RegisterViewModel()
         {
-            this.apiService = new ApiService();
+            apiService = new ApiService();
+            IsEnabled = true;
+            ImageSource = "nouser";
 
-            this._isEnable = true;
-            this.imageSource = "camera";
-
-            // LoadDocumentTypes();
+            // LoadDocumentTypesAsync();
         }
 
-        public ICommand ChangeUserPhotoCommand => new RelayCommand(ChangePhoto);
+        public ICommand ChangeProfileImage => new RelayCommand(ChangeImage);
+        //public ICommand PickerOcupationSelectedCommand => new RelayCommand(PickerOcupation);
+        public ICommand ChangeUserTypeCommand => new RelayCommand(ChangeUserType);
 
-        private async void ChangePhoto()
+        private async void ChangeImage()
         {
             await CrossMedia.Current.Initialize();
 
-            if (CrossMedia.Current.IsCameraAvailable &&
-                CrossMedia.Current.IsTakePhotoSupported)
+            var source = await Application.Current.MainPage.DisplayActionSheet(
+                "Tomar Imagen Desde: ",
+                "Cancelar",
+                null,
+                "Desde la Galeria",
+                "Desde la Camara");
+
+            if (source == "Cancelar")
             {
-                var source = await Application.Current.MainPage.DisplayActionSheet(
-                    Languages.TakePickFrom,
-                    Languages.BtnCancelDialog,
-                    null,
-                    Languages.TakePicDialogGallery,
-                    Languages.TakePicDialogCamera);
+                file = null;
+                return;
+            }
 
-                if (source == Languages.BtnCancelDialog)
-                {
-                    this.file = null;
-                    return;
-                }
-
-                if (source == Languages.TakePicDialogCamera)
-                {
-                    this.file = await CrossMedia.Current.TakePhotoAsync(
-                        new StoreCameraMediaOptions
-                        {
-                            Directory = "Sample",
-                            Name = "test.jpg",
-                            PhotoSize = PhotoSize.Small,
-                        }
-                    );
-                }
-                else
-                {
-                    this.file = await CrossMedia.Current.PickPhotoAsync();
-                }
+            if (source == "Desde la Camara")
+            {
+                file = await CrossMedia.Current.TakePhotoAsync(
+                    new StoreCameraMediaOptions
+                    {
+                        Directory = "Sample",
+                        Name = "test.jpg",
+                        PhotoSize = PhotoSize.Small,
+                    });
             }
             else
             {
-                this.file = await CrossMedia.Current.PickPhotoAsync();
+                file = await CrossMedia.Current.PickPhotoAsync();
             }
 
-            if (this.file != null)
+            if (file != null)
             {
-                this.ImageSource = ImageSource.FromStream(() =>
-                {
-                    var stream = file.GetStream();
-                    return stream;
-                });
+                ImageSource = ImageSource.FromStream(() => file.GetStream());
             }
         }
 
-        public ICommand RegisterCommand => new RelayCommand(Register);
-
-        private async void Register()
-        {
-            if (string.IsNullOrEmpty(FirstName))
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    Languages.FirstNameValidationEmpty,
-                    Languages.BtnAcceptDialog);
-
-                return;
-            }
-
-            if (string.IsNullOrEmpty(LastName))
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    Languages.LastNameValidationEmpty,
-                    Languages.BtnAcceptDialog);
-
-                return;
-            }
-
-            if (string.IsNullOrEmpty(Address))
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    Languages.AddressValidationEmpty,
-                    Languages.BtnAcceptDialog);
-
-                return;
-            }
-
-            if (string.IsNullOrEmpty(Cellphone))
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    Languages.CellphoneValidationEmpty,
-                    Languages.BtnAcceptDialog);
-
-                return;
-            }
-
-            //TODO: Validacion de la fecha vacia y para mayoria de edad
-
-            if (string.IsNullOrEmpty(DocumentNumber))
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    Languages.DocumentNumberValidationEmpty,
-                    Languages.BtnAcceptDialog);
-
-                return;
-            }
-
-            if (string.IsNullOrEmpty(AboutMe))
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    Languages.AboutMeValidationEmpty,
-                    Languages.BtnAcceptDialog);
-
-                return;
-            }
-
-            if (string.IsNullOrEmpty(this.Email))
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    Languages.ValidationEmailEmptyMessage,
-                    Languages.BtnAcceptDialog);
-
-                return;
-            }
-
-            if (!RegexUtilities.isValidEmail(this.Email))
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    Languages.EmailValidationCorrect,
-                    Languages.BtnAcceptDialog);
-
-                return;
-            }
-
-            if (string.IsNullOrEmpty(Password))
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    Languages.ValidationPasswordEmpty,
-                    Languages.BtnAcceptDialog);
-
-                return;
-            }
-
-            if (this.Password.Length < 6 && this.Password.Length > 20)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    Languages.PasswordValidationCorrect,
-                    Languages.BtnAcceptDialog);
-
-                return;
-            }
-
-            if (this.Password != this.PasswordConfirm)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    Languages.PasswordValidationConfirm,
-                    Languages.BtnAcceptDialog);
-                return;
-            }
-
-            this.IsRunning = true;
-            this.IsEnabled = false;
-
-            var checkConnetion = await this.apiService.CheckConnection();
-            if (!checkConnetion.IsSuccess)
-            {
-                this.IsRunning = false;
-                this.IsEnabled = true;
-
-                await Application.Current.MainPage.DisplayAlert(
-                    Languages.ErrorTitleDialog,
-                    checkConnetion.Message,
-                    Languages.BtnAcceptDialog);
-                return;
-            }
-
-            byte[] imageArray = null;
-            if (this.file != null)
-            {
-                imageArray = FileHelper.ReadFull(this.file.GetStream());
-            }
-
-            var user = new User
-            {
-                Email = this.Email,
-                FirstName = this.FirstName,
-                LastName = this.LastName,
-                //ImageArray = imageArray,
-                //UserTypeID = 2,
-                //Password = this.Password,
-                AboutMe = this.AboutMe,
-                Address = this.Address,
-                Birthday = this.Birthday,
-                Cellphone = this.Cellphone,
-                //DocumentTypeID = this.DocumentTypeID,
-                //DocumentNumber = this.DocumentNumber,
-                //OcupationID = this.OcupationID
-            };
-
-            var apiurl = Application.Current.Resources["UrlAPI"].ToString();
-
-
-            this.IsRunning = false;
-            this.IsEnabled = true;
-
-            await Application.Current.MainPage.DisplayAlert(
-                Languages.RegisterConfirmationTitleDialog,
-                Languages.RegisterConfirmationMessage,
-                Languages.BtnAcceptDialog);
-
-            await Application.Current.MainPage.Navigation.PopAsync();
-        }
-
-        //public void OnNavigatedTo(INavigationParameters parameters)
+        //private async void LoadDocumentTypesAsync()
         //{
-        //    base.OnNavigatedTo(parameters);
-
-        //    LoadDocumentTypes();
-        //}
-
-        //private async void LoadDocumentTypes()
-        //{
-        //    var url = Application.Current.Resources["UrlAPI"].ToString();
-        //    var response = await apiService.GetList<DocumentType>(url, "/api", "/documents");
+        //    var response = await apiService.GetList<User>(
+        //        "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
+        //        "api/",
+        //        "document_types");
 
         //    if (!response.IsSuccess)
         //    {
-        //        await Application.Current.MainPage.DisplayAlert(
-        //            Languages.ErrorTitleDialog,
-        //            response.Message,
-        //            Languages.BtnAcceptDialog);
+        //        await App.Current.MainPage.DisplayAlert("Error", "No se obtuvieron registros", "Cerrar");
         //        return;
         //    }
 
-        //    var documentTypes = (List<DocumentType>)response.Result;
-        //    DocumentTypesCollection = new ObservableCollection<DocumentType>(documentTypes);
+        //    var documentTypesList = (List<DocumentType>)response.Result;
+        //    DocumentTypes = new ObservableCollection<DocumentType>(documentTypesList);
         //}
+
+        //private async void PickerOcupation()
+        //{
+        //    var response = await apiService.GetList<Ocupation>(
+        //        "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
+        //        "api/",
+        //        "ocupations");
+
+        //    if (!response.IsSuccess)
+        //    {
+        //        await App.Current.MainPage.DisplayAlert("Error", "No se obtuvieron registros", "Cerrar");
+        //        return;
+        //    }
+
+        //    var ocupationList = (List<Ocupation>)response.Result;
+        //    Ocupations = new ObservableCollection<Ocupation>(ocupationList);
+        //}
+
+        private void ChangeUserType()
+        {
+            if (IsCustomer)
+            {
+                ShowOcupationPicker = false;
+            }
+            else if (IsWorker)
+            {
+                ShowOcupationPicker = true;
+            }
+        }
     }
 }

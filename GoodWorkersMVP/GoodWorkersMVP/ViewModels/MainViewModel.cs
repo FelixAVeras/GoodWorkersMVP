@@ -1,18 +1,27 @@
-﻿using GoodWorkersMVP.Models;
+﻿using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Helpers.Mocks;
+using GoodWorkersMVP.Models;
+using GoodWorkersMVP.Models.ModelResponse;
+using GoodWorkersMVP.Services;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel: BaseViewModel
     {
         //Properties
-        public LoginViewModel Login { get; set; }
-        // public RegisterViewModel Register { get; set; }
+        public TokenResponse Token { get; set; }
 
+        public LoginViewModel Login { get; set; }
+        public RegisterViewModel Register { get; set; }
         public OcupationViewModel Ocupations { get; set; }
         public Ocupation Ocupation { get; set; }
         public UsersViewModel Users { get; set; }
-        public UserDetailViewModel UserDetail { get; set; }
+        public User User { get; set; }
+        public ProfileViewModel Profile { get; set; }
 
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
 
@@ -76,7 +85,5 @@ namespace GoodWorkersMVP.ViewModels
                 }
             };
         }
-
-
     }
 }

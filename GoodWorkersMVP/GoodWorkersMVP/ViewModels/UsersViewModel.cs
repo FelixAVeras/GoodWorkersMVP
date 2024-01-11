@@ -1,30 +1,27 @@
-﻿using GoodWorkersMVP.Models;
+﻿using GalaSoft.MvvmLight.Command;
+using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Helpers.Mocks;
+using GoodWorkersMVP.Models;
+using GoodWorkersMVP.Pages;
+using GoodWorkersMVP.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace GoodWorkersMVP.ViewModels
 {
-    public class UsersViewModel : INotifyPropertyChanged
+    public class UsersViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         List<User> users;
 
         ObservableCollection<User> _users;
 
         public ObservableCollection<User> Users
         {
-            get { return _users; }
-            set
-            {
-                if (_users != value)
-                {
-                    _users = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Users)));
-                }
-            }
+            get => _users;
+            set => SetValue(ref _users, value);
         }
 
         public UsersViewModel(List<User> users)

@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using GoodWorkersMVP.Pages;
+using GoodWorkersMVP.Services;
 using GoodWorkersMVP.ViewModels;
 using System.Collections.Generic;
 using System.Windows.Input;
@@ -20,7 +21,9 @@ namespace GoodWorkersMVP.Models
         {
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Ocupation = this;
+
             mainViewModel.Users = new UsersViewModel(Users);
+
             await App.Navigator.PushAsync(new UsersPage());
         }
     }

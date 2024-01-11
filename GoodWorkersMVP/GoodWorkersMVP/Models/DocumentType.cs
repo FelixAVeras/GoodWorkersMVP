@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GoodWorkersMVP.ViewModels
+namespace GoodWorkersMVP.Models
 {
-    public class UserDetailViewModel
+    internal class DocumentType
     {
     }
 }

@@ -16,7 +16,9 @@ namespace GoodWorkersMVP.ViewModels
         ApiService apiService;
 
         private bool isRefreshing;
+        private string filter;
         private ObservableCollection<Ocupation> ocupations;
+        private List<Ocupation> ocupationsList;
 
         public ObservableCollection<Ocupation> Ocupations
         {
@@ -30,6 +32,12 @@ namespace GoodWorkersMVP.ViewModels
             set => SetValue(ref isRefreshing, value);
         }
 
+        public string Filter
+        {
+            get => filter;
+            set { SetValue(ref filter, value); this.Search(); }
+        }
+
         public OcupationViewModel()
         {
             apiService = new ApiService();
@@ -37,6 +45,7 @@ namespace GoodWorkersMVP.ViewModels
             LoadOcupations();
         }
 
+        public ICommand SearchCommand => new RelayCommand(Search);
         public ICommand RefreshCommand => new RelayCommand(LoadOcupations);
 
         private async void LoadOcupations()
@@ -60,7 +69,7 @@ namespace GoodWorkersMVP.ViewModels
             }
 
             var response = await apiService.GetList<Ocupation>(
-                "https://goodworkers-api.herokuapp.com/",
+                "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
                 "api/",
                 "ocupations");
 
@@ -76,12 +85,26 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            var ocupationList = (List<Ocupation>)response.Result;
-            Ocupations = new ObservableCollection<Ocupation>(ocupationList.OrderBy(o => o.OcupationName));
+            this.ocupationsList = (List<Ocupation>)response.Result;
+            this.Ocupations = new ObservableCollection<Ocupation>(ocupationsList.OrderBy(o => o.OcupationName));
 
             this.IsRefreshing = false;
 
             Application.Current.MainPage = new MasterPage();
+        }
+
+        private void Search()
+        {
+            if (string.IsNullOrEmpty(this.Filter))
+            {
+                this.Ocupations = new ObservableCollection<Ocupation>(this.ocupationsList);
+            }
+            else
+            {
+                this.Ocupations = new ObservableCollection<Ocupation>(
+                    this.ocupationsList.Where(o => o.OcupationName.ToLower()
+                                                              .Contains(this.filter.ToLower())));
+            }
         }
     }
 }

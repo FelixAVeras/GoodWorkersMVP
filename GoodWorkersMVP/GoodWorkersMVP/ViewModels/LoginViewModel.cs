@@ -1,8 +1,11 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Models.ModelResponse;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
@@ -47,9 +50,24 @@ namespace GoodWorkersMVP.ViewModels
             set => SetValue(ref isEnable, value);
         }
 
-        public ICommand LoginCommand => new RelayCommand(Login);
+        private bool _isExpanded;
+        public bool IsExpanded
+        {
+            get { return _isExpanded; }
+            set
+            {
+                if (_isExpanded != value)
+                {
+                    _isExpanded = value;
+                    OnPropertyChanged(nameof(IsExpanded));
+                }
+            }
+        }
 
-        // public ICommand RegisterCommand => new RelayCommand(Register);
+        public ICommand ToggleExpandCommand => new Command(() => IsExpanded = !IsExpanded);
+
+        public ICommand LoginCommand => new RelayCommand(Login);
+        public ICommand RegisterCommand => new RelayCommand(Register);
 
         public LoginViewModel()
         {
@@ -113,7 +131,7 @@ namespace GoodWorkersMVP.ViewModels
             }
 
             //var response = await apiservice.GetToken(
-            //    "https://goodworkers-api.herokuapp.com/api/login",
+            //    "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
             //    Email, Password);
 
             //if (response == null || string.IsNullOrEmpty(response.AccessToken))
@@ -127,16 +145,23 @@ namespace GoodWorkersMVP.ViewModels
             //}
 
             MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
+            // MainViewModel.GetInstance().Token = response;
             Application.Current.MainPage = new MasterPage();
+
+            this.Email = null;
+            this.Password = null;
 
             IsRunning = false;
             IsEnable = true;
         }
 
-        //async void Register()
-        //{
-        //    MainViewModel.GetInstance().Register = new RegisterViewModel();
-        //    await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
-        //}
+        async void Register()
+        {
+            //var url = "https://www.google.com.do";
+            //Launcher.OpenAsync(new Uri(url));
+
+            MainViewModel.GetInstance().Register = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+        }
     }
 }
