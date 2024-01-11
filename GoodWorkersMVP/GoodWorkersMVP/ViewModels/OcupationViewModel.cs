@@ -35,7 +35,7 @@ namespace GoodWorkersMVP.ViewModels
         public string Filter
         {
             get => filter;
-            set { SetValue(ref filter, value); this.Search(); } 
+            set { SetValue(ref filter, value); this.Search(); }
         }
 
         public OcupationViewModel()

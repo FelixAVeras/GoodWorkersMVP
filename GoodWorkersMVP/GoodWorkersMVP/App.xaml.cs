@@ -14,15 +14,15 @@ namespace GoodWorkersMVP
         {
             InitializeComponent();
 
-            //MainPage = new NavigationPage(new LoginPage())
-            //{
-            //    BarBackgroundColor = Color.FromHex("#253544")
-            //};
-
-            MainPage = new NavigationPage(new ProfilePage())
+            MainPage = new NavigationPage(new LoginPage())
             {
                 BarBackgroundColor = Color.FromHex("#253544")
             };
+
+            //MainPage = new NavigationPage(new ProfilePage())
+            //{
+            //    BarBackgroundColor = Color.FromHex("#253544")
+            //};
         }
 
         protected override void OnStart()
