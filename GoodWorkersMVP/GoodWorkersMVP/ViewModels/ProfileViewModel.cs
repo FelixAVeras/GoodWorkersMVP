@@ -1,34 +1,91 @@
-﻿using GoodWorkersMVP.Helpers.Mocks;
+﻿using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+using GoodWorkersMVP.Pages;
+using GoodWorkersMVP.Services;
+using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
 {
     public class ProfileViewModel : BaseViewModel
     {
-        private int _userId;
+        ApiService apiService;
 
-        public UserModelMock User { get; set; }
+        private bool isRefreshing;
 
-        public ProfileViewModel()
+        public bool IsRefreshing
         {
-            User = new UserModelMock
+            get => isRefreshing;
+            set => SetValue(ref isRefreshing, value);
+        }
+
+        private int selectedUserId;
+
+        public int SelectedUserId
+        {
+            get => selectedUserId;
+            set => SetValue(ref selectedUserId, value);
+        }
+
+        private User user;
+
+        public User User
+        {
+            get => user;
+            set => SetValue(ref user, value);
+        }
+
+        public ProfileViewModel(User selectedUser)
+        {
+            apiService = new ApiService();
+
+            this.User = selectedUser;
+
+            GetUserData(selectedUser.Id);
+        }
+
+        private async void GetUserData(int userId)
+        {
+            this.IsRefreshing = true;
+
+            var connection = await apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
             {
-                FullName = "Miguel Alcantara",
-                AboutMe = "What about me, and what about you... Bueno esto es solo un texto de prueba",
-                Address = "Calle Luna, Calle Sol #345, Centro Ciudad",
-                Birthday = DateTime.Now.AddYears(-28),
-                Age = 37,
-                Cellphone = "849-849-8449",
-                DocumentTypeId = 1,
-                DocumentNumber = 00220601708,
-                Phone = "809-809-8009",
-                Ocupation = "Diseño de Interiores",
-                ProfileImage = "https://t3.ftcdn.net/jpg/03/07/57/54/360_F_307575473_NaZ8XNxe1BBt5Z0fKgMZWJgb1JIzDuYR.jpg"
-            };
+                this.IsRefreshing = false;
+
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    connection.Message,
+                    Languages.BtnAcceptDialog);
+
+                await Application.Current.MainPage.Navigation.PopAsync();
+
+                return;
+            }
+
+            var response = await apiService.Get<User>(
+                "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
+                "api/",
+                "users", userId);
+
+            if (!response.IsSuccess)
+            {
+                this.IsRefreshing = false;
+
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    response.Message,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+
+            this.User = (User)response.Result;
+
+            this.IsRefreshing = false;
+
+            await App.Navigator.PushAsync(new ProfilePage());
         }
     }
 }

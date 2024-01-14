@@ -2,12 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:GoodWorkersMVP.ViewModels"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
              x:Class="GoodWorkersMVP.Pages.ProfilePage">
 
-    <ContentPage.BindingContext>
-        <local:ProfileViewModel />
-    </ContentPage.BindingContext>
-    
     <ScrollView>
         <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
@@ -61,7 +58,7 @@
                         </Label>
                         <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1"
                                 CornerRadius="10" BackgroundColor="#18bc9c" Margin="0,20,0,0"
-                                HorizontalOptions="FillAndExpand" Text="Phone" TextColor="white" />
+                                HorizontalOptions="FillAndExpand" Text="Califi" TextColor="white" />
                         <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1"
                                 CornerRadius="10" BackgroundColor="#18bc9c" Margin="0,20,0,0"
                                 HorizontalOptions="FillAndExpand" Text="Mail" TextColor="white"/>

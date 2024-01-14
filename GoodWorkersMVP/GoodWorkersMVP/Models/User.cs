@@ -1,10 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
-using GoodWorkersMVP.Helpers.Mocks;
-using GoodWorkersMVP.Pages;
+using GoodWorkersMVP.ViewModels;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 
 namespace GoodWorkersMVP.Models
@@ -44,7 +41,7 @@ namespace GoodWorkersMVP.Models
         public long Age { get; set; }
 
         [JsonProperty("Document_number")]
-        public long DocumentNumber { get; set; }
+        public string DocumentNumber { get; set; }
 
         [JsonProperty("about_me")]
         public string AboutMe { get; set; }
@@ -84,23 +81,12 @@ namespace GoodWorkersMVP.Models
 
         public ICommand SelectUserCommand => new RelayCommand(SelectUser);
 
-        async void SelectUser()
+        void SelectUser()
         {
-            //var mainViewModel = MainViewModel.GetInstance();
-            //mainViewModel.User = this;
+            var mainViewModel = MainViewModel.GetInstance();
 
-            //mainViewModel.Users = new UsersViewModel(Users);
-
-            //await App.Navigator.PushAsync(new ProfilePage());
-
-            var userSelected = UsersMock.GetUserId(2);
-
-            if (userSelected != null)
-            {
-                int userId = userSelected.Id;
-
-                await App.Navigator.PushAsync(new ProfilePage());
-            }
+            mainViewModel.User = this;
+            mainViewModel.Profile = new ProfileViewModel(this);
         }
     }
 }

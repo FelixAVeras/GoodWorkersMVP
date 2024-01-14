@@ -1,5 +1,6 @@
 ﻿using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Helpers.Mocks;
+using GoodWorkersMVP.Interfaces;
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Models.ModelResponse;
 using GoodWorkersMVP.Services;
@@ -22,6 +23,13 @@ namespace GoodWorkersMVP.ViewModels
         public UsersViewModel Users { get; set; }
         public User User { get; set; }
         public ProfileViewModel Profile { get; set; }
+
+        private int _selectedUserId;
+        public int SelectedUserId
+        {
+            get => _selectedUserId;
+            set => SetValue(ref _selectedUserId, value);
+        }
 
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
 

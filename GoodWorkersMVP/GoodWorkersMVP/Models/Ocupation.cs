@@ -15,12 +15,17 @@ namespace GoodWorkersMVP.Models
 
         public List<User> Users { get; set; }
 
+        public int SelectedUserId { get; set; }
+
         public ICommand SelectOcupationCommand => new RelayCommand(SelectOcupation);
 
         async void SelectOcupation()
         {
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Ocupation = this;
+            
+            int selectedUserId = SelectedUserId;
+            mainViewModel.SelectedUserId = SelectedUserId;
 
             mainViewModel.Users = new UsersViewModel(Users);
 

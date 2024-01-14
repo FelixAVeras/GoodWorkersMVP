@@ -72,15 +72,15 @@ namespace GoodWorkersMVP.Services
             string urlBase,
             string servicePrefix,
             string controller,
-            string tokenType,
-            string accessToken,
+            //string tokenType,
+            //string accessToken,
             int id)
         {
             try
             {
                 var client = new HttpClient();
-                client.DefaultRequestHeaders.Authorization =
-                    new AuthenticationHeaderValue(tokenType, accessToken);
+                //client.DefaultRequestHeaders.Authorization =
+                //    new AuthenticationHeaderValue(tokenType, accessToken);
                 client.BaseAddress = new Uri(urlBase);
                 var url = string.Format(
                     "{0}{1}/{2}",

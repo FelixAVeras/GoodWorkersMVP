@@ -16,8 +16,6 @@ namespace GoodWorkersMVP.Pages
         public ProfilePage()
         {
             InitializeComponent();
-
-            BindingContext = new ProfileViewModel();
         }
     }
 }
