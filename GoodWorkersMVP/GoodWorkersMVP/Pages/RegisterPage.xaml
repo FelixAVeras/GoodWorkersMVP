@@ -53,13 +53,6 @@
 
                     <Entry Placeholder="Email" HorizontalOptions="FillAndExpand"></Entry>
 
-                    <!--<Picker ItemsSource="{Binding Categories}" SelectedIndexChanged="{Binding PickerOcupationSelectedCommand}" />-->
-                    <!--<Picker ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}">
-                        <Picker.Behaviors>
-                            <EventToCommandBehavior EventName="SelectedIndexChanged" Command="{Binding PickerOcupationSelectedCommand}" />
-                        </Picker.Behaviors>
-                    </Picker>-->
-
                     <Picker Title="Seleccione Ocupación" Grid.Column="0" 
                             Grid.ColumnSpan="2" ItemsSource="{Binding Ocupations}" 
                             SelectedItem="{Binding SelectedOcupacion}" IsVisible="{Binding ShowOcupationPicker}">
