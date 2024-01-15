@@ -20,20 +20,9 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <!--<RadioButton Grid.Column="0" Content="Cliente" IsChecked="{Binding IsCustomer}">
-                            <RadioButton.Triggers>
-                                <DataTrigger TargetType="RadioButton" Binding="{Binding IsCustomer}" Value="True">
-                                </DataTrigger>
-                            </RadioButton.Triggers>
-                        </RadioButton>
-                        <RadioButton Grid.Column="1" Content="Colaborador" IsChecked="{Binding IsWorker}">
-                            <RadioButton.Triggers>
-                                <DataTrigger TargetType="RadioButton" Binding="{Binding IsWorker}" Value="True">
-                                </DataTrigger>
-                            </RadioButton.Triggers>
-                        </RadioButton>-->
-
-                        <Picker Title="Seleccione Tipo de Usuario" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Picker Title="Seleccione Tipo de Usuario" 
+                                Grid.Column="0" Grid.ColumnSpan="2" 
+                                SelectedItem="{Binding SelectedUserType}">
                             <Picker.Items>
                                 <x:String>Cliente</x:String>
                                 <x:String>Individual</x:String>
@@ -70,6 +59,15 @@
                             <EventToCommandBehavior EventName="SelectedIndexChanged" Command="{Binding PickerOcupationSelectedCommand}" />
                         </Picker.Behaviors>
                     </Picker>-->
+
+                    <Picker Title="Seleccione Ocupación" Grid.Column="0" 
+                            Grid.ColumnSpan="2" ItemsSource="{Binding Ocupations}" 
+                            SelectedItem="{Binding SelectedOcupacion}" IsVisible="{Binding ShowOcupationPicker}">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="OcupationName" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+
                 </StackLayout>
             </ScrollView>
 

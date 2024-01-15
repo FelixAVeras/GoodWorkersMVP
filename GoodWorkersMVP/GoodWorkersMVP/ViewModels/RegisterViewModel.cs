@@ -1,8 +1,12 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Services;
+using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -29,6 +33,8 @@ namespace GoodWorkersMVP.ViewModels
         private ObservableCollection<Ocupation> ocupations;
         private Ocupation ocupation;
 
+        public ObservableCollection<string> UserTypes { get; set; }
+
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
@@ -54,32 +60,26 @@ namespace GoodWorkersMVP.ViewModels
             set => SetValue(ref imageSource, value);
         }
 
-        public bool IsCustomer
+        private string selectedUserType;
+        public string SelectedUserType
         {
-            get => isCustomer;
+            get => selectedUserType;
             set
             {
-                if (isCustomer != value)
+                if (selectedUserType != value)
                 {
-                    isCustomer = value;
-                    OnPropertyChanged();
+                    selectedUserType = value;
+                    OnPropertyChanged(nameof(SelectedUserType));
                     ChangeUserTypeCommand.Execute(null);
                 }
             }
         }
 
-        public bool IsWorker
+        private string selectedOcupacion;
+        public string SelectedOcupacion
         {
-            get => isWorker;
-            set
-            {
-                if (isWorker != value)
-                {
-                    isWorker = value;
-                    OnPropertyChanged();
-                    ChangeUserTypeCommand.Execute(null);
-                }
-            }
+            get => selectedOcupacion;
+            set => SetValue(ref selectedOcupacion, value);
         }
 
         public bool ShowOcupationPicker
@@ -87,18 +87,6 @@ namespace GoodWorkersMVP.ViewModels
             get => showOcupationPicker;
             set => SetValue(ref showOcupationPicker, value);
         }
-
-        //public ObservableCollection<DocumentType> DocumentTypes
-        //{
-        //    get => documentTypes;
-        //    set => SetValue(ref documentTypes, value);
-        //}
-
-        //public DocumentType DocumentType
-        //{
-        //    get => documentType;
-        //    set => SetValue(ref documentType, value);
-        //}
 
         public ObservableCollection<Ocupation> Ocupations
         {
@@ -117,12 +105,9 @@ namespace GoodWorkersMVP.ViewModels
             apiService = new ApiService();
             IsEnabled = true;
             ImageSource = "nouser";
-
-            // LoadDocumentTypesAsync();
         }
 
         public ICommand ChangeProfileImage => new RelayCommand(ChangeImage);
-        //public ICommand PickerOcupationSelectedCommand => new RelayCommand(PickerOcupation);
         public ICommand ChangeUserTypeCommand => new RelayCommand(ChangeUserType);
 
         private async void ChangeImage()
@@ -163,50 +148,53 @@ namespace GoodWorkersMVP.ViewModels
             }
         }
 
-        //private async void LoadDocumentTypesAsync()
-        //{
-        //    var response = await apiService.GetList<User>(
-        //        "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
-        //        "api/",
-        //        "document_types");
-
-        //    if (!response.IsSuccess)
-        //    {
-        //        await App.Current.MainPage.DisplayAlert("Error", "No se obtuvieron registros", "Cerrar");
-        //        return;
-        //    }
-
-        //    var documentTypesList = (List<DocumentType>)response.Result;
-        //    DocumentTypes = new ObservableCollection<DocumentType>(documentTypesList);
-        //}
-
-        //private async void PickerOcupation()
-        //{
-        //    var response = await apiService.GetList<Ocupation>(
-        //        "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
-        //        "api/",
-        //        "ocupations");
-
-        //    if (!response.IsSuccess)
-        //    {
-        //        await App.Current.MainPage.DisplayAlert("Error", "No se obtuvieron registros", "Cerrar");
-        //        return;
-        //    }
-
-        //    var ocupationList = (List<Ocupation>)response.Result;
-        //    Ocupations = new ObservableCollection<Ocupation>(ocupationList);
-        //}
-
         private void ChangeUserType()
         {
-            if (IsCustomer)
+            if (SelectedUserType == "Cliente")
             {
                 ShowOcupationPicker = false;
             }
-            else if (IsWorker)
+            else
             {
                 ShowOcupationPicker = true;
+
+                LoadOcupacionesFromApi();
             }
+        }
+
+        private async void LoadOcupacionesFromApi()
+        {
+            var connection = await apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    connection.Message,
+                    Languages.BtnAcceptDialog);
+
+                await Application.Current.MainPage.Navigation.PopAsync();
+
+                return;
+            }
+
+            var response = await apiService.GetList<Ocupation>(
+                "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
+                "api/",
+                "ocupations");
+
+            if (!response.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    response.Message,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            List<Ocupation> ocupacionesList = (List<Ocupation>)response.Result;
+            Ocupations = new ObservableCollection<Ocupation>(ocupacionesList);
         }
     }
 }
