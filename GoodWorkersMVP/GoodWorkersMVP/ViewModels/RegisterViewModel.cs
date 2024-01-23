@@ -23,8 +23,6 @@ namespace GoodWorkersMVP.ViewModels
         private bool isRunning;
         private bool isEnabled;
 
-        private bool isCustomer;
-        private bool isWorker;
         private bool showOcupationPicker;
 
         private ObservableCollection<DocumentType> documentTypes;
@@ -36,8 +34,11 @@ namespace GoodWorkersMVP.ViewModels
         public ObservableCollection<string> UserTypes { get; set; }
 
         public string FirstName { get; set; } = string.Empty;
+        public string MiddleName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
+        public string CellPhone { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public string ConfirmPassword { get; set; } = string.Empty;

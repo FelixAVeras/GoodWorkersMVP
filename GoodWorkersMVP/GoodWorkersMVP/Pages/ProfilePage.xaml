@@ -6,25 +6,9 @@
              x:Class="GoodWorkersMVP.Pages.ProfilePage">
 
     <StackLayout>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" /> <!-- Foto -->
-                <RowDefinition Height="*" /> <!-- Nombre y Datos-->
-                <RowDefinition Height="*" /> <!-- btn Contacts -->
-                <RowDefinition Height="*" /> <!-- Fotos Anteriores -->
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Image Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Aspect="AspectFill"
-                   Source="{Binding User.ProfileImage}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
-
-            <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" BackgroundColor="White" VerticalOptions="End">
-                <Frame CornerRadius="35" Style="{StaticResource stlMainFrame}" >
+        <StackLayout BackgroundColor="White" VerticalOptions="End">
+            
+            <Frame CornerRadius="35" Style="{StaticResource stlMainFrame}" >
                     <Grid Padding="8" RowSpacing="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -40,22 +24,17 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <!--<Button Grid.Row="0" Grid.Column="1" Style="{StaticResource stlContactBtn}" HorizontalOptions="End"   Text="Tel"/>
-                        <Button Grid.Row="0" Grid.Column="2" Style="{StaticResource stlContactBtn}" HorizontalOptions="Start" Text="Ema"/>-->
+                    <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Aspect="AspectFill"
+                            Source="{Binding User.ProfileImage}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
 
-                        <!--<Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding User.FullName}" FontAttributes="Bold" FontSize="24" />
-                                    <Span Text=","  />
-                                    <Span Text="{Binding User.Age}" FontSize="22" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>-->
-
-                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding User.FullName}" FontAttributes="Bold" FontSize="24"/>
-                        <!--<Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding User.Address}" TextColor="#a5a2a2" FontSize="20"/>-->
-                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" FontSize="20">
+                    <Label Grid.Row="1" Grid.Column="0" 
+                               Grid.ColumnSpan="2" 
+                               Text="{Binding User.FullName}" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               FontSize="24"/>
+                        
+                        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="20">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Calificacion: " FontAttributes="Bold" />
@@ -63,13 +42,15 @@
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
-                        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                        
+                        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
                                Text="{Binding User.AboutMe}">
                         </Label>
-                        <Button Grid.Row="3" Grid.Column="0"
-                                CornerRadius="10" BackgroundColor="#2c3e50" Margin="0,20,0,0"
+                        
+                        <Button Grid.Row="4" Grid.Column="0"
+                                CornerRadius="10" BackgroundColor="#3498db" Margin="0,20,0,0"
                                 HorizontalOptions="FillAndExpand" Text="Calificar" TextColor="white" />
-                        <Button Grid.Row="3" Grid.Column="1"
+                        <Button Grid.Row="4" Grid.Column="1"
                                 CornerRadius="10" BackgroundColor="#95a5a6" Margin="0,20,0,0"
                                 HorizontalOptions="FillAndExpand" Text="Mensaje" TextColor="white"/>
                         <!--4. Contact information: Board inforation-->
@@ -81,6 +62,25 @@
                 <Button Style="{StaticResource stlContactBtn}" HorizontalOptions="End" Text="Phone" TextColor="white" />
                 <Button Style="{StaticResource stlContactBtn}" HorizontalOptions="Start" Text="Mail" TextColor="white"/>
             </StackLayout>-->
-        </Grid>
+
+        <BoxView HeightRequest="2" Color="#e3e3e3" Margin="0,5,0,0" HorizontalOptions="FillAndExpand" />
+        
+        <StackLayout>
+            <Label Text="Comentarios y Valoraciones" FontAttributes="Bold" 
+                   HorizontalOptions="Center"
+                   FontSize="24">
+            </Label>
+            <Label></Label>
+        </StackLayout>
+
+        <BoxView HeightRequest="2" Color="#e3e3e3" Margin="0,5,0,0" HorizontalOptions="FillAndExpand" />
+
+        <StackLayout>
+            <Label Text="Trabajos Anteriores" FontAttributes="Bold" 
+           HorizontalOptions="Center"
+           FontSize="24">
+            </Label>
+            <Label></Label>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

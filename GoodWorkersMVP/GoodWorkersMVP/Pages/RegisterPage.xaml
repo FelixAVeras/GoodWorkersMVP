@@ -8,7 +8,7 @@
         <StackLayout Padding="8">
             <ScrollView BindingContext="{Binding Register}">
                 <StackLayout>
-                    <Image Source="{Binding ImageSource}">
+                    <Image Source="{Binding ImageSource}" WidthRequest="150">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding ChangeProfileImage}"></TapGestureRecognizer>
                         </Image.GestureRecognizers>
@@ -31,15 +31,18 @@
                         </Picker>
                     </Grid>
 
-                    <Entry Placeholder="Nombre" HorizontalOptions="FillAndExpand"></Entry>
-                    <Entry Placeholder="Segundo Nombre (Opcional)" HorizontalOptions="FillAndExpand"></Entry>
-                    <Entry Placeholder="Apellido" HorizontalOptions="FillAndExpand"></Entry>
+                    <Entry Placeholder="Nombre" HorizontalOptions="FillAndExpand" Text="{Binding FirstName}"></Entry>
+                    <Entry Placeholder="Segundo Nombre (Opcional)" HorizontalOptions="FillAndExpand" Text="{Binding MiddleName}"></Entry>
+                    <Entry Placeholder="Apellido" HorizontalOptions="FillAndExpand" Text="{Binding LastName}"></Entry>
 
                     <Label Text="Fecha de Nacimiento"></Label>
                     <DatePicker></DatePicker>
 
-                    <Entry Placeholder="Direccion" HorizontalOptions="FillAndExpand"></Entry>
-                    <Entry Placeholder="Telefono" HorizontalOptions="FillAndExpand"></Entry>
+                    <Entry Placeholder="Direccion" HorizontalOptions="FillAndExpand" Text="{Binding Address}"></Entry>
+                    <Entry Placeholder="Telefono #1" Keyboard="Telephone" HorizontalOptions="FillAndExpand"
+                            Text="{Binding Phone}"></Entry>
+                    <Entry Placeholder="Telefono #2" Keyboard="Telephone" HorizontalOptions="FillAndExpand"
+                            Text="{Binding CellPhone}"></Entry>
 
                     <Picker Title="Seleccione Tipo de Documento">
                         <Picker.Items>
@@ -49,9 +52,17 @@
                             <x:String>RNC</x:String>
                         </Picker.Items>
                     </Picker>
-                    <Entry Placeholder="No. Documento" HorizontalOptions="FillAndExpand"></Entry>
+                    <Entry Placeholder="No. Documento" HorizontalOptions="FillAndExpand"
+                            Text="{Binding DocumentNumber}"></Entry>
 
-                    <Entry Placeholder="Email" HorizontalOptions="FillAndExpand"></Entry>
+                    <Entry Placeholder="Email" Keyboard="Email" HorizontalOptions="FillAndExpand"
+                            Text="{Binding Email}"></Entry>
+
+                    <Entry Placeholder="Contraseña" Keyboard="Email" HorizontalOptions="FillAndExpand"
+                            Text="{Binding Password}"></Entry>
+
+                    <Entry Placeholder="Confirmacion Contraseña" Keyboard="Email" HorizontalOptions="FillAndExpand"
+                            Text="{Binding ConfirmPassword}"></Entry>
 
                     <Picker Title="Seleccione Ocupación" Grid.Column="0" 
                             Grid.ColumnSpan="2" ItemsSource="{Binding Ocupations}" 
@@ -61,15 +72,19 @@
                         </Picker.ItemDisplayBinding>
                     </Picker>
 
+                    <ActivityIndicator Color="#18bc9c"
+                                       IsRunning="{Binding IsRunning, Mode=TwoWay}">
+                    </ActivityIndicator>
+
+                    <Button Text="Registrar"
+                            BackgroundColor="#2c3e50"
+                            TextColor="White"
+                            CornerRadius="10"
+                            HorizontalOptions="FillAndExpand"
+                            Command="{Binding SaveUser}"
+                            IsEnabled="{Binding IsEnabled}"></Button>
                 </StackLayout>
             </ScrollView>
-
-            <Button Text="Registrar"
-                    BackgroundColor="#2c3e50"
-                    TextColor="White"
-                    CornerRadius="10"
-                    HorizontalOptions="FillAndExpand"></Button>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>
