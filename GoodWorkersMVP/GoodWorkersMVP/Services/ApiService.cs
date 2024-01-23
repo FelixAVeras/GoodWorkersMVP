@@ -43,7 +43,7 @@ namespace GoodWorkersMVP.Services
             };
         }
 
-        public async Task<TokenResponse> GetToken(string urlBase, string email, string password)
+        public async Task<TokenResponse> GetToken(string urlBase, string prefix, string endpoint, string email, string password)
         {
             try
             {

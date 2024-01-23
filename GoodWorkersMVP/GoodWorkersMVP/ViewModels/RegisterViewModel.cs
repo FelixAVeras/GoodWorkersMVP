@@ -36,10 +36,18 @@ namespace GoodWorkersMVP.ViewModels
         public string FirstName { get; set; } = string.Empty;
         public string MiddleName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
-        public string Phone { get; set; } = string.Empty;
-        public string CellPhone { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
+        public string Cellphone { get; set; } = string.Empty;
+        public string ProfileImage { get; set; } = string.Empty;
+        public DateTimeOffset Birthday { get; set; }
+        public string DocumentNumber { get; set; } = string.Empty;
+        public string AboutMe { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
+        public int DocumentTypeId { get; set; }
+        public int UserTypeId { get; set; }
+        public int OcupationID { get; set; }
         public string Password { get; set; } = string.Empty;
         public string ConfirmPassword { get; set; } = string.Empty;
 
@@ -191,6 +199,58 @@ namespace GoodWorkersMVP.ViewModels
 
                 return;
             }
+
+            byte[] imageArray = null;
+            
+            if (this.file != null)
+            {
+                imageArray = FileHelper.ReadFull(this.file.GetStream());
+            }
+
+            var userRequest = new UserRequest
+            {
+                AboutMe = this.AboutMe,
+                Address = this.Address,
+                Birthday = this.Birthday,
+                Cellphone = this.Cellphone,
+                DocumentTypeId = 1,
+                DocumentNumber = this.DocumentNumber,
+                Email = this.Email,
+                FirstName = this.FirstName,
+                LastName = this.LastName,
+                MiddleName = this.MiddleName,
+                OcupationId = 1,
+                ImageArray = imageArray,
+                Password = this.Password,
+            };
+
+            var url = Application.Current.Resources["UrlAPI"].ToString();
+            var prefix = Application.Current.Resources["Prefix"].ToString();
+            var controller = Application.Current.Resources["RegisterEndPoint"].ToString();
+            var response = await this.apiService.Post(url, prefix, controller, userRequest);
+
+            if (!response.IsSuccess)
+            {
+                IsRunning = false;
+                IsEnabled = true;
+
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    response.Message,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            this.isRunning = false;
+            this.isEnabled = true;
+
+            await Application.Current.MainPage.DisplayAlert(
+                    "Exito!",
+                    "Usuario Creado Exitosamente, ahora puede ingresar con su usuario y contraseña.",
+                    Languages.BtnAcceptDialog);
+
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
 
         private async void ChangeImage()

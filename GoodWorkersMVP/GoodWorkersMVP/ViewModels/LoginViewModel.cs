@@ -1,18 +1,15 @@
-﻿using System;
-using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using GoodWorkersMVP.Helpers;
-using GoodWorkersMVP.Models.ModelResponse;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
-using Xamarin.Essentials;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        ApiService apiservice;
+        ApiService apiService;
 
         private string email;
         private string password;
@@ -71,7 +68,7 @@ namespace GoodWorkersMVP.ViewModels
 
         public LoginViewModel()
         {
-            apiservice = new ApiService();
+            apiService = new ApiService();
 
             IsEnable = true;
             IsRemember = true;
@@ -115,7 +112,7 @@ namespace GoodWorkersMVP.ViewModels
             IsRunning = true;
             IsEnable = false;
 
-            var connection = await apiservice.CheckConnection();
+            var connection = await apiService.CheckConnection();
 
             if (!connection.IsSuccess)
             {
@@ -130,19 +127,26 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            //var response = await apiservice.GetToken(
-            //    "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
-            //    Email, Password);
+            var url = Application.Current.Resources["UrlAPI"].ToString();
+            var prefix = Application.Current.Resources["Prefix"].ToString();
+            var controller = Application.Current.Resources["loginEndPoint"].ToString();
 
-            //if (response == null || string.IsNullOrEmpty(response.AccessToken))
-            //{
-            //    IsRunning = false;
-            //    IsEnable = true;
+            var response = await this.apiService.GetToken(url, prefix, controller, Email, Password);
 
-            //    await dialogHelper.ShowMessage("Error", response.ErrorDescription);
-            //    Password = null;
-            //    return;
-            //}
+            if (response == null || string.IsNullOrEmpty(response.AccessToken))
+            {
+                IsRunning = false;
+                IsEnable = true;
+
+                await Application.Current.MainPage.DisplayAlert(
+                     Languages.ErrorTitleDialog,
+                     "Ha ocurrido un error",
+                     Languages.BtnAcceptDialog);
+
+                Password = null;
+
+                return;
+            }
 
             MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
             // MainViewModel.GetInstance().Token = response;

@@ -20,6 +20,7 @@ namespace GoodWorkersMVP.Models
         public string AboutMe { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
         public long DocumentTypeId { get; set; }
         public long OcupationId { get; set; }
 
@@ -28,5 +29,7 @@ namespace GoodWorkersMVP.Models
 
         public Ocupation Ocupation { get; set; }
         public int OcupationID { get; set; }
+
+        public byte[] ImageArray { get; set; }
     }
 }
