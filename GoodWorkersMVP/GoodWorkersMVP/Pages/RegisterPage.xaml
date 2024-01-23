@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GoodWorkersMVP.Pages.RegisterPage"
+             xmlns:local="clr-namespace:GoodWorkersMVP.Helpers"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Registro de Usuario">
     <ContentPage.Content>
@@ -36,7 +37,8 @@
                     <Entry Placeholder="Apellido" HorizontalOptions="FillAndExpand" Text="{Binding LastName}"></Entry>
 
                     <Label Text="Fecha de Nacimiento"></Label>
-                    <DatePicker></DatePicker>
+                    <DatePicker MinimumDate="{x:Static local:DateTimeHelper.GetMinimumDate}"
+                                MaximumDate="{x:Static local:DateTimeHelper.GetMaximumDate}"></DatePicker>
 
                     <Entry Placeholder="Direccion" HorizontalOptions="FillAndExpand" Text="{Binding Address}"></Entry>
                     <Entry Placeholder="Telefono #1" Keyboard="Telephone" HorizontalOptions="FillAndExpand"
@@ -81,7 +83,7 @@
                             TextColor="White"
                             CornerRadius="10"
                             HorizontalOptions="FillAndExpand"
-                            Command="{Binding SaveUser}"
+                            Command="{Binding SaveUserCommand}"
                             IsEnabled="{Binding IsEnabled}"></Button>
                 </StackLayout>
             </ScrollView>

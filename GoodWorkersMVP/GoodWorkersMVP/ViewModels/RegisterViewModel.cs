@@ -110,6 +110,88 @@ namespace GoodWorkersMVP.ViewModels
 
         public ICommand ChangeProfileImage => new RelayCommand(ChangeImage);
         public ICommand ChangeUserTypeCommand => new RelayCommand(ChangeUserType);
+        public ICommand SaveUserCommand => new RelayCommand(SaveUser);
+
+        async void SaveUser()
+        {
+            if (string.IsNullOrEmpty(Email))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    Languages.ErrorEmailEmptyLabel,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            if (!RegexUtilities.isValidEmail(Email))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    Languages.ErrorEmailInvalidLabel,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            if (this.Password.Length < 6)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    "La contraseña debe de ser mayor a 6 caracteres",
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            if (string.IsNullOrEmpty(Password))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    Languages.ErrorPasswordEmptyLabel,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            if (string.IsNullOrEmpty(ConfirmPassword))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    Languages.ErrorPasswordEmptyLabel,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            if (!this.Password.Equals(ConfirmPassword))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    "Las Contraseñas no coinciden",
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            IsRunning = true;
+            IsEnabled = false;
+
+            var connection = await apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                IsRunning = false;
+                IsEnabled = true;
+
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    connection.Message,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+        }
 
         private async void ChangeImage()
         {
