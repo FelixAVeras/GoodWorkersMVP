@@ -62,7 +62,6 @@ namespace GoodWorkersMVP.ViewModels
         }
 
         public ICommand ToggleExpandCommand => new Command(() => IsExpanded = !IsExpanded);
-
         public ICommand LoginCommand => new RelayCommand(Login);
         public ICommand RegisterCommand => new RelayCommand(Register);
 
@@ -131,7 +130,7 @@ namespace GoodWorkersMVP.ViewModels
             var prefix = Application.Current.Resources["Prefix"].ToString();
             var controller = Application.Current.Resources["loginEndPoint"].ToString();
 
-            var response = await this.apiService.GetToken(url, prefix, controller, Email, Password);
+            var response = await apiService.GetToken(url, prefix, controller, Email, Password);
 
             if (response == null || string.IsNullOrEmpty(response.AccessToken))
             {

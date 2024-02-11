@@ -2,7 +2,6 @@
 using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Services;
-using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
@@ -201,7 +200,7 @@ namespace GoodWorkersMVP.ViewModels
             }
 
             byte[] imageArray = null;
-            
+
             if (this.file != null)
             {
                 imageArray = FileHelper.ReadFull(this.file.GetStream());
@@ -259,12 +258,12 @@ namespace GoodWorkersMVP.ViewModels
 
             var source = await Application.Current.MainPage.DisplayActionSheet(
                 "Tomar Imagen Desde: ",
-                "Cancelar",
+                Languages.BtnCancelDialog,
                 null,
                 "Desde la Galeria",
                 "Desde la Camara");
 
-            if (source == "Cancelar")
+            if (source == Languages.BtnCancelDialog)
             {
                 file = null;
                 return;
