@@ -9,8 +9,8 @@
         <ScrollView BindingContext="{Binding Login}" Padding="8">
             <StackLayout>
 
-                <Image Source="business_people"
-                        WidthRequest="100"
+                <Image Source="human"
+                        WidthRequest="150"
                         HorizontalOptions="Center"
                         Aspect="AspectFit"></Image>
 

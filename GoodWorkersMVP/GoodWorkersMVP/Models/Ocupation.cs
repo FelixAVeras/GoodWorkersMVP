@@ -24,7 +24,7 @@ namespace GoodWorkersMVP.Models
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Ocupation = this;
             
-            int selectedUserId = SelectedUserId;
+            //int selectedUserId = SelectedUserId;
             mainViewModel.SelectedUserId = SelectedUserId;
 
             mainViewModel.Users = new UsersViewModel(Users);

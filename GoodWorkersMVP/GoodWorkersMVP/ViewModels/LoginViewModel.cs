@@ -71,9 +71,6 @@ namespace GoodWorkersMVP.ViewModels
 
             IsEnable = true;
             IsRemember = true;
-
-            this.Email = "edlopez23@yopmail.com";
-            this.Password = "test1234";
         }
 
         async void Login()
@@ -139,20 +136,24 @@ namespace GoodWorkersMVP.ViewModels
 
                 await Application.Current.MainPage.DisplayAlert(
                      Languages.ErrorTitleDialog,
-                     "Ha ocurrido un error",
+                     Languages.SomethingWentWrong,
                      Languages.BtnAcceptDialog);
 
+                Email = null;
                 Password = null;
 
                 return;
             }
 
+            Settings.TokenType = response.TokenType;
+            Settings.AccessToken = response.AccessToken;
+            Settings.IsRemember = IsRemember;
+
             MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
-            // MainViewModel.GetInstance().Token = response;
             Application.Current.MainPage = new MasterPage();
 
-            this.Email = null;
-            this.Password = null;
+            Email = null;
+            Password = null;
 
             IsRunning = false;
             IsEnable = true;
@@ -160,9 +161,6 @@ namespace GoodWorkersMVP.ViewModels
 
         async void Register()
         {
-            //var url = "https://www.google.com.do";
-            //Launcher.OpenAsync(new Uri(url));
-
             MainViewModel.GetInstance().Register = new RegisterViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }

@@ -80,6 +80,13 @@ namespace GoodWorkersMVP.ViewModels
 
                 new MenuItemViewModel()
                 {
+                    Icon = "info",
+                    PageName = "InfoPage",
+                    TitleIcon = "Información"
+                },
+
+                new MenuItemViewModel()
+                {
                     Icon = "gearoption",
                     PageName = "SettingsPage",
                     TitleIcon = "Configuración"

@@ -1,13 +1,11 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using GoodWorkersMVP.Helpers;
-using GoodWorkersMVP.Interfaces;
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -49,17 +47,17 @@ namespace GoodWorkersMVP.ViewModels
 
         public ICommand SearchCommand => new RelayCommand(Search);
         public ICommand RefreshCommand => new RelayCommand(LoadOcupations);
-        
+
 
         private async void LoadOcupations()
         {
-            this.IsRefreshing = true;
+            IsRefreshing = true;
 
             var connection = await apiService.CheckConnection();
 
             if (!connection.IsSuccess)
             {
-                this.IsRefreshing = false;
+                IsRefreshing = false;
 
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.ErrorTitleDialog,
@@ -74,11 +72,11 @@ namespace GoodWorkersMVP.ViewModels
             var response = await apiService.GetList<Ocupation>(
                 "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
                 "api/",
-                "ocupations");
+                "ocupations", Settings.TokenType, Settings.AccessToken);
 
             if (!response.IsSuccess)
             {
-                this.IsRefreshing = false;
+                IsRefreshing = false;
 
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.ErrorTitleDialog,
@@ -88,25 +86,23 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            this.ocupationsList = (List<Ocupation>)response.Result;
-            this.Ocupations = new ObservableCollection<Ocupation>(ocupationsList.OrderBy(o => o.OcupationName));
+            ocupationsList = (List<Ocupation>)response.Result;
+            Ocupations = new ObservableCollection<Ocupation>(ocupationsList.OrderBy(o => o.OcupationName));
 
-            this.IsRefreshing = false;
+            IsRefreshing = false;
 
             Application.Current.MainPage = new MasterPage();
         }
 
         private void Search()
         {
-            if (string.IsNullOrEmpty(this.Filter))
+            if (string.IsNullOrEmpty(Filter))
             {
-                this.Ocupations = new ObservableCollection<Ocupation>(this.ocupationsList);
+                Ocupations = new ObservableCollection<Ocupation>(ocupationsList);
             }
             else
             {
-                this.Ocupations = new ObservableCollection<Ocupation>(
-                    this.ocupationsList.Where(o => o.OcupationName.ToLower()
-                                                              .Contains(this.filter.ToLower())));
+                Ocupations = new ObservableCollection<Ocupation>(ocupationsList.Where(o => o.OcupationName.ToLower().Contains(filter.ToLower())));
             }
         }
     }

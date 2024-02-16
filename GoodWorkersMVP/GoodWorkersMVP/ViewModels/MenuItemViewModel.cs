@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Pages;
 using System;
 using System.Collections.Generic;
@@ -14,39 +15,35 @@ namespace GoodWorkersMVP.ViewModels
         public string TitleIcon { get; set; }
         public string PageName { get; set; }
 
-        public ICommand NavigateCommand
-        {
-            get { return new RelayCommand(Navigate); }
-        }
+        public ICommand NavigateCommand => new RelayCommand(Navigate);
 
         private void Navigate()
         {
             App.Master.IsPresented = false;
 
-            //if (this.PageName == "UserProfilePage")
-            //{
-            //    MainViewModel.GetInstance().UserProfileVireModel = new UserProfileViewModel();
-            //    App.Navigator.PushAsync(new UserProfilePage());
-            //}
-
-            if (this.PageName == "MapsPage")
+            switch (PageName) 
             {
-                //MainViewModel.GetInstance().MapsViewModel = new MapsViewModel();
-                App.Navigator.PushAsync(new MapsPage());
-                //App.
-            }
+                //case "UserProfilePage":
+                //    MainViewModel.GetInstance().Profile = new ProfileViewModel();
+                //    App.Navigator.PushAsync(new ProfilePage());
+                //    break;
 
-            if (this.PageName == "LoginPage")
-            {
-                var mainViewModel = MainViewModel.GetInstance();
+                case "MapsPage":
+                    App.Navigator.PushAsync(new MapsPage());
+                    break;
 
-                //mainViewModel.Token = string.Empty;
-                //mainViewModel.TokenType = string.Empty;
+                case "InfoPage":
+                    App.Navigator.PushAsync(new InfoPage());
+                    break;
 
-                //Settings.Token = string.Empty;
-                //Settings.TokenType = string.Empty;
+                case "LoginPage":
+                    Settings.AccessToken = string.Empty;
+                    Settings.TokenType = string.Empty;
+                    Settings.IsRemember = false;
 
-                Application.Current.MainPage = new NavigationPage(new LoginPage());
+                    MainViewModel.GetInstance().Login = new LoginViewModel();
+                    Application.Current.MainPage = new NavigationPage(new LoginPage());
+                    break;
             }
         }
     }

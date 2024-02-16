@@ -1,4 +1,6 @@
-﻿using GoodWorkersMVP.Pages;
+﻿using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Pages;
+using GoodWorkersMVP.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,15 +16,21 @@ namespace GoodWorkersMVP
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage())
+            if (Settings.IsRemember && string.IsNullOrEmpty(Settings.AccessToken))
             {
-                BarBackgroundColor = Color.FromHex("#253544")
-            };
+                MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
 
-            //MainPage = new NavigationPage(new ProfilePage())
-            //{
-            //    BarBackgroundColor = Color.FromHex("#253544")
-            //};
+                MainPage = new MasterPage();
+            }
+            else
+            {
+                MainViewModel.GetInstance().Login = new LoginViewModel();
+
+                MainPage = new NavigationPage(new LoginPage())
+                {
+                    BarBackgroundColor = Color.FromHex("#253544")
+                };
+            }
         }
 
         protected override void OnStart()
