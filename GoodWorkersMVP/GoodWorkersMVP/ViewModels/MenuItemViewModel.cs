@@ -1,11 +1,12 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using CommunityToolkit.Mvvm.Input;
 using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Pages;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace GoodWorkersMVP.ViewModels
 {

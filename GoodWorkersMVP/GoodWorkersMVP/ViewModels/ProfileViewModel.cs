@@ -2,7 +2,8 @@
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace GoodWorkersMVP.ViewModels
 {

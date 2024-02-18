@@ -12,7 +12,7 @@ using Plugin.CurrentActivity;
 namespace GoodWorkersMVP.Droid
 {
     [Activity(Label = "GoodWorkersDO", Icon = "@drawable/play_store_512", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : Microsoft.Maui.MauiAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {

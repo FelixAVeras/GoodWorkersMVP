@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using CommunityToolkit.Mvvm.Input;
 using GoodWorkersMVP.ViewModels;
 using Newtonsoft.Json;
 using System;

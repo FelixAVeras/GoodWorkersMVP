@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using CommunityToolkit.Mvvm.Input;
 using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Services;
@@ -8,7 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace GoodWorkersMVP.ViewModels
 {
@@ -175,7 +176,7 @@ namespace GoodWorkersMVP.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.ErrorTitleDialog,
-                    "Las Contraseñas no coinciden",
+                    Languages.PasswordValidationConfirm,
                     Languages.BtnAcceptDialog);
 
                 return;
@@ -215,7 +216,7 @@ namespace GoodWorkersMVP.ViewModels
                 DocumentTypeId = 1,
                 DocumentNumber = this.DocumentNumber,
                 Email = this.Email,
-                FirstName = this.FirstName,
+                FirstName = FirstName,
                 LastName = this.LastName,
                 MiddleName = this.MiddleName,
                 OcupationId = 1,
@@ -226,7 +227,7 @@ namespace GoodWorkersMVP.ViewModels
             var url = Application.Current.Resources["UrlAPI"].ToString();
             var prefix = Application.Current.Resources["Prefix"].ToString();
             var controller = Application.Current.Resources["RegisterEndPoint"].ToString();
-            var response = await this.apiService.Post(url, prefix, controller, userRequest);
+            var response = await apiService.Post(url, prefix, controller, userRequest);
 
             if (!response.IsSuccess)
             {
@@ -241,8 +242,8 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            this.isRunning = false;
-            this.isEnabled = true;
+            isRunning = false;
+            isEnabled = true;
 
             await Application.Current.MainPage.DisplayAlert(
                     "Exito!",

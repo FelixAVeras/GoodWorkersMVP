@@ -4,8 +4,9 @@ using System;
 using System.Globalization;
 using System.Reflection;
 using System.Resources;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace GoodWorkersMVP.Helpers
 {

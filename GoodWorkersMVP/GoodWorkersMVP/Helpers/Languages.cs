@@ -1,7 +1,8 @@
 ﻿using GoodWorkersMVP.Interfaces;
 using System.Globalization;
-using Xamarin.Forms;
 using GoodWorkersMVP.Resources;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace GoodWorkersMVP.Helpers
 {

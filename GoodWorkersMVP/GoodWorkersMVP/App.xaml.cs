@@ -1,8 +1,9 @@
 ﻿using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.ViewModels;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using Microsoft.Maui.Controls.Xaml;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace GoodWorkersMVP
@@ -28,7 +29,7 @@ namespace GoodWorkersMVP
 
                 MainPage = new NavigationPage(new LoginPage())
                 {
-                    BarBackgroundColor = Color.FromHex("#253544")
+                    BarBackgroundColor = Color.FromArgb("#253544")
                 };
             }
         }

@@ -1,11 +1,10 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30011.22
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodWorkersMVP.Android", "GoodWorkersMVP\GoodWorkersMVP.Android\GoodWorkersMVP.Android.csproj", "{CD70F98F-2356-47C1-BAA4-2D17CEF1807D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWorkersMVP.Android", "GoodWorkersMVP\GoodWorkersMVP.Android\GoodWorkersMVP.Android.csproj", "{CD70F98F-2356-47C1-BAA4-2D17CEF1807D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodWorkersMVP.iOS", "GoodWorkersMVP\GoodWorkersMVP.iOS\GoodWorkersMVP.iOS.csproj", "{2B949A4B-5859-4777-A004-CCA3191E1091}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWorkersMVP.iOS", "GoodWorkersMVP\GoodWorkersMVP.iOS\GoodWorkersMVP.iOS.csproj", "{2B949A4B-5859-4777-A004-CCA3191E1091}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodWorkersMVP", "GoodWorkersMVP\GoodWorkersMVP\GoodWorkersMVP.csproj", "{18864ECA-F85D-4C01-980D-00928EF908AB}"
 EndProject
@@ -80,7 +79,6 @@ Global
 		{2B949A4B-5859-4777-A004-CCA3191E1091}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
 		{2B949A4B-5859-4777-A004-CCA3191E1091}.AppStore|iPhoneSimulator.Deploy.0 = AppStore|iPhoneSimulator
 		{2B949A4B-5859-4777-A004-CCA3191E1091}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{2B949A4B-5859-4777-A004-CCA3191E1091}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 		{2B949A4B-5859-4777-A004-CCA3191E1091}.Debug|Any CPU.Deploy.0 = Debug|iPhoneSimulator
 		{2B949A4B-5859-4777-A004-CCA3191E1091}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{2B949A4B-5859-4777-A004-CCA3191E1091}.Debug|iPhone.Build.0 = Debug|iPhone

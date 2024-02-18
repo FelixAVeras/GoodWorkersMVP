@@ -1,9 +1,7 @@
-﻿using GalaSoft.MvvmLight.Command;
-using GoodWorkersMVP.Pages;
-using GoodWorkersMVP.Services;
+﻿using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.ViewModels;
-using System.Collections.Generic;
 using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace GoodWorkersMVP.Models
 {
@@ -21,13 +19,9 @@ namespace GoodWorkersMVP.Models
 
         async void SelectOcupation()
         {
-            var mainViewModel = MainViewModel.GetInstance();
-            mainViewModel.Ocupation = this;
-            
-            //int selectedUserId = SelectedUserId;
-            mainViewModel.SelectedUserId = SelectedUserId;
-
-            mainViewModel.Users = new UsersViewModel(Users);
+            MainViewModel.GetInstance().Ocupation = this;
+            MainViewModel.GetInstance().SelectedUserId = SelectedUserId;
+            MainViewModel.GetInstance().Users = new UsersViewModel(Users);
 
             await App.Navigator.PushAsync(new UsersPage());
         }

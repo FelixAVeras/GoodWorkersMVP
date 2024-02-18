@@ -4,7 +4,8 @@ using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Interfaces;
 using System.Globalization;
 using System.Threading;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(GoodWorkersMVP.iOS.Implementations.Localize))]
 namespace GoodWorkersMVP.iOS.Implementations

@@ -1,9 +1,10 @@
 ﻿
 using System.Globalization;
 using System.Threading;
-using Xamarin.Forms;
 using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Interfaces;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(GoodWorkersMVP.Droid.Implementations.Localize))]
 namespace GoodWorkersMVP.Droid.Implementations
