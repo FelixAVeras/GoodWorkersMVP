@@ -21,7 +21,7 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <Picker Title="Seleccione Tipo de Usuario" 
+                        <!--<Picker Title="Seleccione Tipo de Usuario" 
                                 Grid.Column="0" Grid.ColumnSpan="2" 
                                 SelectedItem="{Binding SelectedUserType}">
                             <Picker.Items>
@@ -29,41 +29,50 @@
                                 <x:String>Individual</x:String>
                                 <x:String>Empresa</x:String>
                             </Picker.Items>
+                        </Picker>-->
+
+                        <Picker Title="Seleccione Tipo de Usuario" Grid.Column="0" 
+                            Grid.ColumnSpan="2" ItemsSource="{Binding UserTypes}"
+                            SelectedItem="{Binding SelectedUserType}">
+                            <Picker.ItemDisplayBinding>
+                                <Binding Path="UserTypeName" />
+                            </Picker.ItemDisplayBinding>
                         </Picker>
                     </Grid>
 
                     <Entry Placeholder="Nombre" HorizontalOptions="FillAndExpand" Text="{Binding FirstName}"></Entry>
                     <Entry Placeholder="Segundo Nombre (Opcional)" HorizontalOptions="FillAndExpand" Text="{Binding MiddleName}"></Entry>
-                    <Entry Placeholder="Apellido" HorizontalOptions="FillAndExpand" Text="{Binding LastName}"></Entry>
+                    <Entry Placeholder="Apellido(s)" HorizontalOptions="FillAndExpand" Text="{Binding LastName}"></Entry>
 
                     <Label Text="Fecha de Nacimiento"></Label>
                     <DatePicker MinimumDate="{x:Static local:DateTimeHelper.GetMinimumDate}"
                                 MaximumDate="{x:Static local:DateTimeHelper.GetMaximumDate}"></DatePicker>
 
                     <Entry Placeholder="Direccion" HorizontalOptions="FillAndExpand" Text="{Binding Address}"></Entry>
+                    
                     <Entry Placeholder="Telefono #1" Keyboard="Telephone" HorizontalOptions="FillAndExpand"
                             Text="{Binding Phone}"></Entry>
+                    
                     <Entry Placeholder="Telefono #2" Keyboard="Telephone" HorizontalOptions="FillAndExpand"
                             Text="{Binding CellPhone}"></Entry>
 
-                    <Picker Title="Seleccione Tipo de Documento">
-                        <Picker.Items>
-                            <x:String>Cedula de Identidad</x:String>
-                            <x:String>Pasaporte</x:String>
-                            <x:String>Cedula de Extrajenria</x:String>
-                            <x:String>RNC</x:String>
-                        </Picker.Items>
+                    <Picker Title="Seleccione Tipo de Documento" Grid.Column="0" Grid.ColumnSpan="2" 
+                            ItemsSource="{Binding DocumentTypes}" SelectedItem="{Binding SelectedDocumentTypes}">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="DocumentTypeName" />
+                        </Picker.ItemDisplayBinding>
                     </Picker>
+                    
                     <Entry Placeholder="No. Documento" HorizontalOptions="FillAndExpand"
                             Text="{Binding DocumentNumber}"></Entry>
 
                     <Entry Placeholder="Email" Keyboard="Email" HorizontalOptions="FillAndExpand"
                             Text="{Binding Email}"></Entry>
 
-                    <Entry Placeholder="Contraseña" Keyboard="Email" HorizontalOptions="FillAndExpand"
+                    <Entry Placeholder="Contraseña" IsPassword="True" HorizontalOptions="FillAndExpand"
                             Text="{Binding Password}"></Entry>
 
-                    <Entry Placeholder="Confirmacion Contraseña" Keyboard="Email" HorizontalOptions="FillAndExpand"
+                    <Entry Placeholder="Confirmacion Contraseña" IsPassword="True" HorizontalOptions="FillAndExpand"
                             Text="{Binding ConfirmPassword}"></Entry>
 
                     <Picker Title="Seleccione Ocupación" Grid.Column="0" 

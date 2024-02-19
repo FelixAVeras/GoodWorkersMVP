@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Models;
 using GoodWorkersMVP.Models.ModelResponse;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
@@ -43,7 +44,7 @@ namespace GoodWorkersMVP.Services
             };
         }
 
-        public async Task<TokenResponse> GetToken(string urlBase, string prefix, string endpoint, string email, string password)
+        public async Task<TokenResponse> GetToken(string urlBase, string prefix, string endpoint, string email, string password, string deviceName)
         {
             try
             {
@@ -52,9 +53,8 @@ namespace GoodWorkersMVP.Services
                     BaseAddress = new Uri(urlBase)
                 };
 
-                var response = await client.PostAsync(
-                    "Token",
-                    new StringContent(string.Format("grant_type=password&username={0}&password={1}", email, password),
+                var response = await client.PostAsync("login",
+                    new StringContent(string.Format("email={0}&password={1},device_name={2}", email, password, deviceName),
                     Encoding.UTF8, "application/x-www-form-urlencoded"));
 
                 var resultJson = await response.Content.ReadAsStringAsync();
@@ -114,6 +114,39 @@ namespace GoodWorkersMVP.Services
                     IsSuccess = false,
                     Message = ex.Message,
                 };
+            }
+        }
+
+        public async Task<UserType> GetByName(string urlBase, string servicePrefix, string controller, string name)
+        {
+            try
+            {
+                var client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase)
+                };
+
+                var url = string.Format("{0}{1}/{2}", servicePrefix, controller, name);
+
+                HttpResponseMessage response = await client.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonContent = await response.Content.ReadAsStringAsync();
+                    UserType userType = JsonConvert.DeserializeObject<UserType>(jsonContent);
+                    
+                    return userType;
+                }
+                else
+                {
+                    Console.WriteLine($"Error al obtener el tipo de usuario por nombre. Código de estado: {response.StatusCode}");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener el tipo de usuario por nombre: {ex.Message}");
+                return null;
             }
         }
 
@@ -341,21 +374,19 @@ namespace GoodWorkersMVP.Services
             }
         }
 
-        public async Task<Response> Post<T>(
-            string urlBase,
-            string servicePrefix,
-            string controller,
-            T model)
+        public async Task<Response> Post<T>(string urlBase, string servicePrefix, string controller, T model)
         {
             try
             {
                 var request = JsonConvert.SerializeObject(model);
-                var content = new StringContent(
-                    request,
-                    Encoding.UTF8,
-                    "application/json");
-                var client = new HttpClient();
-                client.BaseAddress = new Uri(urlBase);
+                var content = new StringContent(request, Encoding.UTF8, "application/json");
+                
+                var client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase),
+                    Timeout = TimeSpan.FromSeconds(30)
+                };
+
                 var url = string.Format("{0}{1}", servicePrefix, controller);
                 var response = await client.PostAsync(url, content);
 

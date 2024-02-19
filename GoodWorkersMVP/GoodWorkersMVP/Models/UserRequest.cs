@@ -31,5 +31,7 @@ namespace GoodWorkersMVP.Models
         public int OcupationID { get; set; }
 
         public byte[] ImageArray { get; set; }
+
+        public string DeviceName { get; set; }
     }
 }

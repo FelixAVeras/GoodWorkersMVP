@@ -3,6 +3,7 @@ using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
@@ -127,7 +128,9 @@ namespace GoodWorkersMVP.ViewModels
             var prefix = Application.Current.Resources["Prefix"].ToString();
             var controller = Application.Current.Resources["loginEndPoint"].ToString();
 
-            var response = await apiService.GetToken(url, prefix, controller, Email, Password);
+            var deviceName = DeviceInfo.Name;
+
+            var response = await apiService.GetToken(url, prefix, controller, Email, Password, deviceName);
 
             if (response == null || string.IsNullOrEmpty(response.AccessToken))
             {

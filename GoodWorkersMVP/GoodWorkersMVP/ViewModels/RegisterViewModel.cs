@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace GoodWorkersMVP.ViewModels
@@ -24,13 +25,14 @@ namespace GoodWorkersMVP.ViewModels
 
         private bool showOcupationPicker;
 
+        private ObservableCollection<UserType> userTypes;
+        private UserType userType;
+
         private ObservableCollection<DocumentType> documentTypes;
         private DocumentType documentType;
 
         private ObservableCollection<Ocupation> ocupations;
         private Ocupation ocupation;
-
-        public ObservableCollection<string> UserTypes { get; set; }
 
         public string FirstName { get; set; } = string.Empty;
         public string MiddleName { get; set; } = string.Empty;
@@ -68,8 +70,8 @@ namespace GoodWorkersMVP.ViewModels
             set => SetValue(ref imageSource, value);
         }
 
-        private string selectedUserType;
-        public string SelectedUserType
+        private UserType selectedUserType;
+        public UserType SelectedUserType
         {
             get => selectedUserType;
             set
@@ -78,7 +80,8 @@ namespace GoodWorkersMVP.ViewModels
                 {
                     selectedUserType = value;
                     OnPropertyChanged(nameof(SelectedUserType));
-                    ChangeUserTypeCommand.Execute(null);
+                    // ChangeUserTypeCommand.Execute(null);
+                    ChangeUserType();
                 }
             }
         }
@@ -88,6 +91,13 @@ namespace GoodWorkersMVP.ViewModels
         {
             get => selectedOcupacion;
             set => SetValue(ref selectedOcupacion, value);
+        }
+
+        private string selectedDocumentTypes;
+        public string SelectedDocumentTypes
+        {
+            get => selectedDocumentTypes;
+            set => SetValue(ref selectedDocumentTypes, value);
         }
 
         public bool ShowOcupationPicker
@@ -108,15 +118,30 @@ namespace GoodWorkersMVP.ViewModels
             set => SetValue(ref ocupation, value);
         }
 
+        public ObservableCollection<DocumentType> DocumentTypes
+        {
+            get => documentTypes;
+            set => SetValue(ref documentTypes, value);
+        }
+
+        public ObservableCollection<UserType> UserTypes
+        {
+            get => userTypes;
+            set => SetValue(ref userTypes, value);
+        }
+
         public RegisterViewModel()
         {
             apiService = new ApiService();
             IsEnabled = true;
             ImageSource = "nouser";
+
+            LoadUserTypesFromApi();
+            LoadDocumentTypesFromApi();
         }
 
         public ICommand ChangeProfileImage => new RelayCommand(ChangeImage);
-        public ICommand ChangeUserTypeCommand => new RelayCommand(ChangeUserType);
+        // public ICommand ChangeUserTypeCommand => new RelayCommand(ChangeUserType);
         public ICommand SaveUserCommand => new RelayCommand(SaveUser);
 
         async void SaveUser()
@@ -201,32 +226,35 @@ namespace GoodWorkersMVP.ViewModels
 
             byte[] imageArray = null;
 
-            if (this.file != null)
+            if (file != null)
             {
                 imageArray = FileHelper.ReadFull(this.file.GetStream());
             }
 
             var userRequest = new UserRequest
             {
-                AboutMe = this.AboutMe,
-                Address = this.Address,
-                Birthday = this.Birthday,
-                Cellphone = this.Cellphone,
-                DocumentTypeId = 1,
-                DocumentNumber = this.DocumentNumber,
-                Email = this.Email,
-                FirstName = this.FirstName,
-                LastName = this.LastName,
-                MiddleName = this.MiddleName,
-                OcupationId = 1,
+                AboutMe = AboutMe,
+                Address = Address,
+                Birthday = Birthday,
+                Cellphone = Cellphone,
+                DocumentTypeId = DocumentTypeId,
+                DocumentNumber = DocumentNumber,
+                Email = Email,
+                FirstName = FirstName,
+                LastName = LastName,
+                MiddleName = MiddleName,
+                OcupationId = OcupationID,
                 ImageArray = imageArray,
-                Password = this.Password,
+                Password = Password,
+                UserName = Email,
+                DeviceName = DeviceInfo.Name
             };
 
             var url = Application.Current.Resources["UrlAPI"].ToString();
             var prefix = Application.Current.Resources["Prefix"].ToString();
             var controller = Application.Current.Resources["RegisterEndPoint"].ToString();
-            var response = await this.apiService.Post(url, prefix, controller, userRequest);
+
+            var response = await apiService.Post(url, prefix, controller, userRequest);
 
             if (!response.IsSuccess)
             {
@@ -290,17 +318,26 @@ namespace GoodWorkersMVP.ViewModels
             }
         }
 
-        private void ChangeUserType()
+        private async void ChangeUserType()
         {
-            if (SelectedUserType == "Cliente")
-            {
-                ShowOcupationPicker = false;
-            }
-            else
-            {
-                ShowOcupationPicker = true;
+            //var url = "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/";
+            //var prefix = "api/";
+            //var controller = "userTypes";
 
-                LoadOcupacionesFromApi();
+            //UserType selectedUserTypeObject = await apiService.GetByName(url, prefix, controller, SelectedUserType);
+
+            if (SelectedUserType != null)
+            {
+                if (SelectedUserType.UserTypeName == "Cliente")
+                {
+                    ShowOcupationPicker = false;
+                }
+                else
+                {
+                    ShowOcupationPicker = true;
+
+                    LoadOcupacionesFromApi();
+                }
             }
         }
 
@@ -337,6 +374,76 @@ namespace GoodWorkersMVP.ViewModels
 
             List<Ocupation> ocupacionesList = (List<Ocupation>)response.Result;
             Ocupations = new ObservableCollection<Ocupation>(ocupacionesList);
+        }
+
+        private async void LoadUserTypesFromApi()
+        {
+            var connection = await apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    connection.Message,
+                    Languages.BtnAcceptDialog);
+
+                await Application.Current.MainPage.Navigation.PopAsync();
+
+                return;
+            }
+
+            var response = await apiService.GetList<UserType>(
+                "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
+                "api/",
+                "userTypes");
+
+            if (!response.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    response.Message,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            List<UserType> userTypesList = (List<UserType>)response.Result;
+            UserTypes = new ObservableCollection<UserType>(userTypesList);
+        }
+
+        private async void LoadDocumentTypesFromApi()
+        {
+            var connection = await apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    connection.Message,
+                    Languages.BtnAcceptDialog);
+
+                await Application.Current.MainPage.Navigation.PopAsync();
+
+                return;
+            }
+
+            var response = await apiService.GetList<DocumentType>(
+                "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
+                "api/",
+                "documentTypes");
+
+            if (!response.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    response.Message,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            List<DocumentType> documentTypesList = (List<DocumentType>)response.Result;
+            DocumentTypes = new ObservableCollection<DocumentType>(documentTypesList);
         }
     }
 }
