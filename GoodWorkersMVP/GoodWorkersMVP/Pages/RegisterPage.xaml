@@ -40,6 +40,16 @@
                         </Picker>
                     </Grid>
 
+                    <Picker Title="Seleccione Ocupación" Grid.Column="0" 
+                            Grid.ColumnSpan="2" ItemsSource="{Binding Ocupations}" 
+                            SelectedItem="{Binding SelectedOcupacion}" IsVisible="{Binding ShowOcupationPicker}">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="OcupationName" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+
+                    <Entry Placeholder="Especifique Ocupacion" HorizontalOptions="FillAndExpand" IsVisible="{Binding IsEntryVisible}"></Entry>
+
                     <Entry Placeholder="Nombre" HorizontalOptions="FillAndExpand" Text="{Binding FirstName}"></Entry>
                     <Entry Placeholder="Segundo Nombre (Opcional)" HorizontalOptions="FillAndExpand" Text="{Binding MiddleName}"></Entry>
                     <Entry Placeholder="Apellido(s)" HorizontalOptions="FillAndExpand" Text="{Binding LastName}"></Entry>
@@ -74,14 +84,6 @@
 
                     <Entry Placeholder="Confirmacion Contraseña" IsPassword="True" HorizontalOptions="FillAndExpand"
                             Text="{Binding ConfirmPassword}"></Entry>
-
-                    <Picker Title="Seleccione Ocupación" Grid.Column="0" 
-                            Grid.ColumnSpan="2" ItemsSource="{Binding Ocupations}" 
-                            SelectedItem="{Binding SelectedOcupacion}" IsVisible="{Binding ShowOcupationPicker}">
-                        <Picker.ItemDisplayBinding>
-                            <Binding Path="OcupationName" />
-                        </Picker.ItemDisplayBinding>
-                    </Picker>
 
                     <Editor Placeholder="Escribe una breve descripcion acerca de ti..."
                             Text="{Binding AboutMe}"

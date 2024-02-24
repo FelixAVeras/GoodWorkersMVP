@@ -79,8 +79,6 @@ namespace GoodWorkersMVP.Services
                         var error = JsonConvert.DeserializeObject<TokenResponse>(errorJson);
                         
                         return new TokenResponse { ErrorDescription = error.ErrorDescription };
-
-                        // return null;
                     }
                 }
             }
@@ -173,10 +171,7 @@ namespace GoodWorkersMVP.Services
             }
         }
 
-        public async Task<Response> GetList<T>(
-            string urlBase,
-            string servicePrefix,
-            string controller)
+        public async Task<Response> GetList<T>(string urlBase, string servicePrefix, string controller)
         {
             try
             {

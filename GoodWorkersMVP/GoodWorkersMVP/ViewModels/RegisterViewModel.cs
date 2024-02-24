@@ -22,6 +22,7 @@ namespace GoodWorkersMVP.ViewModels
 
         private bool isRunning;
         private bool isEnabled;
+        private bool isEntryVisible;
 
         private bool showOcupationPicker;
 
@@ -41,7 +42,7 @@ namespace GoodWorkersMVP.ViewModels
         public string Phone { get; set; } = string.Empty;
         public string Cellphone { get; set; } = string.Empty;
         public string ProfileImage { get; set; } = string.Empty;
-        public DateTimeOffset Birthday { get; set; }
+        public DateTime Birthday { get; set; }
         public string DocumentNumber { get; set; } = string.Empty;
         public string AboutMe { get; set; } = string.Empty;
         public string UserName { get; set; } = string.Empty;
@@ -62,6 +63,19 @@ namespace GoodWorkersMVP.ViewModels
         {
             get => isEnabled;
             set => SetValue(ref isEnabled, value);
+        }
+
+        public bool IsEntryVisible
+        {
+            get => isEntryVisible;
+            set
+            {
+                if (isEntryVisible != value)
+                {
+                    isEntryVisible = value;
+                    SetValue(ref isEntryVisible, value);
+                }
+            }
         }
 
         public ImageSource ImageSource
@@ -89,7 +103,18 @@ namespace GoodWorkersMVP.ViewModels
         public string SelectedOcupacion
         {
             get => selectedOcupacion;
-            set => SetValue(ref selectedOcupacion, value);
+            set
+            {
+                if (selectedOcupacion != value)
+                {
+                    selectedOcupacion = value;
+                    SetValue(ref selectedOcupacion, value);
+
+                    IsEntryVisible = value == "Otro";
+                }
+
+                SetValue(ref selectedOcupacion, value);
+            }
         }
 
         private string selectedDocumentTypes;
@@ -140,7 +165,6 @@ namespace GoodWorkersMVP.ViewModels
         }
 
         public ICommand ChangeProfileImage => new RelayCommand(ChangeImage);
-        // public ICommand ChangeUserTypeCommand => new RelayCommand(ChangeUserType);
         public ICommand SaveUserCommand => new RelayCommand(SaveUser);
 
         async void SaveUser()
@@ -242,7 +266,7 @@ namespace GoodWorkersMVP.ViewModels
                 FirstName = FirstName,
                 LastName = LastName,
                 MiddleName = MiddleName,
-                OcupationId = OcupationID,
+                OcupationID = OcupationID,
                 ImageArray = imageArray,
                 Password = Password,
                 UserName = Email,
@@ -252,8 +276,7 @@ namespace GoodWorkersMVP.ViewModels
             string url = Application.Current.Resources["UrlAPI"].ToString();
             string prefix = Application.Current.Resources["Prefix"].ToString();
             string controller = Application.Current.Resources["registerEndPoint"].ToString();
-            // string controller = Application.Current.Resources["userEndPoint"].ToString();
-
+            
             Models.ModelResponse.Response response = await apiService.Post(url, prefix, controller, userRequest);
 
             if (!response.IsSuccess)
