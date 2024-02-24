@@ -11,7 +11,7 @@
             <!-- Parameters -->
             <x:String x:Key="UrlAPI">https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com</x:String>
             <x:String x:Key="Prefix">/api</x:String>
-            <x:String x:Key="RegisterEndPoint">/register</x:String>
+            <x:String x:Key="registerEndPoint">/register</x:String>
             <x:String x:Key="loginEndPoint">/login</x:String>
             <x:String x:Key="ocupationEndPoint">/ocupations</x:String>
             <x:String x:Key="documentTypeEndPoint">/documentTypes</x:String>

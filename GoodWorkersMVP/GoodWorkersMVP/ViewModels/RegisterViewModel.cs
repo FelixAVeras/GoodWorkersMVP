@@ -80,7 +80,6 @@ namespace GoodWorkersMVP.ViewModels
                 {
                     selectedUserType = value;
                     OnPropertyChanged(nameof(SelectedUserType));
-                    // ChangeUserTypeCommand.Execute(null);
                     ChangeUserType();
                 }
             }
@@ -250,11 +249,12 @@ namespace GoodWorkersMVP.ViewModels
                 DeviceName = DeviceInfo.Name
             };
 
-            var url = Application.Current.Resources["UrlAPI"].ToString();
-            var prefix = Application.Current.Resources["Prefix"].ToString();
-            var controller = Application.Current.Resources["RegisterEndPoint"].ToString();
+            string url = Application.Current.Resources["UrlAPI"].ToString();
+            string prefix = Application.Current.Resources["Prefix"].ToString();
+            string controller = Application.Current.Resources["registerEndPoint"].ToString();
+            // string controller = Application.Current.Resources["userEndPoint"].ToString();
 
-            var response = await apiService.Post(url, prefix, controller, userRequest);
+            Models.ModelResponse.Response response = await apiService.Post(url, prefix, controller, userRequest);
 
             if (!response.IsSuccess)
             {
@@ -318,14 +318,8 @@ namespace GoodWorkersMVP.ViewModels
             }
         }
 
-        private async void ChangeUserType()
+        private void ChangeUserType()
         {
-            //var url = "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/";
-            //var prefix = "api/";
-            //var controller = "userTypes";
-
-            //UserType selectedUserTypeObject = await apiService.GetByName(url, prefix, controller, SelectedUserType);
-
             if (SelectedUserType != null)
             {
                 if (SelectedUserType.UserTypeName == "Cliente")

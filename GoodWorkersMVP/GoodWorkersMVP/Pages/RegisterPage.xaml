@@ -83,6 +83,10 @@
                         </Picker.ItemDisplayBinding>
                     </Picker>
 
+                    <Editor Placeholder="Escribe una breve descripcion acerca de ti..."
+                            Text="{Binding AboutMe}"
+                            HorizontalOptions="FillAndExpand"></Editor>
+
                     <ActivityIndicator Color="#18bc9c"
                                        IsRunning="{Binding IsRunning, Mode=TwoWay}">
                     </ActivityIndicator>

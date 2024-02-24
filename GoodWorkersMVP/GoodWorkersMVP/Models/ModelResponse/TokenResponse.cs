@@ -13,6 +13,8 @@ namespace GoodWorkersMVP.Models.ModelResponse
         [JsonProperty(PropertyName = "token_type")]
         public string TokenType { get; set; }
 
+        [JsonProperty(PropertyName = "token")]
+        public string Token { get; set; }
 
         public int ExpiresIn { get; set; }
 

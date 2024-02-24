@@ -69,10 +69,11 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            var response = await apiService.GetList<Ocupation>(
-                "https://aqueous-beach-68994-3f94c7a633d0.herokuapp.com/",
-                "api/",
-                "ocupations", Settings.TokenType, Settings.AccessToken);
+            string url = Application.Current.Resources["UrlAPI"].ToString();
+            string prefix = Application.Current.Resources["Prefix"].ToString();
+            string controller = Application.Current.Resources["ocupationEndPoint"].ToString();
+
+            var response = await apiService.GetList<Ocupation>(url, prefix, controller, Settings.AccessToken);
 
             if (!response.IsSuccess)
             {

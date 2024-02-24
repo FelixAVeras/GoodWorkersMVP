@@ -10,7 +10,7 @@ namespace GoodWorkersMVP.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        ApiService apiService;
+        readonly ApiService apiService;
 
         private string email;
         private string password;
@@ -48,21 +48,6 @@ namespace GoodWorkersMVP.ViewModels
             set => SetValue(ref isEnable, value);
         }
 
-        private bool _isExpanded;
-        public bool IsExpanded
-        {
-            get { return _isExpanded; }
-            set
-            {
-                if (_isExpanded != value)
-                {
-                    _isExpanded = value;
-                    OnPropertyChanged(nameof(IsExpanded));
-                }
-            }
-        }
-
-        public ICommand ToggleExpandCommand => new Command(() => IsExpanded = !IsExpanded);
         public ICommand LoginCommand => new RelayCommand(Login);
         public ICommand RegisterCommand => new RelayCommand(Register);
 
@@ -124,15 +109,16 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            var url = Application.Current.Resources["UrlAPI"].ToString();
-            var prefix = Application.Current.Resources["Prefix"].ToString();
-            var controller = Application.Current.Resources["loginEndPoint"].ToString();
+            string url = Application.Current.Resources["UrlAPI"].ToString();
+            string prefix = Application.Current.Resources["Prefix"].ToString();
+            string controller = Application.Current.Resources["loginEndPoint"].ToString();
 
-            var deviceName = DeviceInfo.Name;
+            string deviceName = DeviceInfo.Name;
 
             var response = await apiService.GetToken(url, prefix, controller, Email, Password, deviceName);
 
-            if (response == null || string.IsNullOrEmpty(response.AccessToken))
+            // if (response == null || string.IsNullOrEmpty(response.AccessToken))
+            if (response == null || string.IsNullOrEmpty(response.Token))
             {
                 IsRunning = false;
                 IsEnable = true;
@@ -142,14 +128,12 @@ namespace GoodWorkersMVP.ViewModels
                      Languages.SomethingWentWrong,
                      Languages.BtnAcceptDialog);
 
-                Email = null;
-                Password = null;
-
                 return;
             }
 
-            Settings.TokenType = response.TokenType;
-            Settings.AccessToken = response.AccessToken;
+            //Settings.TokenType = response.TokenType;
+            //Settings.AccessToken = response.AccessToken;
+            Settings.AccessToken = response.Token;
             Settings.IsRemember = IsRemember;
 
             MainViewModel.GetInstance().Ocupations = new OcupationViewModel();

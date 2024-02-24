@@ -48,45 +48,67 @@ namespace GoodWorkersMVP.Services
         {
             try
             {
+                var loginRequest = new LoginRequest
+                {
+                    Email = email,
+                    Password = password,
+                    DeviceName = deviceName
+                };
+
+                var jsonRequest = JsonConvert.SerializeObject(loginRequest);
+                var httpContent = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(urlBase);
+                    client.DefaultRequestHeaders.Add("Accept", "Application/json");
+
+                    var url = prefix + endpoint;
+                    var response = await client.PostAsync(url, httpContent);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var resultJson = await response.Content.ReadAsStringAsync();
+                        var result = JsonConvert.DeserializeObject<TokenResponse>(resultJson);
+                        
+                        return result;
+                    }
+                    else
+                    {
+                        var errorJson = await response.Content.ReadAsStringAsync();
+                        var error = JsonConvert.DeserializeObject<TokenResponse>(errorJson);
+                        
+                        return new TokenResponse { ErrorDescription = error.ErrorDescription };
+
+                        // return null;
+                    }
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Error de red: {ex.Message}");
+                
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                
+                return null;
+            }
+        }
+
+        public async Task<Response> Get<T>(string urlBase, string servicePrefix, string controller, int id)
+        {
+            try
+            {
                 var client = new HttpClient
                 {
                     BaseAddress = new Uri(urlBase)
                 };
 
-                var response = await client.PostAsync("login",
-                    new StringContent(string.Format("email={0}&password={1},device_name={2}", email, password, deviceName),
-                    Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var url = string.Format("{0}{1}/{2}", servicePrefix, controller, id);
 
-                var resultJson = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<TokenResponse>(resultJson);
-
-                return result;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        public async Task<Response> Get<T>(
-            string urlBase,
-            string servicePrefix,
-            string controller,
-            //string tokenType,
-            //string accessToken,
-            int id)
-        {
-            try
-            {
-                var client = new HttpClient();
-                //client.DefaultRequestHeaders.Authorization =
-                //    new AuthenticationHeaderValue(tokenType, accessToken);
-                client.BaseAddress = new Uri(urlBase);
-                var url = string.Format(
-                    "{0}{1}/{2}",
-                    servicePrefix,
-                    controller,
-                    id);
                 var response = await client.GetAsync(url);
 
                 if (!response.IsSuccessStatusCode)
@@ -100,6 +122,7 @@ namespace GoodWorkersMVP.Services
 
                 var result = await response.Content.ReadAsStringAsync();
                 var model = JsonConvert.DeserializeObject<T>(result);
+
                 return new Response
                 {
                     IsSuccess = true,
@@ -190,17 +213,22 @@ namespace GoodWorkersMVP.Services
             }
         }
 
-        public async Task<Response> GetList<T>(
-            string urlBase,
-            string servicePrefix,
-            string controller,
-            string tokenType,
-            string accessToken)
+        public async Task<Response> GetList<T>(string urlBase, string servicePrefix, string controller, string accessToken)
         {
             try
             {
+                if (string.IsNullOrEmpty(accessToken))
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = "Access token is null or empty.",
+                    };
+                }
+
                 var client = new HttpClient();
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
                 client.BaseAddress = new Uri(urlBase);
                 
                 var url = string.Format("{0}{1}", servicePrefix, controller);
@@ -384,8 +412,10 @@ namespace GoodWorkersMVP.Services
                 var client = new HttpClient
                 {
                     BaseAddress = new Uri(urlBase),
-                    Timeout = TimeSpan.FromSeconds(30)
+                    Timeout = TimeSpan.FromSeconds(60)
                 };
+
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
 
                 var url = string.Format("{0}{1}", servicePrefix, controller);
                 var response = await client.PostAsync(url, content);
