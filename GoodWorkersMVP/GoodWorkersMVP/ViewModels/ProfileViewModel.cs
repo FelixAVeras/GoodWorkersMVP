@@ -45,7 +45,7 @@ namespace GoodWorkersMVP.ViewModels
 
         private async void GetUserData(int userId)
         {
-            this.IsRefreshing = true;
+            IsRefreshing = true;
 
             var connection = await apiService.CheckConnection();
 
@@ -70,7 +70,7 @@ namespace GoodWorkersMVP.ViewModels
 
             if (!response.IsSuccess)
             {
-                this.IsRefreshing = false;
+                IsRefreshing = false;
 
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.ErrorTitleDialog,
@@ -81,9 +81,9 @@ namespace GoodWorkersMVP.ViewModels
             }
 
 
-            this.User = (User)response.Result;
+            User = (User)response.Result;
 
-            this.IsRefreshing = false;
+            IsRefreshing = false;
 
             await App.Navigator.PushAsync(new ProfilePage());
         }

@@ -24,37 +24,50 @@
                 <Entry Keyboard="Email"
                    Placeholder="{i18n:Translate EmailPlaceholder}"
                    Margin="0,13,0,13"
-                   Text="{Binding Email, Mode=TwoWay}"></Entry>
+                   Text="{Binding Email, Mode=TwoWay}">
+                </Entry>
 
-                                <Entry Placeholder="{i18n:Translate PasswordPlaceholder}"
+                <Entry Placeholder="{i18n:Translate PasswordPlaceholder}"
                        Margin="0,0,0,13"
                        IsPassword="True"
-                       Text="{Binding Password, Mode=TwoWay}"></Entry>
+                       Text="{Binding Password, Mode=TwoWay}">
+                </Entry>
 
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{i18n:Translate RememberMyDataLabel}"
-                           VerticalOptions="Center"
-                       HorizontalOptions="StartAndExpand"></Label>
-                                    <Switch IsToggled="{Binding IsRemember, Mode=TwoWay}"
-                            HorizontalOptions="End">
-                                    </Switch>
-                                </StackLayout>
+                <!--<ImageButton VerticalOptions="Center"
+                    HeightRequest="20"
+                    HorizontalOptions="End"
+                    Source="ic_eye_hide">
+                    <ImageButton.Triggers>
+                        <EventTrigger Event="Clicked">
+                            <local:ShowPasswordTriggerAction ShowIcon="ic_eye"
+                                                              HideIcon="ic_eye_hide"
+                                                              x:Name="ShowPasswordActualTrigger"/>
+                        </EventTrigger>
+                    </ImageButton.Triggers>
+                </ImageButton>-->
 
-                                <Label Text="{i18n:Translate ForgetPasswordLabel}"
-                                       HorizontalOptions="CenterAndExpand"
-                                       VerticalOptions="Center"
-                                       Margin="0,5,0,0"
-                                       FontAttributes="Bold"
-                                       TextColor="#18bc9c">
-                                    <Label.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding RecoverPasswordCommand}"></TapGestureRecognizer>
-                                    </Label.GestureRecognizers>
-                                </Label>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{i18n:Translate RememberMyDataLabel}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="StartAndExpand"></Label>
+                    
+                    <Switch IsToggled="{Binding IsRemember, Mode=TwoWay}"
+                        HorizontalOptions="End">
+                    </Switch>
+                </StackLayout>
 
-                                <ActivityIndicator Color="#18bc9c"
-                                   IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
+                <Label Text="{i18n:Translate ForgetPasswordLabel}"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center"
+                        Margin="0,5,0,0"
+                        FontAttributes="Bold"
+                        TextColor="#18bc9c">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RecoverPasswordCommand}"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
 
-                 
+                <ActivityIndicator Color="#18bc9c" IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
 
                 <Grid>
                     <Grid.RowDefinitions>

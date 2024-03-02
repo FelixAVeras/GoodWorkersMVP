@@ -21,16 +21,6 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <!--<Picker Title="Seleccione Tipo de Usuario" 
-                                Grid.Column="0" Grid.ColumnSpan="2" 
-                                SelectedItem="{Binding SelectedUserType}">
-                            <Picker.Items>
-                                <x:String>Cliente</x:String>
-                                <x:String>Individual</x:String>
-                                <x:String>Empresa</x:String>
-                            </Picker.Items>
-                        </Picker>-->
-
                         <Picker Title="Seleccione Tipo de Usuario" Grid.Column="0" 
                             Grid.ColumnSpan="2" ItemsSource="{Binding UserTypes}"
                             SelectedItem="{Binding SelectedUserType}">
@@ -48,7 +38,8 @@
                         </Picker.ItemDisplayBinding>
                     </Picker>
 
-                    <Entry Placeholder="Especifique Ocupacion" HorizontalOptions="FillAndExpand" IsVisible="{Binding IsEntryVisible}"></Entry>
+                    <Entry Placeholder="Especifique Ocupacion" HorizontalOptions="FillAndExpand" 
+                           IsVisible="{Binding IsEntryVisible}" Text="{Binding EspecifyOcupation}"></Entry>
 
                     <Entry Placeholder="Nombre" HorizontalOptions="FillAndExpand" Text="{Binding FirstName}"></Entry>
                     <Entry Placeholder="Segundo Nombre (Opcional)" HorizontalOptions="FillAndExpand" Text="{Binding MiddleName}"></Entry>

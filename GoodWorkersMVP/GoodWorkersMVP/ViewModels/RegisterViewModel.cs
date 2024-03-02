@@ -11,6 +11,8 @@ using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
+using GoodWorkersMVP.Models.ModelResponse;
+
 namespace GoodWorkersMVP.ViewModels
 {
     public class RegisterViewModel : BaseViewModel
@@ -53,6 +55,9 @@ namespace GoodWorkersMVP.ViewModels
         public string Password { get; set; } = string.Empty;
         public string ConfirmPassword { get; set; } = string.Empty;
 
+        // Especifique field
+        public string EspecifyOcupation { get; set; } = string.Empty;
+
         public bool IsRunning
         {
             get => isRunning;
@@ -73,7 +78,7 @@ namespace GoodWorkersMVP.ViewModels
                 if (isEntryVisible != value)
                 {
                     isEntryVisible = value;
-                    SetValue(ref isEntryVisible, value);
+                    OnPropertyChanged(nameof(IsEntryVisible));
                 }
             }
         }
@@ -99,8 +104,26 @@ namespace GoodWorkersMVP.ViewModels
             }
         }
 
-        private string selectedOcupacion;
-        public string SelectedOcupacion
+        //private string selectedOcupacion;
+        //public string SelectedOcupacion
+        //{
+        //    get => selectedOcupacion;
+        //    set
+        //    {
+        //        if (selectedOcupacion != value)
+        //        {
+        //            selectedOcupacion = value;
+        //            SetValue(ref selectedOcupacion, value);
+
+        //            IsEntryVisible = value == "Otro";
+        //        }
+
+        //        SetValue(ref selectedOcupacion, value);
+        //    }
+        //}
+
+        private Ocupation selectedOcupacion;
+        public Ocupation SelectedOcupacion
         {
             get => selectedOcupacion;
             set
@@ -108,20 +131,25 @@ namespace GoodWorkersMVP.ViewModels
                 if (selectedOcupacion != value)
                 {
                     selectedOcupacion = value;
-                    SetValue(ref selectedOcupacion, value);
+                    OnPropertyChanged(nameof(SelectedOcupacion));
 
-                    IsEntryVisible = value == "Otro";
+                    IsEntryVisible = value?.OcupationName == "Otros";
                 }
-
-                SetValue(ref selectedOcupacion, value);
             }
         }
 
-        private string selectedDocumentTypes;
-        public string SelectedDocumentTypes
+        private DocumentType selectedDocumentTypes;
+        public DocumentType SelectedDocumentTypes
         {
             get => selectedDocumentTypes;
-            set => SetValue(ref selectedDocumentTypes, value);
+            set
+            {
+                if (selectedDocumentTypes != value)
+                {
+                    selectedDocumentTypes = value;
+                    OnPropertyChanged(nameof(selectedDocumentTypes));
+                }
+            }
         }
 
         public bool ShowOcupationPicker
@@ -169,6 +197,76 @@ namespace GoodWorkersMVP.ViewModels
 
         async void SaveUser()
         {
+            if (UserTypeId == 0)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    "Debe seleccionar un tipo de usuario",
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            if (string.IsNullOrEmpty(FirstName))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    Languages.FirstNameValidationEmpty,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            if (string.IsNullOrEmpty(LastName))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    Languages.LastNameValidationEmpty,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            if (string.IsNullOrEmpty(Phone))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    Languages.CellphoneValidationEmpty,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            //if (selectedDocumentTypes.DocumentTypeID == 0)
+            //{
+            //    await Application.Current.MainPage.DisplayAlert(
+            //        Languages.ErrorTitleDialog,
+            //        "Debe seleccionar un tipo de documento",
+            //        Languages.BtnAcceptDialog);
+
+            //    return;
+            //}
+
+            if (string.IsNullOrEmpty(DocumentNumber))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    Languages.DocumentNumberValidationEmpty,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
+            if (string.IsNullOrEmpty(Address))
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    Languages.AddressValidationEmpty,
+                    Languages.BtnAcceptDialog);
+
+                return;
+            }
+
             if (string.IsNullOrEmpty(Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
@@ -260,13 +358,13 @@ namespace GoodWorkersMVP.ViewModels
                 Address = Address,
                 Birthday = Birthday,
                 Cellphone = Cellphone,
-                DocumentTypeId = DocumentTypeId,
+                DocumentTypeId = SelectedDocumentTypes?.DocumentTypeID ?? 0,
                 DocumentNumber = DocumentNumber,
                 Email = Email,
                 FirstName = FirstName,
                 LastName = LastName,
                 MiddleName = MiddleName,
-                OcupationID = OcupationID,
+                OcupationID = SelectedOcupacion?.Id ?? 0,
                 ImageArray = imageArray,
                 Password = Password,
                 UserName = Email,
@@ -277,7 +375,38 @@ namespace GoodWorkersMVP.ViewModels
             string prefix = Application.Current.Resources["Prefix"].ToString();
             string controller = Application.Current.Resources["registerEndPoint"].ToString();
             
-            Models.ModelResponse.Response response = await apiService.Post(url, prefix, controller, userRequest);
+            if (selectedOcupacion.OcupationName == "Otros")
+            {
+                if (string.IsNullOrEmpty(EspecifyOcupation))
+                {
+                    IsRunning = false;
+                    IsEnabled = true;
+
+                    await Application.Current.MainPage.DisplayAlert(
+                    Languages.ErrorTitleDialog,
+                    "Debe de especificar una ocupacion",
+                    Languages.BtnAcceptDialog);
+
+                    return;
+                }
+
+                Response responseOcupation = await apiService.Post(url, prefix, "ocupations", EspecifyOcupation);
+
+                if (!responseOcupation.IsSuccess) 
+                {
+                    IsRunning = false;
+                    IsEnabled = true;
+
+                    await Application.Current.MainPage.DisplayAlert(
+                        Languages.ErrorTitleDialog,
+                        responseOcupation.Message,
+                        Languages.BtnAcceptDialog);
+
+                    return;
+                }
+            }
+
+            Response response = await apiService.Post(url, prefix, controller, userRequest);
 
             if (!response.IsSuccess)
             {
@@ -348,10 +477,14 @@ namespace GoodWorkersMVP.ViewModels
                 if (SelectedUserType.UserTypeName == "Cliente")
                 {
                     ShowOcupationPicker = false;
+
+                    UserTypeId = 1;
                 }
                 else
                 {
                     ShowOcupationPicker = true;
+
+                    UserTypeId = selectedUserType.UserTypeId;
 
                     LoadOcupacionesFromApi();
                 }

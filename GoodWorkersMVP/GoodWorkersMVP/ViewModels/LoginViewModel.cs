@@ -148,8 +148,10 @@ namespace GoodWorkersMVP.ViewModels
 
         async void Register()
         {
-            MainViewModel.GetInstance().Register = new RegisterViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+            //MainViewModel.GetInstance().Register = new RegisterViewModel();
+            //await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+
+            await Launcher.OpenAsync("https://forms.gle/AqoXWD6AJkqFci798");
         }
     }
 }
