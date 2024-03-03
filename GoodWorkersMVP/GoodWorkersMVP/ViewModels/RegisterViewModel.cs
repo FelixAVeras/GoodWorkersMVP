@@ -104,24 +104,6 @@ namespace GoodWorkersMVP.ViewModels
             }
         }
 
-        //private string selectedOcupacion;
-        //public string SelectedOcupacion
-        //{
-        //    get => selectedOcupacion;
-        //    set
-        //    {
-        //        if (selectedOcupacion != value)
-        //        {
-        //            selectedOcupacion = value;
-        //            SetValue(ref selectedOcupacion, value);
-
-        //            IsEntryVisible = value == "Otro";
-        //        }
-
-        //        SetValue(ref selectedOcupacion, value);
-        //    }
-        //}
-
         private Ocupation selectedOcupacion;
         public Ocupation SelectedOcupacion
         {
@@ -236,16 +218,6 @@ namespace GoodWorkersMVP.ViewModels
 
                 return;
             }
-
-            //if (selectedDocumentTypes.DocumentTypeID == 0)
-            //{
-            //    await Application.Current.MainPage.DisplayAlert(
-            //        Languages.ErrorTitleDialog,
-            //        "Debe seleccionar un tipo de documento",
-            //        Languages.BtnAcceptDialog);
-
-            //    return;
-            //}
 
             if (string.IsNullOrEmpty(DocumentNumber))
             {

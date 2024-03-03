@@ -117,7 +117,6 @@ namespace GoodWorkersMVP.ViewModels
 
             var response = await apiService.GetToken(url, prefix, controller, Email, Password, deviceName);
 
-            // if (response == null || string.IsNullOrEmpty(response.AccessToken))
             if (response == null || string.IsNullOrEmpty(response.Token))
             {
                 IsRunning = false;
@@ -131,8 +130,6 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            //Settings.TokenType = response.TokenType;
-            //Settings.AccessToken = response.AccessToken;
             Settings.AccessToken = response.Token;
             Settings.IsRemember = IsRemember;
 
@@ -148,10 +145,10 @@ namespace GoodWorkersMVP.ViewModels
 
         async void Register()
         {
-            //MainViewModel.GetInstance().Register = new RegisterViewModel();
-            //await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+            MainViewModel.GetInstance().Register = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
 
-            await Launcher.OpenAsync("https://forms.gle/AqoXWD6AJkqFci798");
+            // await Launcher.OpenAsync("https://forms.gle/AqoXWD6AJkqFci798");
         }
     }
 }

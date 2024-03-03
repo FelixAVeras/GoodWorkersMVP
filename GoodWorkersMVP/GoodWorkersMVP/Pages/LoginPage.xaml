@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GoodWorkersMVP.Pages.LoginPage"
              xmlns:i18n="clr-namespace:GoodWorkersMVP.Helpers"
+             xmlns:local="clr-namespace:GoodWorkersMVP.Helpers"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="{i18n:Translate LoginTitlePage}">
     <ContentPage.Content>
@@ -27,26 +28,29 @@
                    Text="{Binding Email, Mode=TwoWay}">
                 </Entry>
 
-                <Entry Placeholder="{i18n:Translate PasswordPlaceholder}"
-                       Margin="0,0,0,13"
-                       IsPassword="True"
-                       Text="{Binding Password, Mode=TwoWay}">
-                </Entry>
+                <Grid>
+                    <Entry Placeholder="{i18n:Translate PasswordPlaceholder}"
+                           Margin="0,0,0,13"
+                           IsPassword="{Binding Source={x:Reference ShowPasswordActualTrigger}, Path=HidePassword}"
+                           Text="{Binding Password, Mode=TwoWay}">
+                    </Entry>
 
-                <!--<ImageButton VerticalOptions="Center"
-                    HeightRequest="20"
-                    HorizontalOptions="End"
-                    Source="ic_eye_hide">
-                    <ImageButton.Triggers>
-                        <EventTrigger Event="Clicked">
-                            <local:ShowPasswordTriggerAction ShowIcon="ic_eye"
-                                                              HideIcon="ic_eye_hide"
-                                                              x:Name="ShowPasswordActualTrigger"/>
-                        </EventTrigger>
-                    </ImageButton.Triggers>
-                </ImageButton>-->
+                    <ImageButton VerticalOptions="Center"
+                         HeightRequest="25"
+                         Margin="0,0,10,15"
+                         HorizontalOptions="End"
+                         Source="ic_eye_hide">
+                        <ImageButton.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <local:ShowHidePasswordField ShowIcon="ic_eye"
+                                                             HideIcon="ic_eye_hide"
+                                                             x:Name="ShowPasswordActualTrigger"/>
+                            </EventTrigger>
+                        </ImageButton.Triggers>
+                    </ImageButton>
+                </Grid>
 
-                <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
                     <Label Text="{i18n:Translate RememberMyDataLabel}"
                         VerticalOptions="Center"
                         HorizontalOptions="StartAndExpand"></Label>
@@ -56,10 +60,11 @@
                     </Switch>
                 </StackLayout>
 
+                
                 <Label Text="{i18n:Translate ForgetPasswordLabel}"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="Center"
-                        Margin="0,5,0,0"
+                        Margin="0,25,0,0"
                         FontAttributes="Bold"
                         TextColor="#18bc9c">
                     <Label.GestureRecognizers>
