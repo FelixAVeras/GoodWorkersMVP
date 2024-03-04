@@ -5,7 +5,7 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              x:Class="GoodWorkersMVP.Pages.ProfilePage">
 
-    <StackLayout>
+    <StackLayout BindingContext="{Binding Profile}">
         <StackLayout BackgroundColor="White" VerticalOptions="End">
             
             <Frame CornerRadius="35" Style="{StaticResource stlMainFrame}" >
@@ -25,11 +25,11 @@
                         </Grid.RowDefinitions>
 
                     <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Aspect="AspectFill"
-                            Source="{Binding User.ProfileImage}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
+                            Source="{Binding ImageArray}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
 
                     <Label Grid.Row="1" Grid.Column="0" 
                                Grid.ColumnSpan="2" 
-                               Text="{Binding User.FullName}" 
+                               Text="{Binding FullName}" 
                                FontAttributes="Bold"
                                HorizontalOptions="Center"
                                FontSize="24"/>
@@ -44,7 +44,7 @@
                         </Label>
                         
                         <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
-                               Text="{Binding User.AboutMe}">
+                               Text="{Binding AboutMe}">
                         </Label>
                         
                         <Button Grid.Row="4" Grid.Column="0"

@@ -55,7 +55,7 @@
                         VerticalOptions="Center"
                         HorizontalOptions="StartAndExpand"></Label>
                     
-                    <Switch IsToggled="{Binding IsRemember, Mode=TwoWay}"
+                    <Switch IsToggled="{Binding IsRemember}"
                         HorizontalOptions="End">
                     </Switch>
                 </StackLayout>

@@ -2,6 +2,7 @@
 using GoodWorkersMVP.Helpers;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
+using Newtonsoft.Json;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -57,6 +58,9 @@ namespace GoodWorkersMVP.ViewModels
 
             IsEnable = true;
             IsRemember = true;
+
+            Email = "example@example.com";
+            Password = "MiPasswordSeguro123";
         }
 
         async void Login()
@@ -132,6 +136,7 @@ namespace GoodWorkersMVP.ViewModels
 
             Settings.AccessToken = response.Token;
             Settings.IsRemember = IsRemember;
+            Settings.Token = JsonConvert.SerializeObject(response.Token);
 
             MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
             Application.Current.MainPage = new MasterPage();

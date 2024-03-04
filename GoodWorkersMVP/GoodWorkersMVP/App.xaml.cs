@@ -1,6 +1,9 @@
 ﻿using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Models.ModelResponse;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.ViewModels;
+using Newtonsoft.Json;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,21 +19,25 @@ namespace GoodWorkersMVP
         {
             InitializeComponent();
 
-            if (Settings.IsRemember && string.IsNullOrEmpty(Settings.AccessToken))
+            if (Settings.IsRemember)
             {
+                var token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+                
                 MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
+                    
+                MainViewModel.GetInstance().Token = token;
 
                 MainPage = new MasterPage();
-            }
-            else
-            {
-                MainViewModel.GetInstance().Login = new LoginViewModel();
 
-                MainPage = new NavigationPage(new LoginPage())
-                {
-                    BarBackgroundColor = Color.FromHex("#253544")
-                };
+                return;
             }
+            
+            MainViewModel.GetInstance().Login = new LoginViewModel();
+
+            MainPage = new NavigationPage(new LoginPage())
+            {
+                BarBackgroundColor = Color.FromHex("#253544")
+            };
         }
 
         protected override void OnStart()

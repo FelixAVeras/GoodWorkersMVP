@@ -38,7 +38,7 @@ namespace GoodWorkersMVP.ViewModels
 
                 case "LoginPage":
                     Settings.AccessToken = string.Empty;
-                    // Settings.TokenType = string.Empty;
+                    Settings.Token = string.Empty;
                     Settings.IsRemember = false;
 
                     MainViewModel.GetInstance().Login = new LoginViewModel();

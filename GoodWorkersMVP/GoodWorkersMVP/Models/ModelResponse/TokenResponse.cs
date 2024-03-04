@@ -16,7 +16,7 @@ namespace GoodWorkersMVP.Models.ModelResponse
         [JsonProperty(PropertyName = "token")]
         public string Token { get; set; }
 
-        public int ExpiresIn { get; set; }
+        public DateTime ExpiresIn { get; set; }
 
         public string ErrorDescription { get; set; }
     }
