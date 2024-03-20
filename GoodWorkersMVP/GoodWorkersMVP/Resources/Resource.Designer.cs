@@ -295,6 +295,24 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a From Camera.
+        /// </summary>
+        public static string FromCamera {
+            get {
+                return ResourceManager.GetString("FromCamera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a From Gallery.
+        /// </summary>
+        public static string FromGallery {
+            get {
+                return ResourceManager.GetString("FromGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Last name cannot be empty.
         /// </summary>
         public static string LastNameValidationEmpty {
@@ -345,6 +363,15 @@ namespace GoodWorkersMVP.Resources {
         public static string PasswordLabel {
             get {
                 return ResourceManager.GetString("PasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The Password must have 6 characters at least.
+        /// </summary>
+        public static string PasswordLenghtError {
+            get {
+                return ResourceManager.GetString("PasswordLenghtError", resourceCulture);
             }
         }
         
@@ -493,6 +520,15 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a You must select an Ocupation.
+        /// </summary>
+        public static string SelectOcupationEmpty {
+            get {
+                return ResourceManager.GetString("SelectOcupationEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select Ocupation.
         /// </summary>
         public static string SelectOcupationLabel {
@@ -529,6 +565,33 @@ namespace GoodWorkersMVP.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a User has been created successfully, now you can login using this user.
+        /// </summary>
+        public static string SuccessFullRegistrationMessage {
+            get {
+                return ResourceManager.GetString("SuccessFullRegistrationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SuccessFull.
+        /// </summary>
+        public static string SuccessfullTitleDialog {
+            get {
+                return ResourceManager.GetString("SuccessfullTitleDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Take image from.
+        /// </summary>
+        public static string TakeImgFromDialog {
+            get {
+                return ResourceManager.GetString("TakeImgFromDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Terms and conditions.
         /// </summary>
         public static string TermAndConditionsLabel {
@@ -543,6 +606,15 @@ namespace GoodWorkersMVP.Resources {
         public static string UnableLocation {
             get {
                 return ResourceManager.GetString("UnableLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must select an User Type.
+        /// </summary>
+        public static string UserTypeError {
+            get {
+                return ResourceManager.GetString("UserTypeError", resourceCulture);
             }
         }
         

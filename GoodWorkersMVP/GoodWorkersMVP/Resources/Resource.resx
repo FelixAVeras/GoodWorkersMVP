@@ -195,6 +195,12 @@
   <data name="ForgetPasswordLabel" xml:space="preserve">
     <value>Forgot your password?</value>
   </data>
+  <data name="FromCamera" xml:space="preserve">
+    <value>From Camera</value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>From Gallery</value>
+  </data>
   <data name="LastNameValidationEmpty" xml:space="preserve">
     <value>Last name cannot be empty</value>
   </data>
@@ -212,6 +218,9 @@
   </data>
   <data name="PasswordLabel" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="PasswordLenghtError" xml:space="preserve">
+    <value>The Password must have 6 characters at least</value>
   </data>
   <data name="PasswordPlaceholder" xml:space="preserve">
     <value>Enter your Password</value>
@@ -261,6 +270,9 @@
   <data name="SelectDocumentTypeLabel" xml:space="preserve">
     <value>Select user type</value>
   </data>
+  <data name="SelectOcupationEmpty" xml:space="preserve">
+    <value>You must select an Ocupation</value>
+  </data>
   <data name="SelectOcupationLabel" xml:space="preserve">
     <value>Select Ocupation</value>
   </data>
@@ -273,11 +285,23 @@
   <data name="StateProvinceLabel" xml:space="preserve">
     <value>City</value>
   </data>
+  <data name="SuccessFullRegistrationMessage" xml:space="preserve">
+    <value>User has been created successfully, now you can login using this user</value>
+  </data>
+  <data name="SuccessfullTitleDialog" xml:space="preserve">
+    <value>SuccessFull</value>
+  </data>
+  <data name="TakeImgFromDialog" xml:space="preserve">
+    <value>Take image from</value>
+  </data>
   <data name="TermAndConditionsLabel" xml:space="preserve">
     <value>Terms and conditions</value>
   </data>
   <data name="UnableLocation" xml:space="preserve">
     <value>Unable to detect locations</value>
+  </data>
+  <data name="UserTypeError" xml:space="preserve">
+    <value>You must select an User Type</value>
   </data>
   <data name="UserTypeTitleRegister" xml:space="preserve">
     <value>User Type</value>

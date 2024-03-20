@@ -19,19 +19,22 @@ namespace GoodWorkersMVP
         {
             InitializeComponent();
 
-            if (Settings.IsRemember)
-            {
-                var token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
-                
-                MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
-                    
-                MainViewModel.GetInstance().Token = token;
+            //if (Settings.IsRemember)
+            //{
+            //    var token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
 
-                MainPage = new MasterPage();
+            //    if (token.ExpiresIn > DateTime.Now)
+            //    {
+            //        MainViewModel.GetInstance().Ocupations = new OcupationViewModel();
 
-                return;
-            }
-            
+            //        MainViewModel.GetInstance().Token = token;
+
+            //        MainPage = new MasterPage();
+
+            //        return;
+            //    }
+            //}
+
             MainViewModel.GetInstance().Login = new LoginViewModel();
 
             MainPage = new NavigationPage(new LoginPage())

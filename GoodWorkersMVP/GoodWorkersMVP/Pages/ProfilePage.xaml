@@ -4,83 +4,43 @@
              xmlns:local="clr-namespace:GoodWorkersMVP.ViewModels"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              x:Class="GoodWorkersMVP.Pages.ProfilePage">
+    <StackLayout BindingContext="{Binding Profile}" Padding="10">
 
-    <StackLayout BindingContext="{Binding Profile}">
-        <StackLayout BackgroundColor="White" VerticalOptions="End">
-            
-            <Frame CornerRadius="35" Style="{StaticResource stlMainFrame}" >
-                    <Grid Padding="8" RowSpacing="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
-                    <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Aspect="AspectFill"
-                            Source="{Binding ImageArray}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" />
-
-                    <Label Grid.Row="1" Grid.Column="0" 
-                               Grid.ColumnSpan="2" 
-                               Text="{Binding FullName}" 
-                               FontAttributes="Bold"
-                               HorizontalOptions="Center"
-                               FontSize="24"/>
-                        
-                        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="20">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="Calificacion: " FontAttributes="Bold" />
-                                    <Span Text="4.8"  />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                        
-                        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
-                               Text="{Binding AboutMe}">
-                        </Label>
-                        
-                        <Button Grid.Row="4" Grid.Column="0"
-                                CornerRadius="10" BackgroundColor="#3498db" Margin="0,20,0,0"
-                                HorizontalOptions="FillAndExpand" Text="Calificar" TextColor="white" />
-                        <Button Grid.Row="4" Grid.Column="1"
-                                CornerRadius="10" BackgroundColor="#95a5a6" Margin="0,20,0,0"
-                                HorizontalOptions="FillAndExpand" Text="Mensaje" TextColor="white"/>
-                        <!--4. Contact information: Board inforation-->
-                    </Grid>
-                </Frame>
-            </StackLayout>
-
-            <!--<StackLayout Grid.Row="2" Grid.Column="0">
-                <Button Style="{StaticResource stlContactBtn}" HorizontalOptions="End" Text="Phone" TextColor="white" />
-                <Button Style="{StaticResource stlContactBtn}" HorizontalOptions="Start" Text="Mail" TextColor="white"/>
-            </StackLayout>-->
-
-        <BoxView HeightRequest="2" Color="#e3e3e3" Margin="0,5,0,0" HorizontalOptions="FillAndExpand" />
+        <Image Source="{Binding User.ProfileImage}" Aspect="Fill" WidthRequest="200" HeightRequest="200"></Image>
         
-        <StackLayout>
-            <Label Text="Comentarios y Valoraciones" FontAttributes="Bold" 
-                   HorizontalOptions="Center"
-                   FontSize="24">
-            </Label>
-            <Label></Label>
+        <Label Text="{Binding User.FullName}" FontSize="Title" HorizontalOptions="CenterAndExpand"></Label>
+        <Label Text="{Binding User.AboutMe}" FontSize="Subtitle" HorizontalOptions="CenterAndExpand"></Label>
+
+        <StackLayout Grid.Row="0" VerticalOptions="End" WidthRequest="200">
+            <Frame CornerRadius="20" BackgroundColor="White">
+                <Label Text="Hola que tal, soy el chico de las poesias, tu fiel admirador, y aunque no me conocias... hoy es noche de sexo........"></Label>
+            </Frame>
         </StackLayout>
 
-        <BoxView HeightRequest="2" Color="#e3e3e3" Margin="0,5,0,0" HorizontalOptions="FillAndExpand" />
+        <Grid Margin="0,0,0,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        <StackLayout>
-            <Label Text="Trabajos Anteriores" FontAttributes="Bold" 
-           HorizontalOptions="Center"
-           FontSize="24">
-            </Label>
-            <Label></Label>
-        </StackLayout>
+            <Button Grid.Column="0" Grid.Row="0" Text="Calificar y Comentar" 
+               BackgroundColor="#18bc9c"
+               TextColor="White"
+               CornerRadius="10"
+               HorizontalOptions="FillAndExpand"></Button>
+
+            <Button Grid.Column="1" Grid.Row="0" Text="Enviar Mensaje"
+                BackgroundColor="#3498db"
+                TextColor="White"
+                CornerRadius="10"
+                HorizontalOptions="FillAndExpand"></Button>
+        </Grid>
+
+        <Label Text="Opiniones" FontSize="Title" Margin="0,0,0,10"></Label>
+        <Label Text="Trabajos Anteriores" FontSize="Title" Margin="0,0,0,10"></Label>
+        
     </StackLayout>
 </ContentPage>

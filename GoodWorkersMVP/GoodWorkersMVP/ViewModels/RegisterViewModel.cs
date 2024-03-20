@@ -183,7 +183,7 @@ namespace GoodWorkersMVP.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.ErrorTitleDialog,
-                    "Debe seleccionar un tipo de usuario",
+                    Languages.UserTypeEmptyMessage,
                     Languages.BtnAcceptDialog);
 
                 return;
@@ -263,7 +263,7 @@ namespace GoodWorkersMVP.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.ErrorTitleDialog,
-                    "La contraseña debe de ser mayor a 6 caracteres",
+                    Languages.PasswordLengthMessage,
                     Languages.BtnAcceptDialog);
 
                 return;
@@ -293,7 +293,7 @@ namespace GoodWorkersMVP.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert(
                     Languages.ErrorTitleDialog,
-                    "Las Contraseñas no coinciden",
+                    Languages.PasswordValidationConfirm,
                     Languages.BtnAcceptDialog);
 
                 return;
@@ -356,7 +356,7 @@ namespace GoodWorkersMVP.ViewModels
 
                     await Application.Current.MainPage.DisplayAlert(
                     Languages.ErrorTitleDialog,
-                    "Debe de especificar una ocupacion",
+                    Languages.OcupationEmptyMessage,
                     Languages.BtnAcceptDialog);
 
                     return;
@@ -397,8 +397,8 @@ namespace GoodWorkersMVP.ViewModels
             this.isEnabled = true;
 
             await Application.Current.MainPage.DisplayAlert(
-                    "Exito!",
-                    "Usuario Creado Exitosamente, ahora puede ingresar con su usuario y contraseña.",
+                    Languages.RegisterConfirmationTitleDialog,
+                    Languages.RegisterConfirmationMessage,
                     Languages.BtnAcceptDialog);
 
             await Application.Current.MainPage.Navigation.PopAsync();
@@ -409,11 +409,11 @@ namespace GoodWorkersMVP.ViewModels
             await CrossMedia.Current.Initialize();
 
             var source = await Application.Current.MainPage.DisplayActionSheet(
-                "Tomar Imagen Desde: ",
+                Languages.TakeImgFrom,
                 Languages.BtnCancelDialog,
                 null,
-                "Desde la Galeria",
-                "Desde la Camara");
+                Languages.FromCamera,
+                Languages.FromGallery);
 
             if (source == Languages.BtnCancelDialog)
             {
@@ -421,7 +421,7 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            if (source == "Desde la Camara")
+            if (source == Languages.FromCamera)
             {
                 file = await CrossMedia.Current.TakePhotoAsync(
                     new StoreCameraMediaOptions

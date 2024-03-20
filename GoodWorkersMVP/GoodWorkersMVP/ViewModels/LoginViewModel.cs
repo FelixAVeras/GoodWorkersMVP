@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using GoodWorkersMVP.Helpers;
+using GoodWorkersMVP.Models.ModelResponse;
 using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.Services;
 using Newtonsoft.Json;
@@ -57,7 +58,7 @@ namespace GoodWorkersMVP.ViewModels
             apiService = new ApiService();
 
             IsEnable = true;
-            IsRemember = true;
+            IsRemember = false;
 
             Email = "example@example.com";
             Password = "MiPasswordSeguro123";
@@ -134,8 +135,8 @@ namespace GoodWorkersMVP.ViewModels
                 return;
             }
 
-            Settings.AccessToken = response.Token;
             Settings.IsRemember = IsRemember;
+            Settings.AccessToken = response.Token;
             Settings.Token = JsonConvert.SerializeObject(response.Token);
 
             MainViewModel.GetInstance().Ocupations = new OcupationViewModel();

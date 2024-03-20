@@ -282,4 +282,28 @@
   <data name="RegisterBtn" xml:space="preserve">
     <value>Inscrição</value>
   </data>
+  <data name="UserTypeError" xml:space="preserve">
+    <value>Você deve selecionar um tipo de usuário</value>
+  </data>
+  <data name="SelectOcupationEmpty" xml:space="preserve">
+    <value>Você deve selecionar uma ocupa</value>
+  </data>
+  <data name="TakeImgFromDialog" xml:space="preserve">
+    <value>Tire a imagem de</value>
+  </data>
+  <data name="FromCamera" xml:space="preserve">
+    <value>Da câmera</value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>Da galeria</value>
+  </data>
+  <data name="SuccessFullRegistrationMessage" xml:space="preserve">
+    <value>O usuário foi criado com sucesso, agora você pode fazer login usando este usuário</value>
+  </data>
+  <data name="SuccessfullTitleDialog" xml:space="preserve">
+    <value>Bem -sucedido</value>
+  </data>
+  <data name="PasswordLenghtError" xml:space="preserve">
+    <value>A senha deve ter 6 caracteres pelo menos</value>
+  </data>
 </root>

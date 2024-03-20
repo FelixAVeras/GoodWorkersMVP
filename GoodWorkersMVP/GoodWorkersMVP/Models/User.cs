@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using GoodWorkersMVP.Pages;
 using GoodWorkersMVP.ViewModels;
 using Newtonsoft.Json;
 using System;
@@ -79,14 +80,19 @@ namespace GoodWorkersMVP.Models
             }
         }
 
-        public ICommand SelectUserCommand => new RelayCommand(SelectUser);
+        public int SelectedUserId { get; set; }
 
-        void SelectUser()
+        public ICommand SelectUserCommand => new RelayCommand<User>(SelectUser);
+
+        async void SelectUser(User selectedUser)
         {
             var mainViewModel = MainViewModel.GetInstance();
-
+            
             mainViewModel.User = this;
+            mainViewModel.SelectedUserId = SelectedUserId;
             mainViewModel.Profile = new ProfileViewModel(this);
+
+            await App.Navigator.PushAsync(new ProfilePage());
         }
     }
 }
