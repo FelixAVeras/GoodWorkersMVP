@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GoodWorkersMVP.Pages.RegisterPage"
+             xmlns:i18n="clr-namespace:GoodWorkersMVP.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Registro de Usuario">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding RegisterUser}">
+            <StackLayout Padding="8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Entry Grid.Column="0" Grid.Row="0" 
+                           Placeholder="Escriba su Nombre" 
+                           Text="{Binding FirstName, Mode=TwoWay}"></Entry>
+                    
+                    <Entry Grid.Column="0" Grid.Row="1" 
+                           Placeholder="Escriba su Apellido" 
+                           Text="{Binding LastName, Mode=TwoWay}"></Entry>
+                    
+                    <Entry Grid.Column="0" Grid.Row="2" 
+                           Placeholder="Escriba su Correo Electronico" 
+                           Keyboard="Email" 
+                           Text="{Binding Email, Mode=TwoWay}"></Entry>
+                    
+                    <Entry Grid.Column="0" Grid.Row="4" 
+                           Placeholder="Escriba su Celular" 
+                           Keyboard="Telephone"  
+                           Text="{Binding CellPhone, Mode=TwoWay}"></Entry>
+                    
+                    <Entry Grid.Column="0" Grid.Row="5" 
+                           Placeholder="Escriba su Contraseña" 
+                           IsPassword="True" 
+                           Text="{Binding Password, Mode=TwoWay}"></Entry>
+                    
+                    <Entry Grid.Column="0" Grid.Row="6" 
+                           Placeholder="Confirme su Contraseña" 
+                           IsPassword="True" 
+                           Text="{Binding ConfirmPassword, Mode=TwoWay}"></Entry>
+
+                    <ActivityIndicator IsRunning="{Binding IsRunning, Mode=TwoWay}" 
+                                       VerticalOptions="CenterAndExpand"></ActivityIndicator>
+
+                    <Button Command="{Binding RegisterCommand}" 
+                            IsEnabled="{Binding IsEnable, Mode=TwoWay}" 
+                            BackgroundColor="#253544"
+                            TextColor="White"
+                            CornerRadius="10"
+                            HorizontalOptions="FillAndExpand"
+                            Text="Registrar"></Button>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
