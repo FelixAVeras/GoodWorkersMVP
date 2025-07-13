@@ -51,6 +51,9 @@ namespace GoodWorkersMVP.Models
         [JsonProperty("email")]
         public string Email { get; set; }
 
+        [JsonProperty("password")]
+        public string Password { get; set; }
+
         [JsonProperty("created_at")]
         public DateTimeOffset CreatedAt { get; set; }
 

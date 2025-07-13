@@ -14,10 +14,7 @@ namespace GoodWorkersMVP.ViewModels
         public string TitleIcon { get; set; }
         public string PageName { get; set; }
 
-        public ICommand NavigateCommand
-        {
-            get { return new RelayCommand(Navigate); }
-        }
+        public ICommand NavigateCommand => new RelayCommand(Navigate);
 
         private void Navigate()
         {
@@ -47,6 +44,11 @@ namespace GoodWorkersMVP.ViewModels
                 //Settings.TokenType = string.Empty;
 
                 Application.Current.MainPage = new NavigationPage(new LoginPage());
+            }
+
+            if (this.PageName == "VacancyPage")
+            {
+                App.Navigator.PushAsync(new VacancyPage());
             }
         }
     }

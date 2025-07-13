@@ -7,12 +7,15 @@ namespace GoodWorkersMVP.ViewModels
     {
         //Properties
         public LoginViewModel Login { get; set; }
-        // public RegisterViewModel Register { get; set; }
+        public RegisterViewModel Register { get; set; }
 
         public OcupationViewModel Ocupations { get; set; }
         public Ocupation Ocupation { get; set; }
         public UsersViewModel Users { get; set; }
         public UserDetailViewModel UserDetail { get; set; }
+
+        public VacancyViewModel Vacancy { get; set; }
+        public AddVacancyViewModel AddVacancy { get; set; }
 
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
 
@@ -59,6 +62,13 @@ namespace GoodWorkersMVP.ViewModels
                     Icon = "chaticon",
                     PageName = "ChatPage",
                     TitleIcon = "Mensajes"
+                },
+
+                new MenuItemViewModel()
+                {
+                    Icon = "briefcase",
+                    PageName = "VacancyPage",
+                    TitleIcon = "Vacantes"
                 },
 
                 new MenuItemViewModel()

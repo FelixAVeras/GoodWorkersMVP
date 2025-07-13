@@ -49,7 +49,7 @@ namespace GoodWorkersMVP.ViewModels
 
         public ICommand LoginCommand => new RelayCommand(Login);
 
-        // public ICommand RegisterCommand => new RelayCommand(Register);
+        public ICommand RegisterCommand => new RelayCommand(Register);
 
         public LoginViewModel()
         {
@@ -133,10 +133,10 @@ namespace GoodWorkersMVP.ViewModels
             IsEnable = true;
         }
 
-        //async void Register()
-        //{
-        //    MainViewModel.GetInstance().Register = new RegisterViewModel();
-        //    await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
-        //}
+        async void Register()
+        {
+            MainViewModel.GetInstance().Register = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+        }
     }
 }
